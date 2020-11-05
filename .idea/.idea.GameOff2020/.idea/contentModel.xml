@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\canni\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\canni\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_GameOff2020.-1245075175.00" t="ExcludeRecursive" />
+    <e p="C:\Users\canni\Documents\Code\Unity\Jams\GameOff2020" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="Editor" t="Include">
+            <e p="Util" t="Include">
+              <e p="EventButtonEditor.cs" t="Include" />
+              <e p="EventReferenceDraw.cs" t="Include" />
+              <e p="FloatReferenceDraw.cs" t="Include" />
+              <e p="IntEventButtonEditor.cs" t="Include" />
+              <e p="OneOfOptionListDraw.cs" t="Include" />
+              <e p="VariableReferenceDraw.cs" t="Include" />
+              <e p="VoidEventButtonEditor.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Util" t="Include">
+            <e p="AfterDelay.cs" t="Include" />
+            <e p="ArrayUtils.cs" t="Include" />
+            <e p="AudioClipEx.cs" t="Include" />
+            <e p="BasicGameObjectPool.cs" t="Include" />
+            <e p="CoroutinesUtils.cs" t="Include" />
+            <e p="Either.cs" t="Include" />
+            <e p="Events" t="Include">
+              <e p="EventReference.cs" t="Include" />
+              <e p="GameEvent.cs" t="Include" />
+              <e p="GameEventListener.cs" t="Include" />
+              <e p="GameEventListenerBehaviour.cs" t="Include" />
+              <e p="IntGameEvent.cs" t="Include" />
+              <e p="IntGameEventListener.cs" t="Include" />
+              <e p="ObservableVariableListenerBehaviour.cs" t="Include" />
+              <e p="Unity" t="Include">
+                <e p="GameObjectUnityEvent.cs" t="Include" />
+                <e p="IntUnityEvent.cs" t="Include" />
+                <e p="StringUnityEvent.cs" t="Include" />
+                <e p="Vector3UnityEvent.cs" t="Include" />
+                <e p="VoidUnityEvent.cs" t="Include" />
+              </e>
+              <e p="VoidGameEvent.cs" t="Include" />
+              <e p="VoidGameEventListener.cs" t="Include" />
+            </e>
+            <e p="InitialVelocity.cs" t="Include" />
+            <e p="InstantiateThing.cs" t="Include" />
+            <e p="Pair.cs" t="Include" />
+            <e p="RestartOnKeyPress.cs" t="Include" />
+            <e p="SetRigidbodyVelocity.cs" t="Include" />
+            <e p="Timer.cs" t="Include" />
+            <e p="TriggerVolumeBehaviour.cs" t="Include" />
+            <e p="Tween.cs" t="Include" />
+            <e p="Variable" t="Include">
+              <e p="FloatReference.cs" t="Include" />
+              <e p="FloatVariable.cs" t="Include" />
+              <e p="IntVariable.cs" t="Include" />
+              <e p="ObservableIntVariable.cs" t="Include" />
+              <e p="ObservableVariable.cs" t="Include" />
+              <e p="ResetableObject.cs" t="Include" />
+              <e p="ResetableRuntimeSet.cs" t="Include" />
+              <e p="ResetAllBehaviour.cs" t="Include" />
+              <e p="ResetScenario.cs" t="Include" />
+              <e p="RuntimeSet.cs" t="Include" />
+              <e p="Variable.cs" t="Include" />
+              <e p="VariableReference.cs" t="Include" />
+            </e>
+            <e p="VectorUtils.cs" t="Include" />
+            <e p="Void.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="GameOff2020.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
