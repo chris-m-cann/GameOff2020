@@ -2,7 +2,7 @@
 
 namespace Util.Events
 {
-    [CreateAssetMenu(menuName = "GameEvents/Void")]
+    [CreateAssetMenu(menuName = "Custom/Events/Void")]
     public class VoidGameEvent : GameEvent<Void>
     {
         public void Raise() => Raise(Void.Instance);

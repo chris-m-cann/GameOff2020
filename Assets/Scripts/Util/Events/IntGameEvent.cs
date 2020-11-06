@@ -3,7 +3,7 @@
 namespace Util.Events
 {
 
-    [CreateAssetMenu(menuName = "GameEvents/Int")]
+    [CreateAssetMenu(menuName = "Custom/Events/Int")]
     public class IntGameEvent : GameEvent<int>
     {
 

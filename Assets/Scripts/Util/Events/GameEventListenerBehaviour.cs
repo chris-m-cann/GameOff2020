@@ -1,14 +1,14 @@
-﻿using UnityEngine;
+﻿using UltEvents;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Util.Events
 {
-    public abstract class GameEventListenerBehaviour<T, TEvent, TUnityEvent> : MonoBehaviour, GameEventListener<T>
-    where TEvent : GameEvent<T> where TUnityEvent : UnityEvent<T>
+    public abstract class GameEventListenerBehaviour<T> : MonoBehaviour, GameEventListener<T>
     {
         [SerializeField] private EventReference<T> gameEvent;
 
-        [SerializeField] private TUnityEvent onEventRaised;
+        [SerializeField] private UltEvent<T> onEventRaised;
 
 
         private void OnEnable()

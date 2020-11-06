@@ -1,17 +1,13 @@
-using System;
-using UnityEditor;
 using UnityEngine;
-using Util.Events;
-using Util.Variable;
 
-namespace Util
+namespace Util.Variable
 {
     public class ResetAllBehaviour : MonoBehaviour
     {
         [SerializeField] private ResetableRuntimeSet resetables;
-
         private void OnDestroy()
         {
+            if (resetables == null) return;
            resetables.ForEach(it => it.Reset(ResetScenario.OnSceneUnload));
         }
     }
