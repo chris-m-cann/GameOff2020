@@ -24,6 +24,8 @@ namespace Luna.Grid
             _currentIdx = grid.Value.MoveOccupant(_currentIdx, worldPos, occupant);
         }
 
+        public void AddToGrid() => UpdateGrid(transform.position);
+
         public GridVariable Get() => grid;
     }
 }

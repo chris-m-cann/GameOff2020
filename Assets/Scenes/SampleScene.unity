@@ -1082,20 +1082,9 @@ MonoBehaviour:
     option: 0
   onEventRaised:
     _PersistentCalls:
-    - _Target: {fileID: 1358882293}
-      _MethodName: get_position
-      _PersistentArguments: []
     - _Target: {fileID: 1358882296}
-      _MethodName: UpdateGrid
-      _PersistentArguments:
-      - _Type: 15
-        _Int: 0
-        _String: 
-        _X: 7
-        _Y: 0
-        _Z: 0
-        _W: 0
-        _Object: {fileID: 0}
+      _MethodName: AddToGrid
+      _PersistentArguments: []
 --- !u!1 &1549926527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,20 +1258,9 @@ MonoBehaviour:
     option: 0
   onEventRaised:
     _PersistentCalls:
-    - _Target: {fileID: 1549926529}
-      _MethodName: get_position
-      _PersistentArguments: []
     - _Target: {fileID: 1549926535}
-      _MethodName: UpdateGrid
-      _PersistentArguments:
-      - _Type: 15
-        _Int: 0
-        _String: 
-        _X: 7
-        _Y: 0
-        _Z: 0
-        _W: 0
-        _Object: {fileID: 0}
+      _MethodName: AddToGrid
+      _PersistentArguments: []
 --- !u!114 &1549926535
 MonoBehaviour:
   m_ObjectHideFlags: 0
