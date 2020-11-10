@@ -1,4 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
+using Luna.Grid;
+using Luna.Weapons;
 using UnityEngine;
 using Util;
 
@@ -9,16 +12,16 @@ namespace Luna
         [SerializeField] private GridVariable grid;
         [SerializeField] private MouseController mouse;
         [SerializeField] private Pathfinding pathfinding;
+        [SerializeField] private Weapon mainWeapon;
 
-        private List<Grid.Node> _path;
+        private List<Grid.Grid.Node> _path;
         private bool _turnComplete = false;
-        private bool _awaitingDestination = false;
-
         private ITurnAction _currentAction;
         private TurnActionController _actionController;
+
         private void Awake()
         {
-            _actionController = new TurnActionController(gameObject);
+            _actionController = new TurnActionController(gameObject, grid);
             _actionController.OnTurnCompleted += actionComplete =>
             {
                 if (actionComplete) _currentAction = null;
@@ -66,8 +69,25 @@ namespace Luna
         private ITurnAction BuildAction(Vector3 position)
         {
             mouse.SetIndicator(false);
-            // build path
-            // var newPos = new Vector3(Mathf.FloorToInt(position.x) +.5f, Mathf.FloorToInt(worldPoint.y) + .5f, worldMouse.position.z);
+
+
+            Grid.Grid.Node clickedNode = new Grid.Grid.Node();
+            var isClickedNodeValid = grid.Value.TryGetNodeAtWorldPosition(position, ref clickedNode);
+
+
+            Grid.Grid.Node myNode = new Grid.Grid.Node();
+            var isMyNodeValid = grid.Value.TryGetNodeAtWorldPosition(transform.position, ref myNode);
+
+            if (isMyNodeValid && isClickedNodeValid)
+            {
+                var targets = mainWeapon.FindTargets(myNode, grid.Value);
+
+                if (targets.Contains(clickedNode))
+                {
+                    mainWeapon.Apply(clickedNode, gameObject);
+                }
+            }
+
             _path = pathfinding.CalculatePath(transform.position, position);
 
             return new MoveAlongPathAction(_path);

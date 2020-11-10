@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Luna.Grid;
 using UnityEngine;
 using Util;
 
@@ -9,26 +10,26 @@ namespace Luna
     {
         [SerializeField] private GridVariable grid;
 
-        public List<Grid.Node> CalculatePath(Vector2 from, Vector2 to)
+        public List<Grid.Grid.Node> CalculatePath(Vector2 from, Vector2 to)
         {
 
-            var startNode = new Grid.Node();
-            var endNode = new Grid.Node();
+            var startNode = new Grid.Grid.Node();
+            var endNode = new Grid.Grid.Node();
 
-            if (!grid.Value.TryGetNodeAtWorldPosition(from, ref startNode)) return new List<Grid.Node>();
-            if (!grid.Value.TryGetNodeAtWorldPosition(to, ref endNode)) return new List<Grid.Node>();
+            if (!grid.Value.TryGetNodeAtWorldPosition(from, ref startNode)) return new List<Grid.Grid.Node>();
+            if (!grid.Value.TryGetNodeAtWorldPosition(to, ref endNode)) return new List<Grid.Grid.Node>();
 
 
             return CalculatePath(grid.Value, startNode, endNode);
         }
 
-        private List<Grid.Node> CalculatePath(Grid grid, Grid.Node start, Grid.Node end)
+        private List<Grid.Grid.Node> CalculatePath(Grid.Grid grid, Grid.Grid.Node start, Grid.Grid.Node end)
         {
-            var path = new List<Grid.Node>();
+            var path = new List<Grid.Grid.Node>();
 
-            var frontier = new PriorityQueue<Grid.Node, int>();
-            var cameFrom = new Dictionary<Grid.Node, Grid.Node>();
-            var costSoFar = new Dictionary<Grid.Node, int>();
+            var frontier = new PriorityQueue<Grid.Grid.Node, int>();
+            var cameFrom = new Dictionary<Grid.Grid.Node, Grid.Grid.Node>();
+            var costSoFar = new Dictionary<Grid.Grid.Node, int>();
 
             frontier.Enqueue(start, 0);
             cameFrom[start] = start;
@@ -43,9 +44,9 @@ namespace Luna
                 var costToCurrent = costSoFar[current];
                 foreach (var next in grid.GetNeighbours(current))
                 {
-                    if (next.cost < 0) continue;
+                    if (next.Cost < 0) continue;
 
-                    var cost = costToCurrent + next.cost;
+                    var cost = costToCurrent + next.Cost;
 
                     if (costSoFar.ContainsKey(next) && cost >= costSoFar[next]) continue;
 
@@ -70,9 +71,9 @@ namespace Luna
             return path;
         }
 
-        private int Heuristic(Grid.Node node, Grid.Node end)
+        private int Heuristic(Grid.Grid.Node node, Grid.Grid.Node end)
         {
-            return Math.Abs(node.x - end.x) + Math.Abs(node.y - end.y);
+            return Math.Abs(node.X - end.X) + Math.Abs(node.Y - end.Y);
         }
     }
 }

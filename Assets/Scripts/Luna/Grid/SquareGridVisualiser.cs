@@ -1,19 +1,17 @@
 using UnityEngine;
 
-namespace Luna
+namespace Luna.Grid
 {
     public class SquareGridVisualiser : MonoBehaviour
     {
         [SerializeField] private GridVariable grid;
+        [SerializeField] private bool printCosts;
 
         private void OnDrawGizmosSelected()
         {
             if (grid == null || grid.Value == null) return;
 
             if (!(grid.Value is SquareGrid squareGrid)) return;
-
-            var offsetX = .5f; // half a grid square to get us into he center
-            var offsety = .5f; // half a grid square to get us into he center
 
             var walkable = Color.green;
             walkable.a = .5f;
@@ -28,16 +26,15 @@ namespace Luna
             {
                 for (int y = 0; y < squareGrid.Height; y++)
                 {
-                    Grid.Node n = new Grid.Node();
+                    Luna.Grid.Grid.Node n = new Luna.Grid.Grid.Node();
                     if (squareGrid.TryGetNodeAt(x, y, ref n))
                     {
-                        switch (n.cost)
+                        if (printCosts)
                         {
-                            case -2:
-                            {
-                                Gizmos.color = none;
-                                break;
-                            }
+                            Debug.Log($"({x},{y}) cost = {n.Cost}");
+                        }
+                        switch (n.Cost)
+                        {
                             case -1:
                             {
                                 Gizmos.color = blockers;
@@ -48,9 +45,14 @@ namespace Luna
                                 Gizmos.color = walkable;
                                 break;
                             }
+                            default:
+                            {
+                                Gizmos.color = none;
+                                break;
+                            }
                         }
 
-                        Gizmos.DrawCube(n.worldPosition, Vector3.one);
+                        Gizmos.DrawCube(n.WorldPosition, Vector3.one);
                     }
                 }
             }

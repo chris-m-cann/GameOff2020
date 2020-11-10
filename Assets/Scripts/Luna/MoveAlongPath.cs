@@ -10,14 +10,14 @@ namespace Luna
     {
         [SerializeField] private float speed = 1f;
 
-        public void Move(List<Grid.Node> path, Action onComplete)
+        public void Move(List<Grid.Grid.Node> path, Action onComplete)
         {
             StartCoroutine(CoMove(path, onComplete));
         }
 
-        public void Move(Grid.Node destination, Action onComplete)
+        public void Move(Grid.Grid.Node destination, Action onComplete)
         {
-            StartCoroutine(CoMove(destination.worldPosition, onComplete));
+            StartCoroutine(CoMove(destination.WorldPosition, onComplete));
         }
 
         public void Move(Vector3 destination, Action onComplete)
@@ -25,11 +25,11 @@ namespace Luna
             StartCoroutine(CoMove(destination, onComplete));
         }
 
-        private IEnumerator CoMove(List<Grid.Node> path, Action onComplete)
+        private IEnumerator CoMove(List<Grid.Grid.Node> path, Action onComplete)
         {
             foreach (var node in path)
             {
-                yield return StartCoroutine(CoMove(node.worldPosition, speed));
+                yield return StartCoroutine(CoMove(node.WorldPosition, speed));
             }
 
             onComplete();

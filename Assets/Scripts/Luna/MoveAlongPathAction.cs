@@ -1,12 +1,13 @@
 using System.Collections.Generic;
+using Luna.Grid;
 
 namespace Luna
 {
     public class MoveAlongPathAction : ITurnAction
     {
-        private List<Grid.Node> _path;
+        private List<Grid.Grid.Node> _path;
 
-        public MoveAlongPathAction(List<Grid.Node> path)
+        public MoveAlongPathAction(List<Grid.Grid.Node> path)
         {
             _path = path;
         }
@@ -18,10 +19,17 @@ namespace Luna
                 var next = _path[0];
                 _path.RemoveAt(0);
 
-                controller.Actor.GetComponent<MoveAlongPath>()?.Move(next, () =>
+                var alongPath = controller.Actor.GetComponent<MoveAlongPath>();
+                if (alongPath != null)
                 {
-                    controller.OnTurnComplete(_path.Count == 0);
-                });
+                    controller.Actor.GetComponent<GridOccupantBehaviour>()?.UpdateGrid(next.WorldPosition);
+
+                    alongPath.Move(next, () =>
+                    {
+                        controller.OnTurnComplete(_path.Count == 0);
+                    });
+                }
+
             }
             else
             {

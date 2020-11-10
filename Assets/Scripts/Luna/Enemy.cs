@@ -4,10 +4,11 @@ namespace Luna
 {
     public class Enemy: TurnTaker
     {
-        private MoveAlongPath _move;
-
         private bool _turnComplete = false;
         private bool _upNext;
+
+        private MoveAlongPath _move;
+
         private void Awake()
         {
             _move = GetComponent<MoveAlongPath>();

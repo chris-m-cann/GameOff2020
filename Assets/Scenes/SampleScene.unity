@@ -893,6 +893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 11400000, guid: 7866700b106088a43833eabf1ff41f0d, type: 2}
+  printCosts: 0
 --- !u!114 &1228281635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -919,6 +920,9 @@ GameObject:
   - component: {fileID: 1358882291}
   - component: {fileID: 1358882290}
   - component: {fileID: 1358882294}
+  - component: {fileID: 1358882296}
+  - component: {fileID: 1358882295}
+  - component: {fileID: 1358882297}
   m_Layer: 0
   m_Name: Flameskull
   m_TagString: Untagged
@@ -1010,7 +1014,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358882289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.5, y: 2.5, z: 0}
+  m_LocalPosition: {x: 5.5, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1029,6 +1033,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+--- !u!114 &1358882295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358882289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a25d3bb85c8495095a1b56131b2af9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1358882296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358882289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7a4928a6fe42daa1ceb2cfbd18113c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  occupant:
+    Tags:
+    - {fileID: 11400000, guid: 4c6e0f44bbdf72045b55dab580919f2a, type: 2}
+    Cost: -1
+    IsCollectable: 0
+    OccupantGameObject: {fileID: 0}
+  grid: {fileID: 11400000, guid: 7866700b106088a43833eabf1ff41f0d, type: 2}
+--- !u!114 &1358882297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358882289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2dd330c3df51b248bfd2a2d50502199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent:
+    gameEvent: {fileID: 11400000, guid: 7c0aec14cdbb9c24788d7af835d95f50, type: 2}
+    observable: {fileID: 0}
+    option: 0
+  onEventRaised:
+    _PersistentCalls:
+    - _Target: {fileID: 1358882293}
+      _MethodName: get_position
+      _PersistentArguments: []
+    - _Target: {fileID: 1358882296}
+      _MethodName: UpdateGrid
+      _PersistentArguments:
+      - _Type: 15
+        _Int: 0
+        _String: 
+        _X: 7
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
 --- !u!1 &1549926527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,6 +1110,8 @@ GameObject:
   - component: {fileID: 1549926531}
   - component: {fileID: 1549926533}
   - component: {fileID: 1549926532}
+  - component: {fileID: 1549926535}
+  - component: {fileID: 1549926534}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1156,6 +1225,7 @@ MonoBehaviour:
   grid: {fileID: 11400000, guid: 7866700b106088a43833eabf1ff41f0d, type: 2}
   mouse: {fileID: 693400219}
   pathfinding: {fileID: 1228281635}
+  mainWeapon: {fileID: 11400000, guid: 9888e7199565f59429f935a01a514907, type: 2}
 --- !u!114 &1549926533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1181,6 +1251,57 @@ MonoBehaviour:
         _Z: 0
         _W: 0
         _Object: {fileID: 0}
+--- !u!114 &1549926534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549926527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2dd330c3df51b248bfd2a2d50502199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent:
+    gameEvent: {fileID: 11400000, guid: 7c0aec14cdbb9c24788d7af835d95f50, type: 2}
+    observable: {fileID: 0}
+    option: 0
+  onEventRaised:
+    _PersistentCalls:
+    - _Target: {fileID: 1549926529}
+      _MethodName: get_position
+      _PersistentArguments: []
+    - _Target: {fileID: 1549926535}
+      _MethodName: UpdateGrid
+      _PersistentArguments:
+      - _Type: 15
+        _Int: 0
+        _String: 
+        _X: 7
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+--- !u!114 &1549926535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549926527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7a4928a6fe42daa1ceb2cfbd18113c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  occupant:
+    Tags:
+    - {fileID: 11400000, guid: d632f437bb813f14b92fdf767ed640db, type: 2}
+    Cost: -1
+    IsCollectable: 0
+    OccupantGameObject: {fileID: 0}
+  grid: {fileID: 11400000, guid: 7866700b106088a43833eabf1ff41f0d, type: 2}
 --- !u!1 &1627447842
 GameObject:
   m_ObjectHideFlags: 0

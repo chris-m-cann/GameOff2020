@@ -21,23 +21,36 @@
           </e>
           <e p="Luna" t="Include">
             <e p="AddTurnTakerToSet.cs" t="Include" />
+            <e p="EffectHandler.cs" t="Include" />
             <e p="Enemy.cs" t="Include" />
-            <e p="Grid.cs" t="Include" />
-            <e p="GridFromTilemaps.cs" t="Include" />
-            <e p="GridVariable.cs" t="Include" />
+            <e p="Grid" t="Include">
+              <e p="Grid.cs" t="Include" />
+              <e p="GridFromTilemaps.cs" t="Include" />
+              <e p="GridOccupant.cs" t="Include" />
+              <e p="GridOccupantBehaviour.cs" t="Include" />
+              <e p="GridOccupantTag.cs" t="Include" />
+              <e p="GridVariable.cs" t="Include" />
+              <e p="SquareGrid.cs" t="Include" />
+              <e p="SquareGridVisualiser.cs" t="Include" />
+            </e>
             <e p="MouseController.cs" t="Include" />
             <e p="MoveAlongPath.cs" t="Include" />
             <e p="MoveAlongPathAction.cs" t="Include" />
             <e p="OnMouseDown.cs" t="Include" />
             <e p="Pathfinding.cs" t="Include" />
             <e p="Player.cs" t="Include" />
-            <e p="SquareGrid.cs" t="Include" />
-            <e p="SquareGridVisualiser.cs" t="Include" />
+            <e p="PushableBehaviour.cs" t="Include" />
             <e p="TurnAction.cs" t="Include" />
             <e p="TurnActionController.cs" t="Include" />
             <e p="TurnController.cs" t="Include" />
             <e p="TurnTaker.cs" t="Include" />
             <e p="TurnTakerRuntimeSet.cs" t="Include" />
+            <e p="Weapons" t="Include">
+              <e p="MeleeWeapon.cs" t="Include" />
+              <e p="PushWeaponEffect.cs" t="Include" />
+              <e p="Weapon.cs" t="Include" />
+              <e p="WeaponEffect.cs" t="Include" />
+            </e>
           </e>
           <e p="Util" t="Include">
             <e p="AddComponentToRuntimeSet.cs" t="Include" />
@@ -60,6 +73,7 @@
             </e>
             <e p="InitialVelocity.cs" t="Include" />
             <e p="InstantiateThing.cs" t="Include" />
+            <e p="IProvider.cs" t="Include" />
             <e p="Pair.cs" t="Include" />
             <e p="PriorityQueue.cs" t="Include" />
             <e p="RestartOnKeyPress.cs" t="Include" />

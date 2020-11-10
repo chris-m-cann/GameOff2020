@@ -1,10 +1,9 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Util.Events;
 
-namespace Luna
+namespace Luna.Grid
 {
     public class GridFromTilemaps : MonoBehaviour
     {
