@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Luna
 {
-    public class Enemy: TurnTaker
+    public class Enemy: MonoBehaviour, ITurnTaker
     {
         private bool _turnComplete = false;
         private bool _upNext;
@@ -14,7 +14,7 @@ namespace Luna
             _move = GetComponent<MoveAlongPath>();
         }
 
-        public override void StartTurn()
+        public void StartTurn()
         {
             _turnComplete = false;
 
@@ -25,7 +25,7 @@ namespace Luna
             _move.Move(nexPos, () => _turnComplete = true);
         }
 
-        public override bool IsTurnFinished()
+        public bool IsTurnFinished()
         {
             return _turnComplete;
         }

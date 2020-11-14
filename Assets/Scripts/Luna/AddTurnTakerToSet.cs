@@ -3,8 +3,8 @@ using Util;
 
 namespace Luna
 {
-    [RequireComponent(typeof(TurnTaker))]
-    public class AddTurnTakerToSet : AddComponentToRuntimeSet<TurnTaker>
+    [RequireComponent(typeof(ITurnTaker))]
+    public class AddTurnTakerToSet : AddComponentToRuntimeSet<ITurnTaker>
     {
 
     }

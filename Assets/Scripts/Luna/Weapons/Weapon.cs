@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Luna.Grid;
+using Luna.Unit;
 using UnityEngine;
 
 namespace Luna.Weapons
@@ -10,15 +12,22 @@ namespace Luna.Weapons
 
         public abstract Grid.Grid.Node[] FindTargets(Grid.Grid.Node wielder, Grid.Grid grid);
 
-        public virtual void Apply(Grid.Grid.Node target, GameObject wielder)
+        public virtual List<IUnitAction> Apply(Grid.Grid.Node target, GameObject wielder)
         {
+            var actions = new List<IUnitAction>();
             foreach (var occupant in target.Occupants)
             {
                 foreach (var effect in Effects)
                 {
-                    effect.Apply(occupant.OccupantGameObject, wielder);
+                    var r = effect.Apply(occupant.OccupantGameObject, wielder);
+                    if (r != null)
+                    {
+                        actions.AddRange(r);
+                    }
                 }
             }
+
+            return actions;
         }
     }
 }

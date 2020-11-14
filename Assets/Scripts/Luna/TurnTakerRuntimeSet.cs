@@ -5,7 +5,7 @@ namespace Luna
 {
 
     [CreateAssetMenu(menuName = "Custom/RuntimeSets/TurnTaker")]
-    public class TurnTakerRuntimeSet : RuntimeSet<TurnTaker>
+    public class TurnTakerRuntimeSet : RuntimeSet<ITurnTaker>
     {
 
     }

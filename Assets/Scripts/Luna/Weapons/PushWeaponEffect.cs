@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Luna.Unit;
 using UnityEngine;
 
 namespace Luna.Weapons
@@ -9,7 +11,7 @@ namespace Luna.Weapons
         // todo(chris) custom property draw as dont want to show custom direction in inspector if not being used
         public int PushMagnitude;
         public PushDirection Direction;
-        public Vector2 CustomDirection;
+        public Vector2Int CustomDirection;
 
         public enum PushDirection
         {
@@ -18,18 +20,23 @@ namespace Luna.Weapons
             CustomDirection
         }
 
-        public override void Apply(GameObject target, GameObject wielder)
+        public override List<IUnitAction> Apply(GameObject target, GameObject wielder)
         {
             var handlers = target.GetComponents<EffectHandler<PushWeaponEffect>>();
 
-            if (handlers == null) return;
-            else
+            if (handlers == null) return null;
+
+            var actions = new List<IUnitAction>();
+            foreach (var handler in handlers)
             {
-                foreach (var handler in handlers)
+                var r = handler.Handle(this, wielder);
+                if (r != null)
                 {
-                    handler.Handle(this, wielder);
+                    actions.AddRange(r);
                 }
             }
+
+            return actions;
         }
     }
 }

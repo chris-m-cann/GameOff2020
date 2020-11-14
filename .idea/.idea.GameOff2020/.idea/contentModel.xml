@@ -33,6 +33,7 @@
               <e p="SquareGrid.cs" t="Include" />
               <e p="SquareGridVisualiser.cs" t="Include" />
             </e>
+            <e p="ITurnAction2.cs" t="Include" />
             <e p="MouseController.cs" t="Include" />
             <e p="MoveAlongPath.cs" t="Include" />
             <e p="MoveAlongPathAction.cs" t="Include" />
@@ -43,8 +44,22 @@
             <e p="TurnAction.cs" t="Include" />
             <e p="TurnActionController.cs" t="Include" />
             <e p="TurnController.cs" t="Include" />
+            <e p="TurnPhase.cs" t="Include" />
+            <e p="TurnPhaseObject.cs" t="Include" />
+            <e p="TurnPhaseOrder.cs" t="Include" />
             <e p="TurnTaker.cs" t="Include" />
             <e p="TurnTakerRuntimeSet.cs" t="Include" />
+            <e p="Unit" t="Include">
+              <e p="AddToUnitSet.cs" t="Include" />
+              <e p="EnemyUnit.cs" t="Include" />
+              <e p="IUnitAction.cs" t="Include" />
+              <e p="MoveToPointAction.cs" t="Include" />
+              <e p="PlayerInputAction.cs" t="Include" />
+              <e p="PlayerUnit.cs" t="Include" />
+              <e p="Unit.cs" t="Include" />
+              <e p="UnitRuntimeSet.cs" t="Include" />
+              <e p="UnitTurnController.cs" t="Include" />
+            </e>
             <e p="Weapons" t="Include">
               <e p="MeleeWeapon.cs" t="Include" />
               <e p="PushWeaponEffect.cs" t="Include" />
@@ -59,6 +74,7 @@
             <e p="BasicGameObjectPool.cs" t="Include" />
             <e p="Blackboard.cs" t="Include" />
             <e p="CoroutinesUtils.cs" t="Include" />
+            <e p="DictionaryUtils.cs" t="Include" />
             <e p="Either.cs" t="Include" />
             <e p="Events" t="Include">
               <e p="EventReference.cs" t="Include" />

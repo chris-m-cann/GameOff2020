@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace Luna
 {
-    public abstract class TurnTaker : MonoBehaviour
+    public interface ITurnTaker
     {
-        public abstract void StartTurn();
-        public abstract bool IsTurnFinished();
+        void StartTurn();
+        bool IsTurnFinished();
     }
 }

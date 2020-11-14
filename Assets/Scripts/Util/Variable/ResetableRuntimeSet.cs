@@ -18,8 +18,6 @@ namespace Util
                 ResetableObject so = AssetDatabase.LoadAssetAtPath<ResetableObject>(path);
                 items.Add(so);
             }
-
-            Debug.Log($"size of restables {items.Count}");
         }
 
         private void OnDisable()

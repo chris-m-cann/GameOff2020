@@ -8,7 +8,7 @@ namespace Luna
     public class TurnController : MonoBehaviour
     {
         [Tooltip("an ordered list of groups of actors that take turns together, the order of the lists is the turn order")]
-        [SerializeField] private RuntimeSet<TurnTaker>[] groups;
+        [SerializeField] private RuntimeSet<ITurnTaker>[] groups;
 
         private int _turnIndex = -1;
 

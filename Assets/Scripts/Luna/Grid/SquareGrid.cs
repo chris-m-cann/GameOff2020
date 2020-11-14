@@ -135,7 +135,6 @@ namespace Luna.Grid
                 _nodes[idx.x, idx.y].AddOccupant(occupant);
             }
 
-            Debug.Log($"moved {oldIdx} to {idx}");
             return idx;
         }
 

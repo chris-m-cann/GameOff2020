@@ -7,7 +7,7 @@ using Util;
 
 namespace Luna
 {
-    public class Player : TurnTaker
+    public class Player : MonoBehaviour, ITurnTaker
     {
         [SerializeField] private GridVariable grid;
         [SerializeField] private MouseController mouse;
@@ -29,7 +29,7 @@ namespace Luna
             };
         }
 
-        public override void StartTurn()
+        public void StartTurn()
         {
             _turnComplete = false;
 
@@ -94,7 +94,7 @@ namespace Luna
         }
 
 
-        public override bool IsTurnFinished()
+        public bool IsTurnFinished()
         {
             return _turnComplete;
         }
