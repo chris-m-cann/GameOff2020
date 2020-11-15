@@ -71,14 +71,9 @@ namespace Luna.Actions
 
                 if (action != null)
                 {
-
-                    mouse.SetIndicator(false);
                     _unit.AddActions(action);
 
-
-                    IsFinished = true;
-
-                    _isCapturing = false;
+                    EndTurn();
                 }
             }
             else
@@ -128,6 +123,16 @@ namespace Luna.Actions
         {
             IsFinished = false;
             IsStarted = false;
+        }
+
+        public void EndTurn()
+        {
+            if (_isCapturing)
+            {
+                mouse.SetIndicator(false);
+                IsFinished = true;
+                _isCapturing = false;
+            }
         }
 
         private void OnDrawGizmos()

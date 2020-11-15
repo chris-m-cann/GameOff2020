@@ -1,6 +1,7 @@
 using System;
 using UltEvents;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Luna
 {
@@ -17,7 +18,7 @@ namespace Luna
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
             {
                 OnMouseButtonDown.Invoke(_camera.ScreenToWorldPoint(Input.mousePosition));
             }

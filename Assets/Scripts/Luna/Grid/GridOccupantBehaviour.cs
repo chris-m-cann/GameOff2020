@@ -7,21 +7,37 @@ namespace Luna.Grid
 {
     public class GridOccupantBehaviour : MonoBehaviour, IProvider<GridVariable>
     {
-        [SerializeField] private GridOccupant occupant = new GridOccupant();
+        public GridOccupant Occupant = new GridOccupant();
         [SerializeField] private GridVariable grid;
 
         private Vector2Int _currentIdx = Vector2Int.left;
 
         public Vector2Int CurrentNodeIdx => _currentIdx;
 
+        public Grid.Node? CurrentNode
+        {
+            get
+            {
+                var n = new Grid.Node();
+                if (grid.Value.TryGetNodeAt(_currentIdx.x, _currentIdx.y, ref n))
+                {
+                    return n;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
         private void Awake()
         {
-            occupant.OccupantGameObject = gameObject;
+            Occupant.OccupantGameObject = gameObject;
         }
 
         public void UpdateGrid(Vector3 worldPos)
         {
-            _currentIdx = grid.Value.MoveOccupant(_currentIdx, worldPos, occupant);
+            _currentIdx = grid.Value.MoveOccupant(_currentIdx, worldPos, Occupant);
         }
 
         public void AddToGrid() => UpdateGrid(transform.position);
@@ -35,7 +51,7 @@ namespace Luna.Grid
 
         private void RemoveFromGrid()
         {
-            grid.Value.RemoveOccupantAtIdx(_currentIdx, occupant);
+            grid.Value.RemoveOccupantAtIdx(_currentIdx, Occupant);
         }
     }
 }
