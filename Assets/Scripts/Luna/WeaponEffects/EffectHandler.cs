@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using Luna.Unit;
-using Luna.Weapons;
 using UnityEngine;
 
-namespace Luna
+namespace Luna.WeaponEffects
 {
     public abstract class EffectHandler<T> : MonoBehaviour where T : WeaponEffect
     {

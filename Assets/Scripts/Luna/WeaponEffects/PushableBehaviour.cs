@@ -1,10 +1,10 @@
 using System.Collections.Generic;
+using Luna.Actions;
 using Luna.Grid;
 using Luna.Unit;
-using Luna.Weapons;
 using UnityEngine;
 
-namespace Luna
+namespace Luna.WeaponEffects
 {
     [RequireComponent(typeof(Unit.Unit), typeof(GridOccupantBehaviour))]
     public class PushableBehaviour : EffectHandler<PushWeaponEffect>

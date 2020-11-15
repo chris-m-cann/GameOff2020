@@ -1,6 +1,7 @@
 using Luna.Grid;
+using Luna.Unit;
 
-namespace Luna.Unit
+namespace Luna.Actions
 {
     public class MoveToPointAction : IUnitAction
     {
@@ -9,7 +10,7 @@ namespace Luna.Unit
         private readonly MoveAlongPath _move;
         private readonly GridOccupantBehaviour _occupant;
 
-        public MoveToPointAction(Unit unit, Grid.Grid.Node destination)
+        public MoveToPointAction(Unit.Unit unit, Grid.Grid.Node destination)
         {
             _destination = destination;
 
@@ -29,6 +30,12 @@ namespace Luna.Unit
             
             _occupant?.UpdateGrid(_destination.WorldPosition);
             _move.Move(_destination, () => IsFinished = true);
+        }
+
+        public void Reset()
+        {
+            IsStarted = false;
+            IsFinished = false;
         }
 
         public bool IsStarted { get; private set; }

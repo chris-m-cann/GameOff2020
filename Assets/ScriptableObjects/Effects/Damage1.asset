@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8b5e40aa462408c84ceef9fcc96a441, type: 3}
-  m_Name: LevelGrid
+  m_Script: {fileID: 11500000, guid: 597a21fb96b1467c8b8fd078430a6b7f, type: 3}
+  m_Name: Damage1
   m_EditorClassIdentifier: 
-  resetOnSceneChange: 1
+  Damage: 1

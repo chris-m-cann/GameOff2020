@@ -115,12 +115,16 @@ namespace Luna.Grid
         public override void RemoveOccupant(Vector2 worldPosition, GridOccupant occupant)
         {
             var idx = GetNodeIndexAt(worldPosition);
+            RemoveOccupantAtIdx(idx, occupant);
+        }
+
+        public override void RemoveOccupantAtIdx(Vector2Int idx, GridOccupant occupant)
+        {
             if (IdxIsOnGrid(idx))
             {
                 _nodes[idx.x, idx.y].RemoveOccupant(occupant);
             }
         }
-
 
         public override Vector2Int MoveOccupant(Vector2Int oldIdx, Vector2 newWorldPos, GridOccupant occupant)
         {

@@ -78,6 +78,7 @@ namespace Luna.Grid
 
         public abstract Vector2Int AddOccupant(Vector2 worldPosition, GridOccupant occupant);
         public abstract void RemoveOccupant(Vector2 worldPosition, GridOccupant occupant);
+        public abstract void RemoveOccupantAtIdx(Vector2Int idx, GridOccupant occupant);
 
         public abstract Vector2Int MoveOccupant(Vector2Int oldIdx, Vector2 newWorldPos, GridOccupant occupant);
     }

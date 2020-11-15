@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Luna.Grid;
 using Luna.Unit;
+using Luna.WeaponEffects;
 using UnityEngine;
 
 namespace Luna.Weapons

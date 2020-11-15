@@ -15,5 +15,14 @@ namespace Util
                 set.Add(component);
             }
         }
+
+        private void OnDestroy()
+        {
+            var component = GetComponent<T>();
+            if (component != null)
+            {
+                set.Remove(component);
+            }
+        }
     }
 }

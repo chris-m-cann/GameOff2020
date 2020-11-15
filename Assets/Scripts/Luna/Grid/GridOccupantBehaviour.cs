@@ -27,5 +27,15 @@ namespace Luna.Grid
         public void AddToGrid() => UpdateGrid(transform.position);
 
         public GridVariable Get() => grid;
+
+        private void OnDestroy()
+        {
+            RemoveFromGrid();
+        }
+
+        private void RemoveFromGrid()
+        {
+            grid.Value.RemoveOccupantAtIdx(_currentIdx, occupant);
+        }
     }
 }

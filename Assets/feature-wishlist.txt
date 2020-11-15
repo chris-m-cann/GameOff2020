@@ -1,0 +1,58 @@
+levels:
+	- random generation
+	- level elements:
+		- spike trap,
+		- punch trap
+		- dart trap
+		- falling floor
+		- eploding crystals
+	- enemies
+		- charging
+		- hoping
+		- bishop moves
+		- spitting
+		- hidden
+		- aoe
+	- end goal
+		- door/ next level trigger
+		- entrance
+	- breakable walls
+	- damage types
+	- resources (bombs/ropes equiv)
+	- picking up
+	- throwing
+	- lobbing
+	- timer
+		- end of time consequence: meteor shower
+	- pickups
+		- weapons	
+		- health
+		- currency
+		- resources
+	
+ending
+	- cinematic
+	- boss??
+	- scoreboard
+
+title
+	- high scores
+	- options
+	- credits
+story
+	- cimematic
+	- text scrawl
+	
+
+stretch goals:
+	- hub
+		- npcs
+		- progessions/ plotline
+		- physical representation of things you do in the main game
+		- benifits that help but dont make the main game easier
+	- the chain
+		- artifacts or events through out the levels to unlock second ending
+		- second ending
+		- lore scattered throughout the world
+	- separate biomes
+	- fixed seed challenges (dailys)

@@ -77,6 +77,7 @@ namespace Luna.Unit
                     var action = phaseActions[i];
                     if (!action.IsStarted)
                     {
+                        // todo(chris) consider making execute a coroutine so we know that it wont block??
                         action.Execute();
                     }
 

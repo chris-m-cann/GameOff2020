@@ -1,16 +1,17 @@
 using System;
 using System.Collections.Generic;
 using Luna.Grid;
+using Luna.Unit;
 using Luna.Weapons;
 using UnityEngine;
 using Util;
 
-namespace Luna.Unit
+namespace Luna.Actions
 {
     // todo(chris): this many RequireComponents is probably a good sign that this has too many colaborators
     [RequireComponent(
         typeof(Pathfinding),
-        typeof(Unit),
+        typeof(Unit.Unit),
         typeof(IProvider<GridVariable>)
     )]
     [RequireComponent(typeof(GridOccupantBehaviour))]
@@ -24,7 +25,7 @@ namespace Luna.Unit
         private bool _isCapturing;
 
         private Pathfinding _pathfinding;
-        private Unit _unit;
+        private Unit.Unit _unit;
         private GridOccupantBehaviour _gridOccupant;
 
         private void Awake()
@@ -32,7 +33,7 @@ namespace Luna.Unit
             _pathfinding = GetComponent<Pathfinding>();
             _gridOccupant = GetComponent<GridOccupantBehaviour>();
             _grid = GetComponent<IProvider<GridVariable>>()?.Get();
-            _unit = GetComponent<Unit>();
+            _unit = GetComponent<Unit.Unit>();
 
             if (_grid == null)
             {
@@ -70,6 +71,8 @@ namespace Luna.Unit
 
                 if (action != null)
                 {
+
+                    mouse.SetIndicator(false);
                     _unit.AddActions(action);
 
 
@@ -96,8 +99,6 @@ namespace Luna.Unit
 
             if (isMyNodeValid && isClickedNodeValid)
             {
-                mouse.SetIndicator(false);
-
                 // attack
                 var targets = mainWeapon.FindTargets(myNode, _grid.Value);
 
@@ -123,7 +124,7 @@ namespace Luna.Unit
             return null;
         }
 
-        public void ResetAction()
+        public void Reset()
         {
             IsFinished = false;
             IsStarted = false;
