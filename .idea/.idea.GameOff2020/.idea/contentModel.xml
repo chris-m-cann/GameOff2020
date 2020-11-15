@@ -24,6 +24,7 @@
             <e p="Actions" t="Include">
               <e p="BaseAction.cs" t="Include" />
               <e p="DamageAction.cs" t="Include" />
+              <e p="IUnitAction.cs" t="Include" />
               <e p="MoveToPointAction.cs" t="Include" />
               <e p="PlayerInputAction.cs" t="Include" />
             </e>
@@ -58,7 +59,6 @@
               <e p="AddToUnitSet.cs" t="Include" />
               <e p="BaseUnit.cs" t="Include" />
               <e p="EnemyUnit.cs" t="Include" />
-              <e p="IUnitAction.cs" t="Include" />
               <e p="PlayerUnit.cs" t="Include" />
               <e p="Unit.cs" t="Include" />
               <e p="UnitRuntimeSet.cs" t="Include" />

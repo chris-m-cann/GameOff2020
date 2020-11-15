@@ -1,4 +1,4 @@
-namespace Luna.Unit
+namespace Luna.Actions
 {
     public interface IUnitAction
     {
