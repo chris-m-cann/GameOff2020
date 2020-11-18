@@ -24,11 +24,21 @@
             <e p="Actions" t="Include">
               <e p="BaseAction.cs" t="Include" />
               <e p="DamageAction.cs" t="Include" />
+              <e p="ExecuteAgentAction.cs" t="Include" />
               <e p="IUnitAction.cs" t="Include" />
               <e p="MoveToPointAction.cs" t="Include" />
               <e p="PlayerInputAction.cs" t="Include" />
             </e>
             <e p="AddTurnTakerToSet.cs" t="Include" />
+            <e p="Ai" t="Include">
+              <e p="AttackTarget.cs" t="Include" />
+              <e p="BaseSensor.cs" t="Include" />
+              <e p="CreateMoveTarget.cs" t="Include" />
+              <e p="ISensor.cs" t="Include" />
+              <e p="MoveToMoveTarget.cs" t="Include" />
+              <e p="ProximitySensor.cs" t="Include" />
+              <e p="StubTreeProviderBehaviour.cs" t="Include" />
+            </e>
             <e p="Enemy.cs" t="Include" />
             <e p="Grid" t="Include">
               <e p="Grid.cs" t="Include" />
@@ -57,6 +67,7 @@
             <e p="TurnTakerRuntimeSet.cs" t="Include" />
             <e p="Unit" t="Include">
               <e p="AddToUnitSet.cs" t="Include" />
+              <e p="AiUnit.cs" t="Include" />
               <e p="BaseUnit.cs" t="Include" />
               <e p="EnemyUnit.cs" t="Include" />
               <e p="PlayerUnit.cs" t="Include" />
@@ -79,6 +90,19 @@
           </e>
           <e p="Util" t="Include">
             <e p="AddComponentToRuntimeSet.cs" t="Include" />
+            <e p="Ai" t="Include">
+              <e p="AddToAgentBlackBoard.cs" t="Include" />
+              <e p="Agent.cs" t="Include" />
+              <e p="AgentContext.cs" t="Include" />
+              <e p="Bt" t="Include">
+                <e p="BtNode.cs" t="Include" />
+                <e p="HasLineOfSight2D.cs" t="Include" />
+                <e p="InverterBtNode.cs" t="Include" />
+                <e p="IsTargetInRangeBtNode.cs" t="Include" />
+                <e p="SelectorBtNode.cs" t="Include" />
+                <e p="SequenceBtNode.cs" t="Include" />
+              </e>
+            </e>
             <e p="ArrayUtils.cs" t="Include" />
             <e p="AudioClipEx.cs" t="Include" />
             <e p="BasicGameObjectPool.cs" t="Include" />

@@ -56,5 +56,12 @@ namespace Ai
         {
             _table[key] = data;
         }
+
+        public void Remove(ElementKey key)
+        {
+            _table.Remove(key.KeyHash);
+        }
+
+        public void Remove(string key) => Remove(StringToKey(key));
     }
 }

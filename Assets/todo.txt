@@ -1,0 +1,28 @@
+
+- enemy ai framework for idle && seen player
+- handle move collisions between enemies
+
+
+- click on player for ui overlay on map
+	- ui overlay for attack and move
+	- ui for "throw" and "pickup" and "use" 
+	- changing the ui for projectile
+- click on enemy to see more info
+	- health
+	
+- projectile weapons
+
+- score / currency ui
+- health ui
+- break between levels (hiding generation step too)
+- player death
+	- summary ui
+	- back to main menu screen
+- save system
+	- save current score & health & room seed?
+	- top scores / distances
+- pause screen	
+	- quite will lose progress in current room
+	- restart run
+	- main menu
+	- options
