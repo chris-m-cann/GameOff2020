@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEditor;
 using Util.Events;
 
-namespace Util.Editor
+namespace Editor.Util
 {
 
     [CustomEditor(typeof(IntGameEvent))]

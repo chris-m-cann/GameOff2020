@@ -1,3 +1,5 @@
+using System.Collections.ObjectModel;
+
 namespace Luna.Actions
 {
     public interface IUnitAction

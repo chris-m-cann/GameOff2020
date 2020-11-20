@@ -11,9 +11,9 @@
         <e p="Scripts" t="Include">
           <e p="Editor" t="Include">
             <e p="Util" t="Include">
+              <e p="BtNodeEditor.cs" t="Include" />
               <e p="EventButtonEditor.cs" t="Include" />
               <e p="EventReferenceDraw.cs" t="Include" />
-              <e p="FloatReferenceDraw.cs" t="Include" />
               <e p="IntEventButtonEditor.cs" t="Include" />
               <e p="OneOfOptionListDraw.cs" t="Include" />
               <e p="VariableReferenceDraw.cs" t="Include" />
@@ -31,11 +31,11 @@
             </e>
             <e p="AddTurnTakerToSet.cs" t="Include" />
             <e p="Ai" t="Include">
-              <e p="AttackTarget.cs" t="Include" />
+              <e p="AttackTargetNode.cs" t="Include" />
               <e p="BaseSensor.cs" t="Include" />
-              <e p="CreateMoveTarget.cs" t="Include" />
+              <e p="CreateMoveTargetNode.cs" t="Include" />
               <e p="ISensor.cs" t="Include" />
-              <e p="MoveToMoveTarget.cs" t="Include" />
+              <e p="MoveToMoveTargetNode.cs" t="Include" />
               <e p="ProximitySensor.cs" t="Include" />
               <e p="StubTreeProviderBehaviour.cs" t="Include" />
             </e>
@@ -95,6 +95,9 @@
               <e p="Agent.cs" t="Include" />
               <e p="AgentContext.cs" t="Include" />
               <e p="Bt" t="Include">
+                <e p="BehaviourTree.cs" t="Include" />
+                <e p="BtCompositeNode.cs" t="Include" />
+                <e p="BtDecoratorNode.cs" t="Include" />
                 <e p="BtNode.cs" t="Include" />
                 <e p="HasLineOfSight2D.cs" t="Include" />
                 <e p="InverterBtNode.cs" t="Include" />
@@ -103,10 +106,10 @@
                 <e p="SequenceBtNode.cs" t="Include" />
               </e>
             </e>
-            <e p="ArrayUtils.cs" t="Include" />
             <e p="AudioClipEx.cs" t="Include" />
             <e p="BasicGameObjectPool.cs" t="Include" />
             <e p="Blackboard.cs" t="Include" />
+            <e p="CollectionUtils.cs" t="Include" />
             <e p="CoroutinesUtils.cs" t="Include" />
             <e p="DictionaryUtils.cs" t="Include" />
             <e p="Either.cs" t="Include" />
@@ -230,6 +233,56 @@
             <e p="Readme.txt" t="Include" />
             <e p="UltEvents.asmdef" t="Include" />
           </e>
+          <e p="xNode-master" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Attributes" t="Include">
+                <e p="NodeEnum.cs" t="Include" />
+              </e>
+              <e p="Editor" t="Include">
+                <e p="Drawers" t="Include">
+                  <e p="NodeEnumDrawer.cs" t="Include" />
+                  <e p="Odin" t="Include">
+                    <e p="InNodeEditorAttributeProcessor.cs" t="Include" />
+                    <e p="InputAttributeDrawer.cs" t="Include" />
+                    <e p="OutputAttributeDrawer.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="GraphAndNodeEditor.cs" t="Include" />
+                <e p="GraphRenameFixAssetProcessor.cs" t="Include" />
+                <e p="Internal" t="Include">
+                  <e p="RerouteReference.cs" t="Include" />
+                </e>
+                <e p="NodeEditor.cs" t="Include" />
+                <e p="NodeEditorAction.cs" t="Include" />
+                <e p="NodeEditorAssetModProcessor.cs" t="Include" />
+                <e p="NodeEditorBase.cs" t="Include" />
+                <e p="NodeEditorGUI.cs" t="Include" />
+                <e p="NodeEditorGUILayout.cs" t="Include" />
+                <e p="NodeEditorPreferences.cs" t="Include" />
+                <e p="NodeEditorReflection.cs" t="Include" />
+                <e p="NodeEditorResources.cs" t="Include" />
+                <e p="NodeEditorUtilities.cs" t="Include" />
+                <e p="NodeEditorWindow.cs" t="Include" />
+                <e p="NodeGraphEditor.cs" t="Include" />
+                <e p="NodeGraphImporter.cs" t="Include" />
+                <e p="RenamePopup.cs" t="Include" />
+                <e p="Resources" t="Include">
+                  <e p="ScriptTemplates" t="Include">
+                    <e p="xNode_NodeGraphTemplate.cs.txt" t="Include" />
+                    <e p="xNode_NodeTemplate.cs.txt" t="Include" />
+                  </e>
+                </e>
+                <e p="SceneGraphEditor.cs" t="Include" />
+                <e p="XNodeEditor.asmdef" t="Include" />
+              </e>
+              <e p="Node.cs" t="Include" />
+              <e p="NodeDataCache.cs" t="Include" />
+              <e p="NodeGraph.cs" t="Include" />
+              <e p="NodePort.cs" t="Include" />
+              <e p="SceneGraph.cs" t="Include" />
+              <e p="XNode.asmdef" t="Include" />
+            </e>
+          </e>
         </e>
         <e p="todo.txt" t="Include" />
       </e>
@@ -238,6 +291,8 @@
       <e p="Packages" t="ExcludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
       <e p="UltEvents.csproj" t="IncludeRecursive" />
+      <e p="XNode.csproj" t="IncludeRecursive" />
+      <e p="XNodeEditor.csproj" t="IncludeRecursive" />
     </e>
   </component>
 </project>

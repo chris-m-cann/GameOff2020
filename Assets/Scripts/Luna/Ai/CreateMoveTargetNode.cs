@@ -5,7 +5,7 @@ using Util.Ai.Bt;
 
 namespace Luna.Ai
 {
-    public class CreateMoveTarget : BtNode
+    public class CreateMoveTargetNode : BtNode
     {
         public override State Execute(AgentContext context)
         {

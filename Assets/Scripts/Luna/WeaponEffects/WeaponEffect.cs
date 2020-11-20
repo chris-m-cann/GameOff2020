@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Luna.Actions;
 using Luna.Unit;
 using UnityEngine;
+using Util;
 
 namespace Luna.WeaponEffects
 {
@@ -18,10 +19,7 @@ namespace Luna.WeaponEffects
             foreach (var handler in handlers)
             {
                 var r = handler.Handle(effect, wielder);
-                if (r != null)
-                {
-                    actions.AddRange(r);
-                }
+                actions.AddNullableRange(r);
             }
 
             return actions;

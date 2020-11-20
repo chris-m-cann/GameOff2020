@@ -1,20 +1,17 @@
 using System.Collections.Generic;
+using UnityEngine;
+using XNode;
 
 namespace Util.Ai.Bt
 {
-    public class SelectorBtNode : BtNode
+    public class SelectorBtNode : BtCompositeNode
     {
-        protected List<BtNode> _nodes;
 
-        public SelectorBtNode(List<BtNode> nodes)
-        {
-            _nodes = nodes;
-        }
         public override State Execute(AgentContext context)
         {
-            foreach (var node in _nodes)
+            foreach (var child in children)
             {
-                switch (node.Execute(context))
+                switch (child.Execute(context))
                 {
                     case State.Succeeded: return State.Succeeded;
                     case State.Running: return State.Running;

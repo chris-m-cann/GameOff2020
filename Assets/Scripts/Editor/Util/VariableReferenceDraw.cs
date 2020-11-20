@@ -1,9 +1,7 @@
 using UnityEditor;
-using UnityEngine;
-using Util.Events;
 using Util.Variable;
 
-namespace Util.Editor
+namespace Editor.Util
 {
     [CustomPropertyDrawer(typeof(VariableReference<>))]
     public class VariableReferenceDraw : OneOfOptionListDraw

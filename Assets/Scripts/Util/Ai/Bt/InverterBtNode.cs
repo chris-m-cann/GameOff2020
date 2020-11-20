@@ -1,17 +1,12 @@
 namespace Util.Ai.Bt
 {
-    public class InverterBtNode : BtNode
+    public class InverterBtNode : BtDecoratorNode
     {
-        protected BtNode BtNode;
-
-        public InverterBtNode(BtNode btNode)
-        {
-            BtNode = btNode;
-        }
-
         public override State Execute(AgentContext context)
         {
-            switch (BtNode.Execute(context))
+            if (child == null) return State.Failed;
+
+            switch (child.Execute(context))
             {
                case State.Succeeded: return State.Failed;
                case State.Failed: return State.Succeeded;

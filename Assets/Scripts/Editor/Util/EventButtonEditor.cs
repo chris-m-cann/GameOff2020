@@ -1,7 +1,7 @@
 using UnityEngine;
 using Util.Events;
 
-namespace Util.Editor
+namespace Editor.Util
 {
     public abstract class EventButtonEditor<T> : UnityEditor.Editor
     {

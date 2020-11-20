@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Util
 {
-    public static class ArrayUtils
+    public static class CollectionUtils
     {
         public static void DeleteRange<T>(ref T[] self, int fromInclusive, int toExclusive)
         {
@@ -24,5 +26,11 @@ namespace Util
         }
 
 
+        public static void AddNullableRange<T>(this List<T> self, IEnumerable<T> range)
+        {
+            if (range == null) return;
+
+            self.AddRange(range);
+        }
     }
 }

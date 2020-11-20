@@ -1,7 +1,7 @@
 using UnityEditor;
 using Util.Events;
 
-namespace Util.Editor
+namespace Editor.Util
 {
     [CustomPropertyDrawer(typeof(EventReference<>))]
     public class EventReferenceDraw : OneOfOptionListDraw

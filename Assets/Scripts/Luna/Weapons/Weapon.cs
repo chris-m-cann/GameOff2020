@@ -4,6 +4,7 @@ using Luna.Grid;
 using Luna.Unit;
 using Luna.WeaponEffects;
 using UnityEngine;
+using Util;
 
 namespace Luna.Weapons
 {
@@ -22,10 +23,7 @@ namespace Luna.Weapons
                 foreach (var effect in Effects)
                 {
                     var r = effect.Apply(occupant.OccupantGameObject, wielder);
-                    if (r != null)
-                    {
-                        actions.AddRange(r);
-                    }
+                    actions.AddNullableRange(r);
                 }
             }
 

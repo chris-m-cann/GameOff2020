@@ -1,22 +1,20 @@
+using System;
 using System.Linq;
 using Ai;
 using Luna.Grid;
 using Luna.Weapons;
+using UnityEngine;
 using Util.Ai;
 using Util.Ai.Bt;
 
 namespace Luna.Ai
 {
-    public class AttackTarget : BtNode
+    [Serializable]
+    public class AttackTargetNode : BtNode
     {
-        private Blackboard.ElementKey _weaponKey;
-        private Blackboard.ElementKey _targetNodeKey;
+        [SerializeField] private string weaponKey;
+        [SerializeField] private string targetNodeKey;
 
-        public AttackTarget(Blackboard.ElementKey weaponKey, Blackboard.ElementKey targetNodeKey)
-        {
-            _weaponKey = weaponKey;
-            _targetNodeKey = targetNodeKey;
-        }
 
         public override State Execute(AgentContext context)
         {
@@ -25,10 +23,10 @@ namespace Luna.Ai
             var unit = context.Agent.GetComponent<Unit.Unit>();
             if (unit == null) return State.Failed;
 
-            var weapon = context.AgentBlackboard.RetrieveData<Weapon>(_weaponKey);
+            var weapon = context.AgentBlackboard.RetrieveData<Weapon>(weaponKey);
             if (weapon == null) return State.Failed;
 
-            var targetNode = context.AgentBlackboard.RetrieveData<Grid.Grid.Node?>(_targetNodeKey);
+            var targetNode = context.AgentBlackboard.RetrieveData<Grid.Grid.Node?>(targetNodeKey);
             if (targetNode == null) return State.Failed;
 
             var occupant = context.Agent.GetComponent<GridOccupantBehaviour>();

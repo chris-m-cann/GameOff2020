@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -17,6 +18,7 @@ namespace Ai
             }
         }
 
+        [Serializable]
         public readonly struct ElementKey
         {
             public readonly int KeyHash;

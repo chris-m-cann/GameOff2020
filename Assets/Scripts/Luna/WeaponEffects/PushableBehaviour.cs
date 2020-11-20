@@ -118,7 +118,7 @@ namespace Luna.WeaponEffects
         private void ResolveCollision(List<IUnitAction> actions, GridOccupant collider, Grid.Grid.Node n)
         {
             // if i have on collision effects then run them
-            actions.AddRange(_collisionBehaviour?.CollideWith(collider, n));
+            actions.AddNullableRange(_collisionBehaviour?.CollideWith(collider, n));
 
 
             // if the thing i bumped has collision effects then run them
@@ -128,7 +128,7 @@ namespace Luna.WeaponEffects
                 var myNode = _occupant.CurrentNode;
                 if (myNode != null)
                 {
-                    actions.AddRange(collision.CollideWith(_occupant.Occupant, myNode.Value));
+                    actions.AddNullableRange(collision.CollideWith(_occupant.Occupant, myNode.Value));
                 }
             }
         }
