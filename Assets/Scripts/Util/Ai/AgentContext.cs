@@ -10,5 +10,7 @@ namespace Util.Ai
 
         public GameObject Agent;
         public Transform Target;
+
+        public bool LogNodeExecution;
     }
 }

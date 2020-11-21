@@ -4,7 +4,7 @@ namespace Util
     {
         public static int ClampInt(int v, int min, int max)
         {
-            return (v < min ? min : v) > max ? max : v;
+            return v < min ? min : (v > max ? max : v);
         }
     }
 }

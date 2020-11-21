@@ -33,14 +33,17 @@
             <e p="Ai" t="Include">
               <e p="AttackTargetNode.cs" t="Include" />
               <e p="BaseSensor.cs" t="Include" />
+              <e p="CreateMoveTargetFromDirNode.cs" t="Include" />
               <e p="CreatePathToTargetNode.cs" t="Include" />
+              <e p="DirectionToTargetNode.cs" t="Include" />
               <e p="ISensor.cs" t="Include" />
               <e p="MoveToMoveTargetNode.cs" t="Include" />
+              <e p="OnCardinalDirectionNode.cs" t="Include" />
               <e p="PickRandomAdjacentNodeNode.cs" t="Include" />
               <e p="ProximitySensor.cs" t="Include" />
               <e p="ReadCurrentKeyBehaviour.cs" t="Include" />
+              <e p="SetAnimatorTriggerNode.cs" t="Include" />
             </e>
-            <e p="Enemy.cs" t="Include" />
             <e p="Grid" t="Include">
               <e p="Grid.cs" t="Include" />
               <e p="GridFromTilemaps.cs" t="Include" />
@@ -101,12 +104,17 @@
                 <e p="BtDecoratorNode.cs" t="Include" />
                 <e p="BtNode.cs" t="Include" />
                 <e p="BtSubtreeNode.cs" t="Include" />
+                <e p="CompareBlackboardValueNode.cs" t="Include" />
+                <e p="CompareIntBlackboardValueNode.cs" t="Include" />
+                <e p="ConstantStateNode.cs" t="Include" />
                 <e p="HasLineOfSight2D.cs" t="Include" />
                 <e p="InverterBtNode.cs" t="Include" />
                 <e p="IsTargetInRangeBtNode.cs" t="Include" />
                 <e p="SelectorBtNode.cs" t="Include" />
                 <e p="SequenceBtNode.cs" t="Include" />
-                <e p="WriteToAgentBlackboardNode.cs" t="Include" />
+                <e p="WriteIntToBlackboardNode.cs" t="Include" />
+                <e p="WriteStringToBlackboardNode.cs" t="Include" />
+                <e p="WriteToBlackboardNode.cs" t="Include" />
               </e>
             </e>
             <e p="AudioClipEx.cs" t="Include" />
@@ -114,6 +122,7 @@
             <e p="Blackboard.cs" t="Include" />
             <e p="BlackboardKey.cs" t="Include" />
             <e p="CollectionUtils.cs" t="Include" />
+            <e p="CompareType.cs" t="Include" />
             <e p="CoroutinesUtils.cs" t="Include" />
             <e p="DictionaryUtils.cs" t="Include" />
             <e p="Either.cs" t="Include" />

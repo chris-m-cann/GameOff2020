@@ -25,8 +25,16 @@ namespace Util.Ai.Bt
 
         public State Execute(AgentContext context)
         {
-            Debug.Log($"Executing {name} in {graph.name}");
+
+            if (context.LogNodeExecution)
+                Debug.Log($"Executing {name} in {graph.name}");
+
             CurrentState = OnExecute(context);
+
+
+            if (context.LogNodeExecution)
+                Debug.Log($"Executed {name} in {graph.name}, result = {CurrentState}");
+
             return CurrentState;
         }
 

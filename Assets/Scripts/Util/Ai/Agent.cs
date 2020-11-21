@@ -11,6 +11,7 @@ namespace Util.Ai
     {
         [SerializeField] private Blackboard globalBlackboard;
         [SerializeField] private BehaviourTree behaviour;
+        [SerializeField] private bool logNodeExecution;
 
         public Blackboard AgentBlackboard => _context.AgentBlackboard;
 
@@ -49,6 +50,8 @@ namespace Util.Ai
             {
                 sensor.Check(AgentBlackboard);
             }
+
+            _context.LogNodeExecution = logNodeExecution;
 
             _treeRoot.Execute(_context);
         }

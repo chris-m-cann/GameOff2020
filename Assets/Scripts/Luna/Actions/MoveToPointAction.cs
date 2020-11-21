@@ -28,8 +28,12 @@ namespace Luna.Actions
                 return;
             }
             
-            _occupant?.UpdateGrid(_destination.WorldPosition);
-            _move.Move(_destination, () => IsFinished = true);
+
+            _move.Move(_destination, () =>
+            {
+                _occupant?.UpdateGrid(_occupant.transform.position);
+                IsFinished = true;
+            });
         }
 
         public void Reset()

@@ -70,5 +70,10 @@ namespace Ai
         public void Remove(ElementKey key) => _table.Remove(key.KeyHash);
         public void Remove(BlackboardKey key) => _table.Remove(key.Key.KeyHash);
         public void Remove(string key) => Remove(StringToKey(key));
+
+        public bool Contains(BlackboardKey key) => Contains(key.Key);
+        public bool Contains(ElementKey key) => Contains(key.KeyHash);
+        public bool Contains(string key) => Contains(StringToKey(key));
+        private bool Contains(int key) => _table.ContainsKey(key);
     }
 }

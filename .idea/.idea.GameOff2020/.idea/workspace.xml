@@ -2,31 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70e28912-96f6-4768-b836-01a1ddb807af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/CreatePathToTargetNode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/CreatePathToTargetNode.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/ReadCurrentKeyBehaviour.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/ReadCurrentKeyBehaviour.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/WriteToAgentBlackboardNode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/WriteToAgentBlackboardNode.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/CreateMoveTargetFromDirNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/CreateMoveTargetFromDirNode.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/DirectionToTargetNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/DirectionToTargetNode.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/OnCardinalDirectionNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/OnCardinalDirectionNode.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/SetAnimatorTriggerNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/SetAnimatorTriggerNode.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/CompareBlackboardValueNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/CompareBlackboardValueNode.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/CompareIntBlackboardValueNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/CompareIntBlackboardValueNode.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/ConstantStateNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/ConstantStateNode.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/WriteIntToBlackboardNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/WriteIntToBlackboardNode.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/WriteToBlackboardNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/WriteToBlackboardNode.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/CompareType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/CompareType.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GameOff2020/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameOff2020/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GameOff2020/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameOff2020/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Ai/BtBheaviour/AttackBehaviour.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Ai/BtBheaviour/AttackBehaviour.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Ai/BtBheaviour/BaseEnemyBehaviour.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Ai/BtBheaviour/BaseEnemyBehaviour.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Ai/BtBheaviour/IdeBehaviour.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Ai/BtBheaviour/IdeBehaviour.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Effects/PushRight1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Effects/PushRight1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/AttackTargetNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/AttackTargetNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/CreateMoveTargetNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/PickRandomAdjacentNodeNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/CreateMoveTargetNode.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/PickRandomAdjacentNodeNode.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/MoveToMoveTargetNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/MoveToMoveTargetNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/Pathfinding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Pathfinding.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/Actions/MoveToPointAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Actions/MoveToPointAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/Enemy.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/Enemy.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/MoveAlongPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/MoveAlongPath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Agent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Agent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/AgentContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/AgentContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/BtNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/BtNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/BtSubtreeNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/BtSubtreeNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/HasLineOfSight2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/HasLineOfSight2D.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/InverterBtNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/InverterBtNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/IsTargetInRangeBtNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/IsTargetInRangeBtNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/SelectorBtNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/SelectorBtNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/SequenceBtNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/SequenceBtNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/WriteToAgentBlackboardNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/WriteStringToBlackboardNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/WriteToAgentBlackboardNode.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/WriteStringToBlackboardNode.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/Blackboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Blackboard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/BlackboardKey.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/BlackboardKey.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +56,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8788DF23-D12C-4548-A89D-2A54A21132B9/78/187c7302/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/282860F4-40AC-4F48-A82A-3A8AAAEC3082/b0/93ed3544/GraphView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Prototypes/TwinStickBase/Assets/Scripts/Ai/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F6747DE9-0205-433F-84EB-50C1DA278135/31/c5190ef8/IComparable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Prototypes/TwinStickBase/Assets/Scripts/Ai/NullState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Prototypes/TwinStickBase/Assets/Scripts/Ai/UnityFsm/AIAgent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Prototypes/TwinStickBase/Assets/Scripts/Ai/Transition.cs" root0="FORCE_HIGHLIGHTING" />
@@ -71,26 +82,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/ChoseAttackAction.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Grid/GridOccupantBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Util/BehaviourTreeView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/BehaviourTreeView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/BehaviourTreeEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Util/BehaviourTreeEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Util/BtView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/BtEditorNode.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Util/OneOfOptionListDraw.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Util/VoidEventButtonEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Util/IntEventButtonEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Resources/BtGraph.uss" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Util/BtEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Util/BtEditorNode.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Util/BtEditorView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Util/BtEditorWindow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Util/BtNodeGraph.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/BtComposite.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/IsTargetInRangeBtNode.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/AttackTarget.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/CreateMoveTargetNode.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/BtCompositeNode.cs" />
         <option value="$PROJECT_DIR$/Assets/ThirdParty/xNode-master/Scripts/Editor/NodeEditorResources.cs" />
@@ -103,9 +94,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/WeaponEffects/WeaponEffect.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Weapons/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/WeaponEffects/PushableBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Util/BlackboardKey.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/ProximitySensor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Blackboard.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/AddToAgentBlackBoard.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/HasLineOfSight2D.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/MoveToMoveTargetNode.cs" />
@@ -117,11 +106,33 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/InverterBtNode.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/WriteToAgentBlackboardNode.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/AttackTargetNode.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Agent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/SelectorBtNode.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/BtNode.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Pathfinding.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/CreatePathToTargetNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/AgentContext.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Agent.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/OnCardinalDirectionNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/CompareBlackboadValue.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/CompareBlackboardValue.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/CompareType.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Blackboard.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/CompareIntBlackboardValueNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/BlackboardKey.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/WriteToBlackboardValueNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/WriteIntToBlackboardValueNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/WriteToBlackboardNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/WriteStringToBlackboardNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/WriteIntToBlackboardNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/CompareBlackboardValueNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/ChargeAttackNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Actions/SequenceAction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/DirectionToTargetNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/CreateMoveTargetFromDirNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/SetAnimatorTriggerNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/ConstantStateNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Ai/Bt/BtNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Actions/MoveToPointAction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/MoveAlongPath.cs" />
       </list>
     </option>
   </component>
@@ -149,10 +160,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="10528">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="9064">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="10528" />
+      <option name="pid" value="9064" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -185,7 +196,8 @@
       <workItem from="1605807236177" duration="4162000" />
       <workItem from="1605818071502" duration="5665000" />
       <workItem from="1605892309629" duration="9760000" />
-      <workItem from="1605955353581" duration="6371000" />
+      <workItem from="1605955353581" duration="6572000" />
+      <workItem from="1605973125420" duration="11119000" />
     </task>
     <servers />
   </component>
@@ -198,90 +210,90 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="394" key="GridCell.Tab.0.bottom" timestamp="1605960721401">
+    <state width="1877" height="365" key="GridCell.Tab.0.bottom" timestamp="1605993846214">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="394" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605960721401" />
+    <state width="1877" height="365" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605993846214" />
     <state width="1877" height="96" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479245335" />
-    <state width="1877" height="394" key="GridCell.Tab.0.center" timestamp="1605960721401">
+    <state width="1877" height="365" key="GridCell.Tab.0.center" timestamp="1605993846214">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="394" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605960721401" />
+    <state width="1877" height="365" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605993846214" />
     <state width="1877" height="96" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479245335" />
-    <state width="1877" height="394" key="GridCell.Tab.0.left" timestamp="1605960721401">
+    <state width="1877" height="365" key="GridCell.Tab.0.left" timestamp="1605993846214">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="394" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605960721401" />
+    <state width="1877" height="365" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605993846214" />
     <state width="1877" height="96" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479245335" />
-    <state width="1877" height="394" key="GridCell.Tab.0.right" timestamp="1605960721401">
+    <state width="1877" height="365" key="GridCell.Tab.0.right" timestamp="1605993846214">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="394" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605960721401" />
+    <state width="1877" height="365" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605993846214" />
     <state width="1877" height="96" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479245335" />
-    <state width="1877" height="394" key="GridCell.Tab.1.bottom" timestamp="1605960724540">
+    <state width="1877" height="365" key="GridCell.Tab.1.bottom" timestamp="1605993860954">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="394" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605960724540" />
+    <state width="1877" height="365" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605993860954" />
     <state width="1877" height="96" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479245335" />
-    <state width="1877" height="394" key="GridCell.Tab.1.center" timestamp="1605960724540">
+    <state width="1877" height="365" key="GridCell.Tab.1.center" timestamp="1605993860954">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="394" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605960724540" />
+    <state width="1877" height="365" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605993860954" />
     <state width="1877" height="96" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479245335" />
-    <state width="1877" height="394" key="GridCell.Tab.1.left" timestamp="1605960724540">
+    <state width="1877" height="365" key="GridCell.Tab.1.left" timestamp="1605993860954">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="394" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605960724540" />
+    <state width="1877" height="365" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605993860954" />
     <state width="1877" height="96" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479245335" />
-    <state width="1877" height="394" key="GridCell.Tab.1.right" timestamp="1605960724540">
+    <state width="1877" height="365" key="GridCell.Tab.1.right" timestamp="1605993860954">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="394" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605960724540" />
+    <state width="1877" height="365" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605993860954" />
     <state width="1877" height="96" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479245335" />
-    <state width="1877" height="394" key="GridCell.Tab.2.bottom" timestamp="1605563853879">
+    <state width="1877" height="365" key="GridCell.Tab.2.bottom" timestamp="1605993846138">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="394" key="GridCell.Tab.2.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605563853879" />
+    <state width="1877" height="365" key="GridCell.Tab.2.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605993846138" />
     <state width="1877" height="96" key="GridCell.Tab.2.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479245336" />
-    <state width="1877" height="394" key="GridCell.Tab.2.center" timestamp="1605563853879">
+    <state width="1877" height="365" key="GridCell.Tab.2.center" timestamp="1605993846138">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="394" key="GridCell.Tab.2.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605563853879" />
+    <state width="1877" height="365" key="GridCell.Tab.2.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605993846138" />
     <state width="1877" height="96" key="GridCell.Tab.2.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479245335" />
-    <state width="1877" height="394" key="GridCell.Tab.2.left" timestamp="1605563853879">
+    <state width="1877" height="365" key="GridCell.Tab.2.left" timestamp="1605993846138">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="394" key="GridCell.Tab.2.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605563853879" />
+    <state width="1877" height="365" key="GridCell.Tab.2.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605993846138" />
     <state width="1877" height="96" key="GridCell.Tab.2.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479245335" />
-    <state width="1877" height="394" key="GridCell.Tab.2.right" timestamp="1605563853879">
+    <state width="1877" height="365" key="GridCell.Tab.2.right" timestamp="1605993846138">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="394" key="GridCell.Tab.2.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605563853879" />
+    <state width="1877" height="365" key="GridCell.Tab.2.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605993846138" />
     <state width="1877" height="96" key="GridCell.Tab.2.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479245336" />
-    <state width="1877" height="394" key="GridCell.Tab.3.bottom" timestamp="1605563853880">
+    <state width="1877" height="365" key="GridCell.Tab.3.bottom" timestamp="1605993846138">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="394" key="GridCell.Tab.3.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605563853880" />
+    <state width="1877" height="365" key="GridCell.Tab.3.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605993846138" />
     <state width="1877" height="96" key="GridCell.Tab.3.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479245336" />
-    <state width="1877" height="394" key="GridCell.Tab.3.center" timestamp="1605563853879">
+    <state width="1877" height="365" key="GridCell.Tab.3.center" timestamp="1605993846138">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="394" key="GridCell.Tab.3.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605563853879" />
+    <state width="1877" height="365" key="GridCell.Tab.3.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605993846138" />
     <state width="1877" height="96" key="GridCell.Tab.3.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479245336" />
-    <state width="1877" height="394" key="GridCell.Tab.3.left" timestamp="1605563853879">
+    <state width="1877" height="365" key="GridCell.Tab.3.left" timestamp="1605993846138">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="394" key="GridCell.Tab.3.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605563853879" />
+    <state width="1877" height="365" key="GridCell.Tab.3.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605993846138" />
     <state width="1877" height="96" key="GridCell.Tab.3.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479245336" />
-    <state width="1877" height="394" key="GridCell.Tab.3.right" timestamp="1605563853880">
+    <state width="1877" height="365" key="GridCell.Tab.3.right" timestamp="1605993846138">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="394" key="GridCell.Tab.3.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605563853880" />
+    <state width="1877" height="365" key="GridCell.Tab.3.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605993846138" />
     <state width="1877" height="96" key="GridCell.Tab.3.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479245336" />
-    <state x="-1126" y="236" key="RiderGenerateDialog" timestamp="1605892779483">
+    <state x="-1126" y="236" key="RiderGenerateDialog" timestamp="1605977746907">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1126" y="236" key="RiderGenerateDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605892779483" />
+    <state x="-1126" y="236" key="RiderGenerateDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605977746907" />
     <state x="794" y="236" key="RiderGenerateDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479025835" />
     <state x="-1459" y="165" key="SettingsEditor" timestamp="1604954341895">
       <screen x="-1920" y="0" width="1920" height="1040" />
@@ -305,27 +317,40 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1304" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1604759664970" />
-    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605959830958">
+    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605986760309">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605959830958" />
+    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605986760309" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605907845746" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Luna/Ai/CreatePathToTargetNode.cs</url>
-          <line>18</line>
-          <properties documentPath="C:\Users\canni\Documents\Code\Unity\Jams\GameOff2020\Assets\Scripts\Luna\Ai\CreatePathToTargetNode.cs" initialLine="18">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Luna/Ai/CreateMoveTargetFromDirNode.cs</url>
+          <line>30</line>
+          <properties documentPath="C:\Users\canni\Documents\Code\Unity\Jams\GameOff2020\Assets\Scripts\Luna\Ai\CreateMoveTargetFromDirNode.cs" initialLine="30">
             <startOffsets>
-              <option value="480" />
+              <option value="944" />
             </startOffsets>
             <endOffsets>
-              <option value="583" />
+              <option value="957" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Util/MathUtils.cs</url>
+          <line>6</line>
+          <properties documentPath="C:\Users\canni\Documents\Code\Unity\Jams\GameOff2020\Assets\Scripts\Util\MathUtils.cs" initialLine="6">
+            <startOffsets>
+              <option value="139" />
+            </startOffsets>
+            <endOffsets>
+              <option value="182" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

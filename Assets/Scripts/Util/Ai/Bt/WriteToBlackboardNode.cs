@@ -1,11 +1,12 @@
+using System;
 using UnityEngine;
 
 namespace Util.Ai.Bt
 {
-    public class WriteToAgentBlackboardNode : BtDecoratorNode
+    public class WriteToBlackboardNode<T> : BtDecoratorNode where T : IComparable
     {
         [SerializeField] private BlackboardKey key;
-        [SerializeField] private string value;
+        [SerializeField] private T value;
 
 
         protected override State OnExecute(AgentContext context)
