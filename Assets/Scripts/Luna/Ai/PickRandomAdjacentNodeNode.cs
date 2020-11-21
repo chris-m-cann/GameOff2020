@@ -1,13 +1,16 @@
 using Luna.Grid;
 using UnityEngine;
+using Util;
 using Util.Ai;
 using Util.Ai.Bt;
 
 namespace Luna.Ai
 {
-    public class CreateMoveTargetNode : BtNode
+    public class PickRandomAdjacentNodeNode : BtNode
     {
-        public override State Execute(AgentContext context)
+        [SerializeField] private BlackboardKey outputKey;
+
+        protected override State OnExecute(AgentContext context)
         {
             var occupant = context.Agent.GetComponent<GridOccupantBehaviour>();
             if (occupant == null) return State.Failed;
@@ -27,7 +30,7 @@ namespace Luna.Ai
                     noPointFound = node.Cost < 0;
                 }
             }
-            context.AgentBlackboard.Add<Grid.Grid.Node?>("MoveTarget", node);
+            context.AgentBlackboard.Add<Grid.Grid.Node?>(outputKey, node);
             return State.Succeeded;
         }
     }

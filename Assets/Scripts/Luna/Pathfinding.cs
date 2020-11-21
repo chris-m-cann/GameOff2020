@@ -6,24 +6,30 @@ using Util;
 
 namespace Luna
 {
+    [RequireComponent(typeof(IProvider<GridVariable>))]
     public class Pathfinding : MonoBehaviour
     {
-        [SerializeField] private GridVariable grid;
+        private IProvider<GridVariable> _grid;
 
-        public List<Grid.Grid.Node> CalculatePath(Vector2 from, Vector2 to)
+        private void Awake()
+        {
+            _grid = GetComponent<IProvider<GridVariable>>();
+        }
+
+        public List<Grid.Grid.Node> CalculatePath(Vector2 from, Vector2 to, bool considerEndCost = true)
         {
 
             var startNode = new Grid.Grid.Node();
             var endNode = new Grid.Grid.Node();
 
-            if (!grid.Value.TryGetNodeAtWorldPosition(from, ref startNode)) return new List<Grid.Grid.Node>();
-            if (!grid.Value.TryGetNodeAtWorldPosition(to, ref endNode)) return new List<Grid.Grid.Node>();
+            if (!_grid.Get().Value.TryGetNodeAtWorldPosition(from, ref startNode)) return new List<Grid.Grid.Node>();
+            if (!_grid.Get().Value.TryGetNodeAtWorldPosition(to, ref endNode)) return new List<Grid.Grid.Node>();
 
 
-            return CalculatePath(grid.Value, startNode, endNode);
+            return CalculatePath(_grid.Get().Value, startNode, endNode, considerEndCost);
         }
 
-        private List<Grid.Grid.Node> CalculatePath(Grid.Grid grid, Grid.Grid.Node start, Grid.Grid.Node end)
+        private List<Grid.Grid.Node> CalculatePath(Grid.Grid grid, Grid.Grid.Node start, Grid.Grid.Node end, bool considerEndCost)
         {
             var path = new List<Grid.Grid.Node>();
 
@@ -44,9 +50,19 @@ namespace Luna
                 var costToCurrent = costSoFar[current];
                 foreach (var next in grid.GetNeighbours(current))
                 {
-                    if (next.Cost < 0) continue;
-
-                    var cost = costToCurrent + next.Cost;
+                    var cost = costToCurrent;
+                    if (next.Equals(end) && !considerEndCost)
+                    {
+                        cost += 1;
+                    }
+                    else if (next.Cost < 0)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        cost += next.Cost;
+                    }
 
                     if (costSoFar.ContainsKey(next) && cost >= costSoFar[next]) continue;
 

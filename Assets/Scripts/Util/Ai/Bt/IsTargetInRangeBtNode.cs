@@ -15,7 +15,7 @@ namespace Util.Ai.Bt
             this.range = range;
         }
 
-        public override State Execute(AgentContext context)
+        protected override State OnExecute(AgentContext context)
         {
             var target = context.Target;
             if (target == null) return State.Failed;

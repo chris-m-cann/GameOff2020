@@ -23,7 +23,14 @@ namespace Util.Ai.Bt
 
         public State CurrentState { get; protected set; }
 
-        public abstract State Execute(AgentContext context);
+        public State Execute(AgentContext context)
+        {
+            Debug.Log($"Executing {name} in {graph.name}");
+            CurrentState = OnExecute(context);
+            return CurrentState;
+        }
+
+        protected abstract State OnExecute(AgentContext context);
 
         public override void OnCreateConnection(NodePort @from, NodePort to)
         {

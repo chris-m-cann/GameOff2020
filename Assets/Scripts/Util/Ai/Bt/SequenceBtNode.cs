@@ -4,15 +4,7 @@ namespace Util.Ai.Bt
 {
     public class SequenceBtNode : BtCompositeNode
     {
-        public SequenceBtNode()
-        {
-        }
-
-        public SequenceBtNode(List<BtNode> nodes)
-        {
-            children = nodes;
-        }
-        public override State Execute(AgentContext context)
+        protected override State OnExecute(AgentContext context)
         {
             var areNodesRunning = false;
             foreach (var node in children)

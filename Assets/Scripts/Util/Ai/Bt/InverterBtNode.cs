@@ -2,7 +2,7 @@ namespace Util.Ai.Bt
 {
     public class InverterBtNode : BtDecoratorNode
     {
-        public override State Execute(AgentContext context)
+        protected override State OnExecute(AgentContext context)
         {
             if (child == null) return State.Failed;
 

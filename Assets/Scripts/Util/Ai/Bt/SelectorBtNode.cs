@@ -6,8 +6,7 @@ namespace Util.Ai.Bt
 {
     public class SelectorBtNode : BtCompositeNode
     {
-
-        public override State Execute(AgentContext context)
+        protected override State OnExecute(AgentContext context)
         {
             foreach (var child in children)
             {

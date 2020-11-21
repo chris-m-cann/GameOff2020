@@ -6,7 +6,7 @@ namespace Util.Ai.Bt
     {
         [SerializeField] private BehaviourTree tree;
 
-        public override State Execute(AgentContext context)
+        protected override State OnExecute(AgentContext context)
         {
             return tree?.Root?.Execute(context) ?? State.Failed;
         }

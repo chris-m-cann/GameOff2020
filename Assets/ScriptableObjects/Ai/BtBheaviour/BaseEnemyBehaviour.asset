@@ -32,7 +32,7 @@ MonoBehaviour:
       _dynamic: 0
   Description: ChaseBehaviour
   Parent: {fileID: -3757705015950865824}
-  tree: {fileID: 0}
+  tree: {fileID: 11400000, guid: a943ebcb840d95b4f8ade5c221dbb694, type: 2}
 --- !u!114 &-3757705015950865824
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ namespace Luna.Ai
         [SerializeField] private BlackboardKey targetNodeKey;
 
 
-        public override State Execute(AgentContext context)
+        protected override State OnExecute(AgentContext context)
         {
             if (context.Target == null) return State.Failed;
 

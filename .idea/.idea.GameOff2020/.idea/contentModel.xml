@@ -33,10 +33,12 @@
             <e p="Ai" t="Include">
               <e p="AttackTargetNode.cs" t="Include" />
               <e p="BaseSensor.cs" t="Include" />
-              <e p="CreateMoveTargetNode.cs" t="Include" />
+              <e p="CreatePathToTargetNode.cs" t="Include" />
               <e p="ISensor.cs" t="Include" />
               <e p="MoveToMoveTargetNode.cs" t="Include" />
+              <e p="PickRandomAdjacentNodeNode.cs" t="Include" />
               <e p="ProximitySensor.cs" t="Include" />
+              <e p="ReadCurrentKeyBehaviour.cs" t="Include" />
             </e>
             <e p="Enemy.cs" t="Include" />
             <e p="Grid" t="Include">
@@ -104,6 +106,7 @@
                 <e p="IsTargetInRangeBtNode.cs" t="Include" />
                 <e p="SelectorBtNode.cs" t="Include" />
                 <e p="SequenceBtNode.cs" t="Include" />
+                <e p="WriteToAgentBlackboardNode.cs" t="Include" />
               </e>
             </e>
             <e p="AudioClipEx.cs" t="Include" />
