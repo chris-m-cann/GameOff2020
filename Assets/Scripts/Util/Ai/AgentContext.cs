@@ -1,4 +1,6 @@
 using Ai;
+using Luna.Grid;
+using Luna.Unit;
 using UnityEngine;
 
 namespace Util.Ai
@@ -12,5 +14,9 @@ namespace Util.Ai
         public Transform Target;
 
         public bool LogNodeExecution;
+
+        // game specific
+        public Unit Unit;
+        public GridOccupantBehaviour Occupant;
     }
 }

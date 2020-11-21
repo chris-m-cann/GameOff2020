@@ -2,11 +2,14 @@ using System;
 using System.Collections.Generic;
 using Ai;
 using Luna.Ai;
+using Luna.Grid;
+using Luna.Unit;
 using UnityEngine;
 using Util.Ai.Bt;
 
 namespace Util.Ai
 {
+    [RequireComponent(typeof(Unit), typeof(GridOccupantBehaviour))]
     public class Agent : MonoBehaviour
     {
         [SerializeField] private Blackboard globalBlackboard;
@@ -25,15 +28,22 @@ namespace Util.Ai
         private AgentContext _context;
         private List<ISensor> _sensors = new List<ISensor>();
 
+        private Unit _unit;
+        private GridOccupantBehaviour _occupant;
+
         private void Awake()
         {
+            _occupant = GetComponent<GridOccupantBehaviour>();
+            _unit = GetComponent<Unit>();
             var agentBlackboard = ScriptableObject.CreateInstance<Blackboard>();
             _context = new AgentContext
             {
                 GlobalBlackboard = globalBlackboard,
                 AgentBlackboard = agentBlackboard,
                 Agent = gameObject,
-                Target = null
+                Target = null,
+                Unit = _unit,
+                Occupant = _occupant
             };
         }
 

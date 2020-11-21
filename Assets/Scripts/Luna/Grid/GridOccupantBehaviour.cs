@@ -30,6 +30,8 @@ namespace Luna.Grid
             }
         }
 
+        public Grid Grid => grid.Value;
+
         private void Awake()
         {
             Occupant.OccupantGameObject = gameObject;

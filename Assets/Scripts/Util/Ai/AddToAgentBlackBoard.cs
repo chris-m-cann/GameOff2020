@@ -7,7 +7,7 @@ namespace Util.Ai
     [RequireComponent(typeof(Agent))]
     public class AddToAgentBlackBoard : MonoBehaviour
     {
-        [SerializeField] private Pair<BlackboardKey, Object>[] entries;
+        [SerializeField] private Pair<BlackboardKey, BlackboardTypes>[] entries;
         private Agent _agent;
 
         private void Awake()
@@ -19,7 +19,7 @@ namespace Util.Ai
         {
             foreach (var entry in entries)
             {
-                _agent.AgentBlackboard.Add(entry.First, entry.Second);
+                entry.Second.AddToBlackboard(_agent.AgentBlackboard, entry.First);
             }
         }
     }

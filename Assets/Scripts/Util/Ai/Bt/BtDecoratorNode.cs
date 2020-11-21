@@ -5,7 +5,7 @@ namespace Util.Ai.Bt
 {
     public abstract class BtDecoratorNode : BtNode
     {
-        [Output] [SerializeField] protected BtNode child;
+        [Output(connectionType:ConnectionType.Override)] [SerializeField] protected BtNode child;
 
         public override void OnCreateConnection(NodePort @from, NodePort to)
         {

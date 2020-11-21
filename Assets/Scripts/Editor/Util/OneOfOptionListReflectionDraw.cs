@@ -1,13 +1,14 @@
+using System.Linq;
+using System.Text;
 using UnityEditor;
 using UnityEngine;
+using Util;
 
 namespace Editor.Util
 {
-    public abstract class OneOfOptionListDraw : PropertyDrawer
+    public abstract class OneOfOptionListReflectionDraw<T> : PropertyDrawer
     {
-        protected abstract string[] GetOptions();
-        protected abstract string[] GetOptionLabels();
-        protected abstract string GetDiscriminatName();
+        protected virtual string GetDisciminantName() => "option";
 
         private GUIStyle _popupStyle;
 
@@ -24,19 +25,18 @@ namespace Editor.Util
 
             EditorGUI.BeginChangeCheck();
 
-            var options = GetOptions();
+            var members = typeof(T).GetFields().Where(it => it.IsPublic).Select(it => it.Name).ToArray();
 
 
-            var labelText = GetOptionLabels();
-            var discriminatName  = GetDiscriminatName();
+            SerializedProperty discriminat = property.FindPropertyRelative(GetDisciminantName());
+            SerializedProperty[] properties = new SerializedProperty[members.Length];
+            properties[0] = property;
 
-            SerializedProperty discriminat = property.FindPropertyRelative(discriminatName);
-            SerializedProperty[] properties = new SerializedProperty[options.Length];
-
-            for (int i = 0; i < options.Length; i++)
+            for (int i = 0; i < members.Length; i++)
             {
-                properties[i] = property.FindPropertyRelative(options[i]);
+                properties[i] = property.FindPropertyRelative(members[i]);
             }
+
 
             // Calculate rect for configuration button
             Rect buttonRect = new Rect(position);
@@ -48,7 +48,8 @@ namespace Editor.Util
             int indent = EditorGUI.indentLevel;
             EditorGUI.indentLevel = 0;
 
-            int result = EditorGUI.Popup(buttonRect, discriminat.intValue, labelText, _popupStyle);
+
+            int result = EditorGUI.Popup(buttonRect, discriminat.intValue, members, _popupStyle);
 
             discriminat.intValue = result;
 

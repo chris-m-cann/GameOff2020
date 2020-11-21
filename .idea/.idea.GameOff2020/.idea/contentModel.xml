@@ -11,11 +11,13 @@
         <e p="Scripts" t="Include">
           <e p="Editor" t="Include">
             <e p="Util" t="Include">
+              <e p="BlackboardTypesDraw.cs" t="Include" />
               <e p="BtNodeEditor.cs" t="Include" />
               <e p="EventButtonEditor.cs" t="Include" />
               <e p="EventReferenceDraw.cs" t="Include" />
               <e p="IntEventButtonEditor.cs" t="Include" />
               <e p="OneOfOptionListDraw.cs" t="Include" />
+              <e p="OneOfOptionListReflectionDraw.cs" t="Include" />
               <e p="VariableReferenceDraw.cs" t="Include" />
               <e p="VoidEventButtonEditor.cs" t="Include" />
             </e>
@@ -36,8 +38,10 @@
               <e p="CreateMoveTargetFromDirNode.cs" t="Include" />
               <e p="CreatePathToTargetNode.cs" t="Include" />
               <e p="DirectionToTargetNode.cs" t="Include" />
+              <e p="GetNodeRelativeToAgent.cs" t="Include" />
               <e p="ISensor.cs" t="Include" />
               <e p="MoveToMoveTargetNode.cs" t="Include" />
+              <e p="NodeHasOccupantsOnLayer.cs" t="Include" />
               <e p="OnCardinalDirectionNode.cs" t="Include" />
               <e p="PickRandomAdjacentNodeNode.cs" t="Include" />
               <e p="ProximitySensor.cs" t="Include" />
@@ -98,6 +102,7 @@
               <e p="AddToAgentBlackBoard.cs" t="Include" />
               <e p="Agent.cs" t="Include" />
               <e p="AgentContext.cs" t="Include" />
+              <e p="BlackboardTypes.cs" t="Include" />
               <e p="Bt" t="Include">
                 <e p="BehaviourTree.cs" t="Include" />
                 <e p="BtCompositeNode.cs" t="Include" />
@@ -110,6 +115,9 @@
                 <e p="HasLineOfSight2D.cs" t="Include" />
                 <e p="InverterBtNode.cs" t="Include" />
                 <e p="IsTargetInRangeBtNode.cs" t="Include" />
+                <e p="LoopNode.cs" t="Include" />
+                <e p="RemoveFromBlackboardNode.cs" t="Include" />
+                <e p="RotateVector2IntNode.cs" t="Include" />
                 <e p="SelectorBtNode.cs" t="Include" />
                 <e p="SequenceBtNode.cs" t="Include" />
                 <e p="WriteIntToBlackboardNode.cs" t="Include" />
