@@ -4,6 +4,7 @@ using Ai;
 using Luna.Grid;
 using Luna.Weapons;
 using UnityEngine;
+using Util;
 using Util.Ai;
 using Util.Ai.Bt;
 
@@ -12,8 +13,8 @@ namespace Luna.Ai
     [Serializable]
     public class AttackTargetNode : BtNode
     {
-        [SerializeField] private string weaponKey;
-        [SerializeField] private string targetNodeKey;
+        [SerializeField] private BlackboardKey weaponKey;
+        [SerializeField] private BlackboardKey targetNodeKey;
 
 
         public override State Execute(AgentContext context)

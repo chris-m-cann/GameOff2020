@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7667286638486695776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d767d41e94448e59d8c5c7c5ce4c2ea, type: 3}
+  m_Name: Attack Target
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -248, y: -360}
+  ports:
+    keys:
+    - Parent
+    values:
+    - _fieldName: Parent
+      _node: {fileID: -7667286638486695776}
+      _typeQualifiedName: Util.Ai.Bt.BtNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: children
+        node: {fileID: 3806448121553065607}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Description: 
+  Parent: {fileID: 3806448121553065607}
+  weaponKey: {fileID: 11400000, guid: 591a1b25f95b6794bb4e4345917c4f0b, type: 2}
+  targetNodeKey: {fileID: 11400000, guid: fd0dc22d523a95743b65e2b9df1917e7, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc1d9aeac21d13b46bd90fe9d2684ec9, type: 3}
+  m_Name: AttackBehaviour
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 3806448121553065607}
+  - {fileID: -7667286638486695776}
+--- !u!114 &3806448121553065607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae6b7a772a34daf9e3e182c5e079c36, type: 3}
+  m_Name: Selector Bt
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -680, y: -376}
+  ports:
+    keys:
+    - children
+    - Parent
+    values:
+    - _fieldName: children
+      _node: {fileID: 3806448121553065607}
+      _typeQualifiedName: System.Collections.Generic.List`1[[Util.Ai.Bt.BtNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: Parent
+        node: {fileID: -7667286638486695776}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: 3806448121553065607}
+      _typeQualifiedName: Util.Ai.Bt.BtNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Description: 
+  Parent: {fileID: 0}
+  children:
+  - {fileID: -7667286638486695776}

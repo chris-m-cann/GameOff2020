@@ -7,7 +7,7 @@ namespace Util.Ai
     [RequireComponent(typeof(Agent))]
     public class AddToAgentBlackBoard : MonoBehaviour
     {
-        [SerializeField] private Pair<string, Object>[] entries;
+        [SerializeField] private Pair<BlackboardKey, Object>[] entries;
         private Agent _agent;
 
         private void Awake()

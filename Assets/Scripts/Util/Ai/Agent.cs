@@ -7,10 +7,10 @@ using Util.Ai.Bt;
 
 namespace Util.Ai
 {
-    [RequireComponent(typeof(IProvider<BtNode>))]
     public class Agent : MonoBehaviour
     {
         [SerializeField] private Blackboard globalBlackboard;
+        [SerializeField] private BehaviourTree behaviour;
 
         public Blackboard AgentBlackboard => _context.AgentBlackboard;
 
@@ -38,9 +38,11 @@ namespace Util.Ai
 
         public void Execute()
         {
+            if (behaviour == null) return;
+
             if (_treeRoot == null)
             {
-                _treeRoot = GetComponent<IProvider<BtNode>>().Get();
+                _treeRoot = behaviour.Root;
             }
 
             foreach (var sensor in _sensors)

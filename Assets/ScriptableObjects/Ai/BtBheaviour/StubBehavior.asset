@@ -48,6 +48,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  Description: 
   Parent: {fileID: 4727227749653758786}
 --- !u!114 &4727227749653758786
 MonoBehaviour:
@@ -96,6 +97,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  Description: 
   Parent: {fileID: 9181256304091547841}
   children:
   - {fileID: 9030017189578138516}
@@ -130,6 +132,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  Description: 
   Parent: {fileID: 9181256304091547841}
   weaponKey: Weapon
   targetNodeKey: TargetNode
@@ -163,6 +166,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  Description: 
   Parent: {fileID: 4727227749653758786}
 --- !u!114 &9181256304091547841
 MonoBehaviour:
@@ -208,6 +212,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  Description: 
   Parent: {fileID: 0}
   children:
   - {fileID: 6468879595719554387}

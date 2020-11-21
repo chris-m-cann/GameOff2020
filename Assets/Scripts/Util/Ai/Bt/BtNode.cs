@@ -15,6 +15,10 @@ namespace Util.Ai.Bt
             Running
         }
 
+        #if UNITY_EDITOR
+        public string Description;
+        #endif
+
         [Input] public BtNode Parent;
 
         public State CurrentState { get; protected set; }

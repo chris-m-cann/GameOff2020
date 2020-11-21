@@ -37,7 +37,6 @@
               <e p="ISensor.cs" t="Include" />
               <e p="MoveToMoveTargetNode.cs" t="Include" />
               <e p="ProximitySensor.cs" t="Include" />
-              <e p="StubTreeProviderBehaviour.cs" t="Include" />
             </e>
             <e p="Enemy.cs" t="Include" />
             <e p="Grid" t="Include">
@@ -99,6 +98,7 @@
                 <e p="BtCompositeNode.cs" t="Include" />
                 <e p="BtDecoratorNode.cs" t="Include" />
                 <e p="BtNode.cs" t="Include" />
+                <e p="BtSubtreeNode.cs" t="Include" />
                 <e p="HasLineOfSight2D.cs" t="Include" />
                 <e p="InverterBtNode.cs" t="Include" />
                 <e p="IsTargetInRangeBtNode.cs" t="Include" />
@@ -109,6 +109,7 @@
             <e p="AudioClipEx.cs" t="Include" />
             <e p="BasicGameObjectPool.cs" t="Include" />
             <e p="Blackboard.cs" t="Include" />
+            <e p="BlackboardKey.cs" t="Include" />
             <e p="CollectionUtils.cs" t="Include" />
             <e p="CoroutinesUtils.cs" t="Include" />
             <e p="DictionaryUtils.cs" t="Include" />

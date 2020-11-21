@@ -13,10 +13,9 @@ namespace Luna.Ai
     {
         [SerializeField] private int range = 2;
         [SerializeField] private LayerMask targetLayers;
-        [SerializeField] private string targetNodeKey = "TargetNode";
+        [SerializeField] private BlackboardKey targetNodeKey;
 
         private Vector2 _size;
-        private Blackboard.ElementKey _targetNodeKey;
 
         private IProvider<GridVariable> _grid;
         private bool _hasTarget;
@@ -45,19 +44,18 @@ namespace Luna.Ai
                 {
                     _hasTarget = true;
                     _agent.Target = col.transform;
-                    agentBoard.Add<Grid.Grid.Node?>(_targetNodeKey, node);
+                    agentBoard.Add<Grid.Grid.Node?>(targetNodeKey, node);
                     return;
                 }
             }
 
             _hasTarget = false;
-            agentBoard.Remove(_targetNodeKey);
+            agentBoard.Remove(targetNodeKey);
         }
 
         private void Init()
         {
             _size = new Vector2(range, range);
-            _targetNodeKey = Blackboard.StringToKey(targetNodeKey);
         }
 
         private void OnDrawGizmosSelected()
