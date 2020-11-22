@@ -12,6 +12,7 @@ namespace Luna.Weapons
     {
         public GridOccupantTag[] TargetTypes;
         public WeaponEffect[] Effects;
+        public bool EffectSelf;
 
         public abstract Grid.Grid.Node[] FindTargets(Grid.Grid.Node wielder, Grid.Grid grid);
 
@@ -20,7 +21,7 @@ namespace Luna.Weapons
             var actions = new List<IUnitAction>();
             foreach (var occupant in target.Occupants)
             {
-                if (occupant.OccupantGameObject != wielder)
+                if (occupant.OccupantGameObject != wielder || EffectSelf)
                 {
                     foreach (var effect in Effects)
                     {

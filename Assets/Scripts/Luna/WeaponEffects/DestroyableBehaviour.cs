@@ -13,7 +13,9 @@ namespace Luna.WeaponEffects
             {
                 new RunActionAction(_unit, TurnPhase.EndOfTurn, () =>
                 {
-                    Destroy(gameObject);
+
+                    // todo(chris) gross and wrong. no delays!! current thid ids to stop it destroying itself before action can complete
+                    Destroy(gameObject, 1);
                 })
             };
         }

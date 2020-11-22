@@ -87,8 +87,12 @@ namespace Luna.Grid
                 return new Node[1]{node};
             }
 
-            var neighboursCount = Mathf.RoundToInt(Mathf.Pow(2, area));
+            var side = (2 * area) - 1;
+
+            var neighboursCount = (side - 2) * (side - 2) + 4;
             var neighbours = new List<Node>(neighboursCount);
+
+            neighbours.Add(node);
 
             var tmp = new Node();
             if (TryGetNodeAt(node.X - (area - 1), node.Y, ref tmp))
