@@ -11,6 +11,7 @@ namespace Util.Ai
         public ScriptableObject ScriptableObject;
         public Vector2Int Vector2Int;
         public float Float;
+        public int Int;
 
         // needs to be serialzed for property draw
         [SerializeField] private int option;
@@ -26,6 +27,9 @@ namespace Util.Ai
                     break;
                 case 2:
                     board.Add(key, Float);
+                    break;
+                case 3:
+                    board.Add(key, Int);
                     break;
             }
         }

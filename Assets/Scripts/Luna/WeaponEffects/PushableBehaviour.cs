@@ -27,7 +27,6 @@ namespace Luna.WeaponEffects
 
         public override List<IUnitAction> Handle(PushWeaponEffect effect, GameObject wielder)
         {
-            Debug.Log($"Pushing {name}");
             var actions = new List<IUnitAction>();
 
             Vector2Int direction = GetPush(effect, wielder);
@@ -44,7 +43,6 @@ namespace Luna.WeaponEffects
             var node = new Grid.Grid.Node();
             if (_occupant.Get().Value.TryGetNodeAt(pos.x, pos.y, ref node))
             {
-                Debug.Log($"Pushing {name} by {direction}");
                 // todo(chris) this doesnt really work with anything that isnt just in 1 direction
                 actions.Add(new MoveToPointAction(_unit, node, twoWayCollisions: true, TurnPhase.ResolvingAction));
             }

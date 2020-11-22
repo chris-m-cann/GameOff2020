@@ -30,6 +30,7 @@
               <e p="IUnitAction.cs" t="Include" />
               <e p="MoveToPointAction.cs" t="Include" />
               <e p="PlayerInputAction.cs" t="Include" />
+              <e p="RunActionAction.cs" t="Include" />
             </e>
             <e p="AddTurnTakerToSet.cs" t="Include" />
             <e p="Ai" t="Include">
@@ -48,6 +49,7 @@
               <e p="ProximitySensor.cs" t="Include" />
               <e p="ReadCurrentKeyBehaviour.cs" t="Include" />
               <e p="SetAnimatorTriggerNode.cs" t="Include" />
+              <e p="UseWeaponNode.cs" t="Include" />
             </e>
             <e p="Grid" t="Include">
               <e p="Grid.cs" t="Include" />
@@ -87,6 +89,8 @@
             <e p="WeaponEffects" t="Include">
               <e p="DamageableBehaviour.cs" t="Include" />
               <e p="DamageEffect.cs" t="Include" />
+              <e p="DestroyableBehaviour.cs" t="Include" />
+              <e p="DestroyWielderEffect.cs" t="Include" />
               <e p="EffectHandler.cs" t="Include" />
               <e p="PushableBehaviour.cs" t="Include" />
               <e p="PushWeaponEffect.cs" t="Include" />
@@ -115,6 +119,7 @@
                 <e p="CompareIntBlackboardValueNode.cs" t="Include" />
                 <e p="ConstantStateNode.cs" t="Include" />
                 <e p="HasLineOfSight2D.cs" t="Include" />
+                <e p="IncrementIntNode.cs" t="Include" />
                 <e p="InverterBtNode.cs" t="Include" />
                 <e p="IsKeyInBlackboardNode.cs" t="Include" />
                 <e p="IsTargetInRangeBtNode.cs" t="Include" />

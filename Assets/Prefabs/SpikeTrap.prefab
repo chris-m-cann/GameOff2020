@@ -183,6 +183,7 @@ MonoBehaviour:
       ScriptableObject: {fileID: 11400000, guid: dc47cb544e4530b4ba4069716a5fc131, type: 2}
       Vector2Int: {x: 0, y: 0}
       Float: 0
+      Int: 0
       option: 0
 --- !u!95 &4478430763260383691
 Animator:
@@ -194,7 +195,7 @@ Animator:
   m_GameObject: {fileID: 4478430763260383699}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eb2ea74ba5cc7e84eb83f0e166980207, type: 2}
+  m_Controller: {fileID: 22100000, guid: acb37e5d72b58dd44a9e88e79a2db479, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

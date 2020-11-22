@@ -7,7 +7,8 @@ namespace Luna
         Moving,
         ResolvingMoveCollisions,
         PerformingAction,
-        ResolvingAction
+        ResolvingAction,
+        EndOfTurn
     }
 }
 
