@@ -130,7 +130,7 @@ MonoBehaviour:
         node: {fileID: -5557456257247510692}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: Parent
@@ -283,7 +283,7 @@ MonoBehaviour:
         node: {fileID: 3583287147269225599}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: Parent
@@ -466,7 +466,7 @@ MonoBehaviour:
         node: {fileID: -8625548384508144777}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: Parent
@@ -514,7 +514,7 @@ MonoBehaviour:
         node: {fileID: 4011801526408235421}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: Parent
@@ -567,6 +567,7 @@ MonoBehaviour:
   Description: 
   Parent: {fileID: -560502025644174244}
   moveTargetKey: {fileID: 11400000, guid: 3ab96f94cd248f34b82425ef20a59849, type: 2}
+  phase: 4
 --- !u!114 &3583287147269225599
 MonoBehaviour:
   m_ObjectHideFlags: 0

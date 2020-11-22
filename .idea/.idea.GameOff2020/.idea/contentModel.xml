@@ -35,14 +35,15 @@
             <e p="Ai" t="Include">
               <e p="AttackTargetNode.cs" t="Include" />
               <e p="BaseSensor.cs" t="Include" />
+              <e p="ConvertVector2IntToCardinal.cs" t="Include" />
               <e p="CreateMoveTargetFromDirNode.cs" t="Include" />
               <e p="CreatePathToTargetNode.cs" t="Include" />
               <e p="DirectionToTargetNode.cs" t="Include" />
               <e p="GetNodeRelativeToAgent.cs" t="Include" />
               <e p="ISensor.cs" t="Include" />
+              <e p="IsNodeOnCardinalDirectionNode.cs" t="Include" />
               <e p="MoveToMoveTargetNode.cs" t="Include" />
               <e p="NodeHasOccupantsOnLayer.cs" t="Include" />
-              <e p="OnCardinalDirectionNode.cs" t="Include" />
               <e p="PickRandomAdjacentNodeNode.cs" t="Include" />
               <e p="ProximitySensor.cs" t="Include" />
               <e p="ReadCurrentKeyBehaviour.cs" t="Include" />
@@ -92,6 +93,7 @@
               <e p="WeaponEffect.cs" t="Include" />
             </e>
             <e p="Weapons" t="Include">
+              <e p="AoeWeapon.cs" t="Include" />
               <e p="MeleeWeapon.cs" t="Include" />
               <e p="Weapon.cs" t="Include" />
             </e>
@@ -114,6 +116,7 @@
                 <e p="ConstantStateNode.cs" t="Include" />
                 <e p="HasLineOfSight2D.cs" t="Include" />
                 <e p="InverterBtNode.cs" t="Include" />
+                <e p="IsKeyInBlackboardNode.cs" t="Include" />
                 <e p="IsTargetInRangeBtNode.cs" t="Include" />
                 <e p="LoopNode.cs" t="Include" />
                 <e p="RemoveFromBlackboardNode.cs" t="Include" />

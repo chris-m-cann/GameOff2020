@@ -21,28 +21,23 @@ namespace Luna.Ai
         {
             if (context.Target == null) return State.Failed;
 
-            var unit = context.Agent.GetComponent<Unit.Unit>();
-            if (unit == null) return State.Failed;
-
             var weapon = context.AgentBlackboard.RetrieveData<Weapon>(weaponKey);
             if (weapon == null) return State.Failed;
 
             var targetNode = context.AgentBlackboard.RetrieveData<Grid.Grid.Node?>(targetNodeKey);
             if (targetNode == null) return State.Failed;
 
-            var occupant = context.Agent.GetComponent<GridOccupantBehaviour>();
-            if (occupant == null) return State.Failed;
 
-            var agentNode = occupant.CurrentNode;
+            var agentNode = context.Occupant.CurrentNode;
             if (agentNode == null) return State.Failed;
 
-            var targets = weapon.FindTargets(agentNode.Value, occupant.Get().Value);
+            var targets = weapon.FindTargets(agentNode.Value, context.Occupant.Grid);
 
             if (!targets.Any(it => it.Equals(targetNode.Value))) return State.Failed;
 
 
             var actions = weapon.Apply(targetNode.Value, context.Agent);
-            unit.AddActions(actions);
+            context.Unit.AddActions(actions);
 
             return State.Succeeded;
         }

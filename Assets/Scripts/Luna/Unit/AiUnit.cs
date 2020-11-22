@@ -10,7 +10,6 @@ namespace Luna.Unit
     [RequireComponent(typeof(Agent))]
     public class AiUnit : BaseUnit
     {
-        public Transform player;
         private Agent _agent;
 
         private void Awake()
@@ -21,7 +20,6 @@ namespace Luna.Unit
         private void Start()
         {
             _agent.AgentBlackboard.Add(Blackboard.StringToKey("Unit"), this);
-            _agent.Target = player;
         }
 
         public override List<IUnitAction> StartTurn()

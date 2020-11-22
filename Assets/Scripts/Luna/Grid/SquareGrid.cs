@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Luna.Grid
@@ -77,6 +78,58 @@ namespace Luna.Grid
             return neighbours;
         }
 
+        public override Node[] GetNeighboursInRange(Node node, int area)
+        {
+            if (area < 1) return new Node[0];
+
+            if (area == 1)
+            {
+                return new Node[1]{node};
+            }
+
+            var neighboursCount = Mathf.RoundToInt(Mathf.Pow(2, area));
+            var neighbours = new List<Node>(neighboursCount);
+
+            var tmp = new Node();
+            if (TryGetNodeAt(node.X - (area - 1), node.Y, ref tmp))
+            {
+                neighbours.Add(tmp);
+            }
+
+            if (TryGetNodeAt(node.X + (area - 1), node.Y, ref tmp))
+            {
+                neighbours.Add(tmp);
+            }
+
+            if (TryGetNodeAt(node.X, node.Y - (area - 1), ref tmp))
+            {
+                neighbours.Add(tmp);
+            }
+
+            if (TryGetNodeAt(node.X, node.Y + (area - 1), ref tmp))
+            {
+                neighbours.Add(tmp);
+            }
+
+            var startX = node.X - (area - 2);
+            var endX = node.X - (area - 2);
+            var startY = node.Y - (area - 2);
+            var endY = node.Y - (area - 2);
+
+
+            for (int x = startX; x < endX; x++)
+            {
+                for (int y = startY; y < endY; y++)
+                {
+                    if (TryGetNodeAt(x, y, ref node))
+                    {
+                        neighbours.Add(tmp);
+                    }
+                }
+            }
+
+            return neighbours.ToArray();
+        }
         public override bool HasTileAtPos(Vector2 target)
         {
             var p = (target - _position);

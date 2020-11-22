@@ -10,6 +10,8 @@ namespace Luna.Ai
     public class MoveToMoveTargetNode : BtNode
     {
         [SerializeField] private BlackboardKey moveTargetKey;
+        [SerializeField] private TurnPhase phase = TurnPhase.Moving;
+
 
         protected override State OnExecute(AgentContext context)
         {
@@ -19,7 +21,7 @@ namespace Luna.Ai
 
             if (occupant == null || moveTarget == null || unit == null) return State.Failed;
 
-            unit.AddAction(new MoveToPointAction(unit, moveTarget.Value));
+            unit.AddAction(new MoveToPointAction(unit, moveTarget.Value, phase: phase));
             return State.Succeeded;
         }
     }

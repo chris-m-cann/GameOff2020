@@ -43,7 +43,8 @@ namespace Util.Ai
                 Agent = gameObject,
                 Target = null,
                 Unit = _unit,
-                Occupant = _occupant
+                Occupant = _occupant,
+                LogNodeExecution = logNodeExecution
             };
         }
 

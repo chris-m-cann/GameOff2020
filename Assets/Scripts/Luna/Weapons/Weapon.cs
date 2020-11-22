@@ -20,10 +20,13 @@ namespace Luna.Weapons
             var actions = new List<IUnitAction>();
             foreach (var occupant in target.Occupants)
             {
-                foreach (var effect in Effects)
+                if (occupant.OccupantGameObject != wielder)
                 {
-                    var r = effect.Apply(occupant.OccupantGameObject, wielder);
-                    actions.AddNullableRange(r);
+                    foreach (var effect in Effects)
+                    {
+                        var r = effect.Apply(occupant.OccupantGameObject, wielder);
+                        actions.AddNullableRange(r);
+                    }
                 }
             }
 

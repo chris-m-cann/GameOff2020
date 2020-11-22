@@ -4,6 +4,8 @@ namespace Luna
     {
         TurnStart,
         ChoosingAction,
+        Moving,
+        ResolvingMoveCollisions,
         PerformingAction,
         ResolvingAction
     }

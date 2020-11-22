@@ -6,7 +6,7 @@ using Util.Ai.Bt;
 
 namespace Luna.Ai
 {
-    public class OnCardinalDirectionNode : BtNode
+    public class IsNodeOnCardinalDirectionNode : BtNode
     {
         [SerializeField] private BlackboardKey targetNodeKey;
         protected override State OnExecute(AgentContext context)

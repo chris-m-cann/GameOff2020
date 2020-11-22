@@ -14,6 +14,8 @@ namespace Luna.Ai
         [SerializeField] private int range = 2;
         [SerializeField] private LayerMask targetLayers;
         [SerializeField] private BlackboardKey targetNodeKey;
+        [SerializeField] private bool removeTargetOnExit = true;
+
 
         private Vector2 _size;
 
@@ -49,8 +51,12 @@ namespace Luna.Ai
                 }
             }
 
-            _hasTarget = false;
-            agentBoard.Remove(targetNodeKey);
+            if (removeTargetOnExit)
+            {
+                _hasTarget = false;
+                _agent.Target = null;
+                agentBoard.Remove(targetNodeKey);
+            }
         }
 
         private void Init()

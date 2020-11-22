@@ -19,8 +19,24 @@ namespace Util.Ai
         {
             foreach (var entry in entries)
             {
-                entry.Second.AddToBlackboard(_agent.AgentBlackboard, entry.First);
+                AddToBlackboard(entry);
             }
+        }
+
+        public void AddToBlackboard(Pair<BlackboardKey, BlackboardTypes> entry)
+        {
+           AddToBlackboard(entry.First, entry.Second);
+        }
+
+        public void AddToBlackboard(BlackboardKey key, BlackboardTypes entry)
+        {
+            entry.AddToBlackboard(_agent.AgentBlackboard, key);
+        }
+
+
+        public void RemoveFromBlackboard(BlackboardKey key)
+        {
+
         }
     }
 }

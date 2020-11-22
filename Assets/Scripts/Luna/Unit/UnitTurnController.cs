@@ -29,23 +29,32 @@ namespace Luna.Unit
 
         private void AddAction(IUnitAction action)
         {
-            if (!_actions.ContainsKey(action.Phase))
+            var currentPhaseIdx = phaseOrder.GetTurnPhaseOrder(_currentPhase);
+            var thisPhaseIdx = phaseOrder.GetTurnPhaseOrder(action.Phase);
+
+            var phase = action.Phase;
+            if (thisPhaseIdx < currentPhaseIdx)
+            {
+                phase = _currentPhase;
+            }
+
+            if (!_actions.ContainsKey(phase))
             {
                 var list = new List<IUnitAction> {action};
-                _actions[action.Phase] = list;
+                _actions[phase] = list;
 
                 return;
             }
 
-            if (_actions[action.Phase] == null)
+            if (_actions[phase] == null)
             {
                 var list = new List<IUnitAction> {action};
-                _actions[action.Phase] = list;
+                _actions[phase] = list;
 
                 return;
             }
 
-            _actions[action.Phase].Add(action);
+            _actions[phase].Add(action);
         }
 
         private void AddActions(List<IUnitAction> actions)
