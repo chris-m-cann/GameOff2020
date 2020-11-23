@@ -19,8 +19,6 @@ namespace Luna
 
         private Collider2D _collider2D;
 
-        private GridOccupantBehaviour _occupant;
-        private Unit.Unit _unit;
         private OnCollisionBehaviour _collisionBehaviour;
         private Collider2D _myCollider;
 
@@ -28,26 +26,24 @@ namespace Luna
         {
             _myCollider = GetComponent<Collider2D>();
             _collisionBehaviour = GetComponent<OnCollisionBehaviour>();
-            _unit = GetComponent<Unit.Unit>();
-            _occupant = GetComponent<GridOccupantBehaviour>();
         }
 
-        public void Move(Grid.Grid.Node destination, Action onComplete, bool twoWayCollisions = false)
+        public void Move(Unit.Unit unit, Grid.Grid.Node destination, Action onComplete, bool twoWayCollisions = false)
         {
-            StartCoroutine(CoMove(destination, speed, twoWayCollisions, onComplete));
+            StartCoroutine(CoMove(unit, destination, speed, twoWayCollisions, onComplete));
         }
 
-        private IEnumerator CoMove(Grid.Grid.Node destination, float speed, bool twoWayCollisions, Action onComplete)
+        private IEnumerator CoMove(Unit.Unit unit, Grid.Grid.Node destination, float speed, bool twoWayCollisions, Action onComplete)
         {
-            yield return StartCoroutine(CoMove(destination, speed, twoWayCollisions));
+            yield return StartCoroutine(CoMove(unit, destination, speed, twoWayCollisions));
             onComplete();
         }
 
-        private IEnumerator CoMove(Grid.Grid.Node destination, float speed, bool twoWayCollisions)
+        private IEnumerator CoMove(Unit.Unit unit, Grid.Grid.Node destination, float speed, bool twoWayCollisions)
         {
             Vector2 endPoint = destination.WorldPosition;
 
-            var startNode = _occupant.CurrentNode;
+            var startNode = unit.Occupant.CurrentNode;
             if (startNode == null) yield break;
 
             var lastNode = startNode.Value;
@@ -72,7 +68,7 @@ namespace Luna
                 if (moveToLastNodeOnCollision)
                 {
                     var node = new Grid.Grid.Node();
-                    if (!_occupant.Get().Value.TryGetNodeAtWorldPosition(transform.position, ref node))
+                    if (!unit.Occupant.Grid.TryGetNodeAtWorldPosition(transform.position, ref node))
                     {
                         transform.position = lastNode.WorldPosition;
                         yield break;
@@ -107,16 +103,16 @@ namespace Luna
             }
             else
             {
-                OnCollision(startNode.Value, lastNode, speed, twoWayCollisions);
+                OnCollision(unit, startNode.Value, lastNode, speed, twoWayCollisions);
             }
         }
 
-        private void OnCollision(Grid.Grid.Node startNode, Grid.Grid.Node lastNode, float speed, bool twoWayCollisions)
+        private void OnCollision(Unit.Unit unit, Grid.Grid.Node startNode, Grid.Grid.Node lastNode, float speed, bool twoWayCollisions)
         {
             if (_collisionBehaviour != null)
             {
                 var colliderOccupant = _collider2D.gameObject.GetComponent<GridOccupantBehaviour>();
-                _unit.AddActions(_collisionBehaviour.CollideWith(colliderOccupant.Occupant, colliderOccupant.CurrentNode.Value));
+                unit.QueueRange(_collisionBehaviour.CollideWith(colliderOccupant.Occupant, colliderOccupant.CurrentNode.Value));
             }
 
             if (twoWayCollisions)
@@ -124,10 +120,11 @@ namespace Luna
                 var collision = _collider2D.GetComponent<OnCollisionBehaviour>();
                 if (collision != null)
                 {
-                    _unit.AddActions(collision.CollideWith(_occupant.Occupant, startNode));
+                    unit.QueueRange(collision.CollideWith(unit.Occupant.Occupant, startNode));
                 }
             }
-            _unit.AddAction(new MoveToPointAction(_unit, lastNode, false, TurnPhase.ResolvingMoveCollisions));
+
+            unit.QueueAction(new MoveToPointAction(unit, lastNode, false));
         }
 
         public void OnTriggerEnter2D(Collider2D other)

@@ -1,23 +1,24 @@
+using System;
 using UnityEngine;
 using Util.Ai;
 
 namespace Luna.Actions
 {
-    public class ExecuteAgentAction : BaseAction
+    [RequireComponent(typeof(Agent))]
+    public class ExecuteAgentAction : ActionBehaviour
     {
         private Agent _agent;
-        public ExecuteAgentAction(Unit.Unit unit, Agent agent) : base(unit)
+
+        private void Awake()
         {
-            _agent = agent;
+            _agent = GetComponent<Agent>();
         }
 
-        public override void Execute()
+        public override void StartAction(Unit.Unit unit)
         {
-            IsStarted = true;
             _agent.Execute();
-            IsFinished = true;
         }
 
-        public override TurnPhase Phase { get => TurnPhase.ChoosingAction; }
+        public override bool Tick(Unit.Unit actor) => true;
     }
 }

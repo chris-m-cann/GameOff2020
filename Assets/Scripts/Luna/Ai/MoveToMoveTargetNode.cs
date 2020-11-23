@@ -10,18 +10,14 @@ namespace Luna.Ai
     public class MoveToMoveTargetNode : BtNode
     {
         [SerializeField] private BlackboardKey moveTargetKey;
-        [SerializeField] private TurnPhase phase = TurnPhase.Moving;
 
 
         protected override State OnExecute(AgentContext context)
         {
-            var occupant = context.Agent.GetComponent<GridOccupantBehaviour>();
             var moveTarget = context.AgentBlackboard.RetrieveData<Grid.Grid.Node?>(moveTargetKey);
-            var unit = context.Agent.GetComponent<Unit.Unit>();
+            if (moveTarget == null) return State.Failed;
 
-            if (occupant == null || moveTarget == null || unit == null) return State.Failed;
-
-            unit.AddAction(new MoveToPointAction(unit, moveTarget.Value, phase: phase));
+            context.Unit.QueueAction(new MoveToPointAction(context.Unit, moveTarget.Value));
             return State.Succeeded;
         }
     }

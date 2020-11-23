@@ -24,6 +24,7 @@
           </e>
           <e p="Luna" t="Include">
             <e p="Actions" t="Include">
+              <e p="ActionBehaviour.cs" t="Include" />
               <e p="BaseAction.cs" t="Include" />
               <e p="DamageAction.cs" t="Include" />
               <e p="ExecuteAgentAction.cs" t="Include" />
@@ -32,7 +33,6 @@
               <e p="PlayerInputAction.cs" t="Include" />
               <e p="RunActionAction.cs" t="Include" />
             </e>
-            <e p="AddTurnTakerToSet.cs" t="Include" />
             <e p="Ai" t="Include">
               <e p="AttackTargetNode.cs" t="Include" />
               <e p="BaseSensor.cs" t="Include" />
@@ -63,19 +63,12 @@
             </e>
             <e p="MouseController.cs" t="Include" />
             <e p="MoveAlongPath.cs" t="Include" />
-            <e p="MoveAlongPathAction.cs" t="Include" />
             <e p="OnCollisionBehaviour.cs" t="Include" />
             <e p="OnMouseDown.cs" t="Include" />
             <e p="Pathfinding.cs" t="Include" />
-            <e p="Player.cs" t="Include" />
-            <e p="TurnAction.cs" t="Include" />
-            <e p="TurnActionController.cs" t="Include" />
-            <e p="TurnController.cs" t="Include" />
             <e p="TurnPhase.cs" t="Include" />
             <e p="TurnPhaseObject.cs" t="Include" />
             <e p="TurnPhaseOrder.cs" t="Include" />
-            <e p="TurnTaker.cs" t="Include" />
-            <e p="TurnTakerRuntimeSet.cs" t="Include" />
             <e p="Unit" t="Include">
               <e p="AddToUnitSet.cs" t="Include" />
               <e p="AiUnit.cs" t="Include" />

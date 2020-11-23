@@ -8,71 +8,34 @@ using Util;
 
 namespace Luna.Actions
 {
-    // todo(chris): this many RequireComponents is probably a good sign that this has too many colaborators
-    [RequireComponent(
-        typeof(Pathfinding),
-        typeof(Unit.Unit),
-        typeof(IProvider<GridVariable>)
-    )]
-    [RequireComponent(typeof(GridOccupantBehaviour))]
-    public class PlayerInputAction : MonoBehaviour, IUnitAction
+
+    [RequireComponent(typeof(Pathfinding))]
+    public class PlayerInputAction : ActionBehaviour
     {
         [SerializeField] private MouseController mouse;
         [SerializeField] private Weapon mainWeapon;
 
         private List<Grid.Grid.Node> _path;
-        private GridVariable _grid;
         private bool _isCapturing;
 
         private Pathfinding _pathfinding;
         private Unit.Unit _unit;
-        private GridOccupantBehaviour _gridOccupant;
+
+        private bool _isFinished;
 
         private void Awake()
         {
             _pathfinding = GetComponent<Pathfinding>();
-            _gridOccupant = GetComponent<GridOccupantBehaviour>();
-            _grid = GetComponent<IProvider<GridVariable>>()?.Get();
-            _unit = GetComponent<Unit.Unit>();
-
-            if (_grid == null)
-            {
-                Debug.LogError("Grid required to do work");
-            }
         }
-
-        public void Execute()
-        {
-            IsStarted = true;
-            IsFinished = false;
-
-            if (_path != null && _path.Count > 0)
-            {
-                _unit.AddAction(new MoveToPointAction(_unit, _path[0]));
-                _path.RemoveAt(0);
-                IsFinished = true;
-            }
-            else
-            {
-                _isCapturing = true;
-                mouse.SetIndicator(true);
-            }
-        }
-
-        public bool IsStarted { get; private set; }
-        public bool IsFinished { get; private set; }
-        public TurnPhase Phase => TurnPhase.ChoosingAction;
 
         public void OnPositionSelected(Vector3 position)
         {
             if (_isCapturing)
             {
-                var action = BuildActions(position);
+                var actionsQueued = QueueActions(position);
 
-                if (action != null)
+                if (actionsQueued)
                 {
-                    _unit.AddActions(action);
-
                     EndTurn();
                 }
             }
@@ -83,23 +46,27 @@ namespace Luna.Actions
             }
         }
 
-        private List<IUnitAction> BuildActions(Vector3 position)
+        private bool QueueActions(Vector3 position)
         {
             Grid.Grid.Node clickedNode = new Grid.Grid.Node();
-            var isClickedNodeValid = _grid.Value.TryGetNodeAtWorldPosition(position, ref clickedNode);
+            var isClickedNodeValid = _unit.Occupant.Grid.TryGetNodeAtWorldPosition(position, ref clickedNode);
 
 
             Grid.Grid.Node myNode = new Grid.Grid.Node();
-            var isMyNodeValid = _grid.Value.TryGetNodeAtWorldPosition(transform.position, ref myNode);
+            var isMyNodeValid = _unit.Occupant.Grid.TryGetNodeAtWorldPosition(transform.position, ref myNode);
 
             if (isMyNodeValid && isClickedNodeValid)
             {
                 // attack
-                var targets = mainWeapon.FindTargets(myNode, _grid.Value);
+                var targets = mainWeapon.FindTargets(myNode, _unit.Occupant.Grid);
 
                 if (Array.Exists(targets, it => it.Equals(clickedNode)))
                 {
-                    return mainWeapon.Apply(clickedNode, gameObject);
+                    var actions = mainWeapon.Apply(clickedNode, gameObject);
+
+                    _unit.QueueRange(actions);
+
+                    return (actions.Count > 0);
                 }
 
 
@@ -112,17 +79,18 @@ namespace Luna.Actions
 
                     _path.RemoveAt(0);
 
-                    return new List<IUnitAction>(1){new MoveToPointAction(_unit, first)};
+
+                    _unit.QueueAction(new MoveToPointAction(_unit, first));
+                    return true;
                 }
             }
 
-            return null;
+            return false;
         }
 
         public void Reset()
         {
-            IsFinished = false;
-            IsStarted = false;
+            _isFinished = false;
         }
 
         public void EndTurn()
@@ -130,22 +98,44 @@ namespace Luna.Actions
             if (_isCapturing)
             {
                 mouse.SetIndicator(false);
-                IsFinished = true;
+                _isFinished = true;
                 _isCapturing = false;
             }
         }
 
         private void OnDrawGizmos()
         {
-            if (_path == null || _grid == null || _grid.Value == null) return;
+            if (_path == null || _unit == null) return;
 
             foreach (var node in _path)
             {
-                var pos = _grid.Value.GetWorldPos(node);
+                var pos = _unit.Occupant.Grid.GetWorldPos(node);
 
                 Gizmos.color = Color.blue;
                 Gizmos.DrawCube(pos, Vector3.one);
             }
+        }
+
+        public override void StartAction(Unit.Unit unit)
+        {
+            Reset();
+            _unit = unit;
+            if (_path != null && _path.Count > 0)
+            {
+                unit.QueueAction(new MoveToPointAction(_unit, _path[0]));
+                _path.RemoveAt(0);
+                _isFinished = true;
+            }
+            else
+            {
+                _isCapturing = true;
+                mouse.SetIndicator(true);
+            }
+        }
+
+        public override bool Tick(Unit.Unit unit)
+        {
+            return _isFinished;
         }
     }
 }

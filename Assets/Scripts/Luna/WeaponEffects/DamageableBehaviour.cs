@@ -13,7 +13,7 @@ namespace Luna.WeaponEffects
         [SerializeField] private UltEvent<int> onDamage;
         public override List<IUnitAction> Handle(DamageEffect effect, GameObject wielder)
         {
-            return new List<IUnitAction>(1){new DamageAction(GetComponent<Unit.Unit>(), effect)};
+            return new List<IUnitAction>(1){new DamageAction(gameObject, effect)};
         }
 
         public void Damage(DamageEffect effect)

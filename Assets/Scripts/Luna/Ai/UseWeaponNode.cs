@@ -26,7 +26,7 @@ namespace Luna.Ai
             foreach (var target in targets)
             {
                 var actions = weapon.Apply(target, context.Agent);
-                context.Unit.AddActions(actions);
+                context.Unit.QueueRange(actions);
             }
 
             return State.Succeeded;

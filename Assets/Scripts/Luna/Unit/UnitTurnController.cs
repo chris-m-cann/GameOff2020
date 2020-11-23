@@ -10,123 +10,50 @@ namespace Luna.Unit
 {
     public class UnitTurnController : MonoBehaviour
     {
-        [Tooltip("an ordered list of groups of actors that take turns together, the order of the lists is the turn order")]
-        [SerializeField] private UnitRuntimeSet[] groups;
+        [Tooltip(
+            "an ordered list of groups of actors that take turns together, the order of the lists is the turn order")]
+        [SerializeField]
+        private UnitRuntimeSet[] groups;
 
-        [SerializeField] private TurnPhaseOrder phaseOrder;
-
-
-        private Dictionary<TurnPhase, List<IUnitAction>> _actions = new Dictionary<TurnPhase, List<IUnitAction>>();
-
-        private int _currentTurn = -1;
-        private TurnPhase _currentPhase = TurnPhase.ChoosingAction;
+        private int _currentGroup = -1;
+        private int _currentUnit = -1;
 
 
         public void BeingTurns()
         {
+            _currentGroup = 0;
+            _currentUnit = -1;
+
             StartNextTurn();
-        }
-
-        private void AddAction(IUnitAction action)
-        {
-            var currentPhaseIdx = phaseOrder.GetTurnPhaseOrder(_currentPhase);
-            var thisPhaseIdx = phaseOrder.GetTurnPhaseOrder(action.Phase);
-
-            var phase = action.Phase;
-            if (thisPhaseIdx < currentPhaseIdx)
-            {
-                phase = _currentPhase;
-            }
-
-            if (!_actions.ContainsKey(phase))
-            {
-                var list = new List<IUnitAction> {action};
-                _actions[phase] = list;
-
-                return;
-            }
-
-            if (_actions[phase] == null)
-            {
-                var list = new List<IUnitAction> {action};
-                _actions[phase] = list;
-
-                return;
-            }
-
-            _actions[phase].Add(action);
-        }
-
-        private void AddActions(List<IUnitAction> actions)
-        {
-            if (actions == null) return;
-
-            foreach (var action in actions)
-            {
-                AddAction(action);
-            }
-        }
-
-        private void Update()
-        {
-            if (_currentTurn < 0) return; // not started yet
-
-
-            foreach (var unit in groups[_currentTurn])
-            {
-                var acts = unit.Tick();
-                AddActions(acts);
-            }
-
-            var phaseActions = _actions.GetValueOrNull(_currentPhase);
-            var allFinished = true;
-            if (phaseActions != null)
-            {
-                for (int i = phaseActions.Count - 1; i > -1; i--)
-                {
-                    var action = phaseActions[i];
-                    if (!action.IsStarted)
-                    {
-                        // todo(chris) consider making execute a coroutine so we know that it wont block??
-                        action.Execute();
-                    }
-
-                    if (action.IsFinished)
-                    {
-                        phaseActions.RemoveAt(i);
-                    }
-                }
-
-                allFinished = phaseActions.Count == 0;
-            }
-
-            if (allFinished)
-            {
-                var next = phaseOrder.NextPhase(_currentPhase);
-                _currentPhase = next.First;
-
-                if (next.Second) // if has looped around then its the next turn
-                {
-                    StartNextTurn();
-                }
-            }
         }
 
         private void StartNextTurn()
         {
-            MoveToNextGroup();
-            foreach (var actor in groups[_currentTurn])
+            _currentUnit++;
+
+            while (!(_currentGroup < groups.Length && _currentUnit < groups[_currentGroup].ListView.Count))
             {
-                AddActions(actor.StartTurn());
+                if (groups[_currentGroup].ListView.Count <= _currentUnit)
+                {
+                    _currentUnit = 0;
+                    _currentGroup++;
+
+                    if (groups.Length <= _currentGroup)
+                    {
+                        _currentGroup = 0;
+                    }
+                }
             }
+
+            groups[_currentGroup].ListView[_currentUnit].StartTurn();
         }
-        private void MoveToNextGroup()
+
+
+        private void Update()
         {
-            _currentTurn++;
-            if (_currentTurn >= groups.Length)
-            {
-                _currentTurn = 0;
-            }
+            if (_currentGroup == -1) return; // sentinal value to say we havnt started
+
+            if (groups[_currentGroup].ListView[_currentUnit].Tick()) StartNextTurn();
         }
     }
 }

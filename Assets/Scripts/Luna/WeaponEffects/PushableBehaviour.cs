@@ -15,13 +15,12 @@ namespace Luna.WeaponEffects
     public class PushableBehaviour : EffectHandler<PushWeaponEffect>
     {
         private GridOccupantBehaviour _occupant;
-        private Unit.Unit _unit;
         private OnCollisionBehaviour _collisionBehaviour;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _collisionBehaviour = GetComponent<OnCollisionBehaviour>();
-            _unit = GetComponent<Unit.Unit>();
             _occupant = GetComponent<GridOccupantBehaviour>();
         }
 
@@ -44,7 +43,7 @@ namespace Luna.WeaponEffects
             if (_occupant.Get().Value.TryGetNodeAt(pos.x, pos.y, ref node))
             {
                 // todo(chris) this doesnt really work with anything that isnt just in 1 direction
-                actions.Add(new MoveToPointAction(_unit, node, twoWayCollisions: true, TurnPhase.ResolvingAction));
+                actions.Add(new MoveToPointAction(_unit, node, twoWayCollisions: true));
             }
 
             return actions;

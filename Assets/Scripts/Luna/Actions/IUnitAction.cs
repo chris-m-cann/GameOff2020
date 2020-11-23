@@ -1,14 +1,14 @@
+using System;
 using System.Collections.ObjectModel;
 
 namespace Luna.Actions
 {
     public interface IUnitAction
     {
-        void Execute();
+        void StartAction(Unit.Unit unit);
 
-        void Reset();
-        bool IsStarted { get; }
-        bool IsFinished { get; }
-        TurnPhase Phase { get; }
+        bool Tick(Unit.Unit actor);
+
+        int Priority { get; }
     }
 }

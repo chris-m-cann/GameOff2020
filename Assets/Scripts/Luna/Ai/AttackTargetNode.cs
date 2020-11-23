@@ -37,7 +37,7 @@ namespace Luna.Ai
 
 
             var actions = weapon.Apply(targetNode.Value, context.Agent);
-            context.Unit.AddActions(actions);
+            context.Unit.QueueRange(actions);
 
             return State.Succeeded;
         }

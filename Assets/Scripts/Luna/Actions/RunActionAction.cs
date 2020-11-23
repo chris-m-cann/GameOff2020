@@ -3,23 +3,35 @@ using System.Collections;
 
 namespace Luna.Actions
 {
-    public class RunActionAction : BaseAction
+    public class RunActionAction : IUnitAction
     {
-        private TurnPhase _phase;
-        private Action _action;
+        private readonly Action _action;
+        private readonly int _priority;
 
-        public RunActionAction(Unit.Unit unit, TurnPhase phase, Action action) : base(unit)
+        private bool _isFinished;
+
+        public RunActionAction(Action action, int priority = 0)
         {
-            _phase = phase;
             _action = action;
+            _priority = priority;
         }
 
-        protected override IEnumerator ExecuteImpl()
+        private IEnumerator Execute()
         {
             _action.Invoke();
             yield return null;
+            _isFinished = true;
+        }
+        public void StartAction(Unit.Unit unit)
+        {
+            unit.StartCoroutine(Execute());
         }
 
-        public override TurnPhase Phase => _phase;
+        public bool Tick(Unit.Unit actor)
+        {
+            return _isFinished;
+        }
+
+        public int Priority => _priority;
     }
 }

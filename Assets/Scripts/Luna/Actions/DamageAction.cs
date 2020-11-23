@@ -1,28 +1,30 @@
 using Luna.Unit;
 using Luna.WeaponEffects;
+using UnityEngine;
 
 namespace Luna.Actions
 {
-    public class DamageAction : BaseAction
+    public class DamageAction : IUnitAction
     {
-        private DamageEffect _effect;
+        private readonly DamageEffect _effect;
+        private readonly GameObject _effected;
 
-        private DamageableBehaviour _damageable;
-
-        public DamageAction(Unit.Unit unit, DamageEffect effect): base(unit)
+        public DamageAction(GameObject thingToDamage, DamageEffect effect)
         {
             _effect = effect;
-            _damageable = unit.GetComponent<DamageableBehaviour>();
+            _effected = thingToDamage;
         }
 
-        public override void Execute()
+        public void StartAction(Unit.Unit unit)
         {
-            IsStarted = true;
-
-            _damageable.Damage(_effect);
-            IsFinished = true;
+            _effected.GetComponent<DamageableBehaviour>().Damage(_effect);
         }
 
-        public override TurnPhase Phase => TurnPhase.ResolvingAction;
+        public bool Tick(Unit.Unit actor)
+        {
+            return true;
+        }
+
+        public int Priority { get; }
     }
 }

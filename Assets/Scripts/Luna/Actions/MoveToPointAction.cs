@@ -1,5 +1,6 @@
 using Luna.Grid;
 using Luna.Unit;
+using UnityEngine.UI;
 
 namespace Luna.Actions
 {
@@ -7,48 +8,40 @@ namespace Luna.Actions
     {
         private readonly Grid.Grid.Node _destination;
         private readonly bool _twoWayCollisions;
-        private readonly TurnPhase _phase;
+        private readonly Unit.Unit _unit;
 
-        private readonly MoveAlongPath _move;
-        private readonly GridOccupantBehaviour _occupant;
+        private bool _isFinished;
 
 
-        public MoveToPointAction(Unit.Unit unit, Grid.Grid.Node destination, bool twoWayCollisions = false, TurnPhase phase = TurnPhase.Moving)
+        public MoveToPointAction(Unit.Unit unit, Grid.Grid.Node destination, bool twoWayCollisions = false)
         {
             _destination = destination;
             _twoWayCollisions = twoWayCollisions;
-            _phase = phase;
-
-            _move = unit.GetComponent<MoveAlongPath>();
-            _occupant = unit.GetComponent<GridOccupantBehaviour>();
+            _unit = unit;
         }
 
-        public void Execute()
+        public void StartAction(Unit.Unit unit)
         {
-            IsStarted = true;
-
-            if (_move == null)
+            var move = _unit.GetComponent<MoveAlongPath>();
+            if (move == null)
             {
-                IsFinished = true;
+                _isFinished = true;
                 return;
             }
-            
 
-            _move.Move(_destination, () =>
+
+            move.Move(_unit, _destination, () =>
             {
-                _occupant?.UpdateGrid(_occupant.transform.position);
-                IsFinished = true;
+                _unit.Occupant.UpdateGrid(_unit.transform.position);
+                _isFinished = true;
             }, _twoWayCollisions);
         }
 
-        public void Reset()
+        public bool Tick(Unit.Unit unit)
         {
-            IsStarted = false;
-            IsFinished = false;
+            return _isFinished;
         }
 
-        public bool IsStarted { get; private set; }
-        public bool IsFinished { get; private set; }
-        public TurnPhase Phase => _phase;
+        public int Priority { get; }
     }
 }
