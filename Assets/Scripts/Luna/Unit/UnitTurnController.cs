@@ -16,36 +16,28 @@ namespace Luna.Unit
         private UnitRuntimeSet[] groups;
 
         private int _currentGroup = -1;
-        private int _currentUnit = -1;
 
 
         public void BeingTurns()
         {
-            _currentGroup = 0;
-            _currentUnit = -1;
-
             StartNextTurn();
         }
 
         private void StartNextTurn()
         {
-            _currentUnit++;
-
-            while (!(_currentGroup < groups.Length && _currentUnit < groups[_currentGroup].ListView.Count))
+            _currentGroup = (_currentGroup + 1) % groups.Length;
+            var initial = _currentGroup;
+            while (groups[_currentGroup].IsEmpty)
             {
-                if (groups[_currentGroup].ListView.Count <= _currentUnit)
-                {
-                    _currentUnit = 0;
-                    _currentGroup++;
+                _currentGroup = (_currentGroup + 1) % groups.Length;
 
-                    if (groups.Length <= _currentGroup)
-                    {
-                        _currentGroup = 0;
-                    }
+                if (_currentGroup == initial)
+                {
+                    throw new Exception("Critical issue, no units in runtime sets!!");
                 }
             }
 
-            groups[_currentGroup].ListView[_currentUnit].StartTurn();
+            groups[_currentGroup].Start();
         }
 
 
@@ -53,7 +45,7 @@ namespace Luna.Unit
         {
             if (_currentGroup == -1) return; // sentinal value to say we havnt started
 
-            if (groups[_currentGroup].ListView[_currentUnit].Tick()) StartNextTurn();
+            if (!groups[_currentGroup].RunCurrentUnit()) StartNextTurn();
         }
     }
 }
