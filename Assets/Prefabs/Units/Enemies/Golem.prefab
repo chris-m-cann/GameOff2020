@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 17844929, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
+      propertyPath: behaviour
+      value: 
+      objectReference: {fileID: 11400000, guid: e7e9cd37cd7f90a4cbf5d2e8899445a9, type: 2}
     - target: {fileID: 2634116311112733806, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -15,17 +19,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem
       objectReference: {fileID: 0}
+    - target: {fileID: 5405527541490085600, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7278720440365022465, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7278720440365022465, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7278720440365022465, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7278720440365022465, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
       propertyPath: m_LocalPosition.z

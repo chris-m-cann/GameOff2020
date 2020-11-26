@@ -13,9 +13,7 @@ namespace Luna.WeaponEffects
             {
                 new RunActionAction(() =>
                 {
-
-                    // todo(chris) gross and wrong. no delays!! current thid ids to stop it destroying itself before action can complete
-                    Destroy(gameObject, 1);
+                    Destroy(gameObject);
                 }, priority: 999)
             };
         }

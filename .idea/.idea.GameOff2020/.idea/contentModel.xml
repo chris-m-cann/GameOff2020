@@ -52,14 +52,17 @@
               <e p="UseWeaponNode.cs" t="Include" />
             </e>
             <e p="Grid" t="Include">
+              <e p="BuildTilemapFromString.cs" t="Include" />
               <e p="Grid.cs" t="Include" />
               <e p="GridFromTilemaps.cs" t="Include" />
               <e p="GridOccupant.cs" t="Include" />
               <e p="GridOccupantBehaviour.cs" t="Include" />
               <e p="GridOccupantTag.cs" t="Include" />
               <e p="GridVariable.cs" t="Include" />
+              <e p="RoomTemplate.cs" t="Include" />
               <e p="SquareGrid.cs" t="Include" />
               <e p="SquareGridVisualiser.cs" t="Include" />
+              <e p="TilePalette.cs" t="Include" />
             </e>
             <e p="MouseController.cs" t="Include" />
             <e p="MoveAlongPath.cs" t="Include" />

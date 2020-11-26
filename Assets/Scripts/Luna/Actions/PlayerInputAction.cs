@@ -12,7 +12,6 @@ namespace Luna.Actions
     [RequireComponent(typeof(Pathfinding))]
     public class PlayerInputAction : ActionBehaviour
     {
-        [SerializeField] private MouseController mouse;
         [SerializeField] private Weapon mainWeapon;
 
         private List<Grid.Grid.Node> _path;
@@ -20,12 +19,14 @@ namespace Luna.Actions
 
         private Pathfinding _pathfinding;
         private Unit.Unit _unit;
+        private MouseController _mouse;
 
         private bool _isFinished;
 
         private void Awake()
         {
             _pathfinding = GetComponent<Pathfinding>();
+            _mouse = FindObjectOfType<MouseController>();
         }
 
         public void OnPositionSelected(Vector3 position)
@@ -97,7 +98,7 @@ namespace Luna.Actions
         {
             if (_isCapturing)
             {
-                mouse.SetIndicator(false);
+                _mouse.SetIndicator(false);
                 _isFinished = true;
                 _isCapturing = false;
             }
@@ -129,7 +130,7 @@ namespace Luna.Actions
             else
             {
                 _isCapturing = true;
-                mouse.SetIndicator(true);
+                _mouse.SetIndicator(true);
             }
         }
 

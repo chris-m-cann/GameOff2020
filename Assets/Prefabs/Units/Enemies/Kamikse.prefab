@@ -12,12 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ce87fddf74d4539b299a0b3c7a30ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 8
+  range: 10
   targetLayers:
     serializedVersion: 2
     m_Bits: 256
   targetNodeKey: {fileID: 11400000, guid: fd0dc22d523a95743b65e2b9df1917e7, type: 2}
   removeTargetOnExit: 1
+--- !u!114 &605312786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3447483790064505139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ebd3a64fa34ad6984e785a19d07703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7265333783122755539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25,10 +37,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 17844925, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
+      propertyPath: entries.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 17844925, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
+      propertyPath: entries.Array.data[2].First
+      value: 
+      objectReference: {fileID: 11400000, guid: 483376f55f3f377469d1346c066dde9f, type: 2}
+    - target: {fileID: 17844925, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
+      propertyPath: entries.Array.data[2].Second.Int
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 17844925, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
+      propertyPath: entries.Array.data[2].Second.option
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 17844925, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
+      propertyPath: entries.Array.data[2].Second.Vector2Int.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 17844925, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
+      propertyPath: entries.Array.data[0].Second.ScriptableObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 9692c83f969963045bdd3be10bca0197, type: 2}
     - target: {fileID: 17844929, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
       propertyPath: behaviour
       value: 
       objectReference: {fileID: 11400000, guid: 24b0a68f57104164f95b746ebec09122, type: 2}
+    - target: {fileID: 17844929, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
+      propertyPath: logNodeExecution
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2634116311112733806, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -43,11 +83,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7278720440365022465, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7278720440365022465, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7278720440365022465, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
       propertyPath: m_LocalPosition.z

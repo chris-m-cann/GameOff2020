@@ -62,3 +62,8 @@ crashlytics-build.properties
 # third party assets
 /**/ThirdParty/
 /**/ThirdParty.*
+
+
+# custom packages
+/**/Packages/*
+!/**/Packages/manifest.json
