@@ -252,6 +252,8 @@ GameObject:
   - component: {fileID: 503543774}
   - component: {fileID: 503543776}
   - component: {fileID: 503543775}
+  - component: {fileID: 503543778}
+  - component: {fileID: 503543777}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -359,6 +361,48 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &503543777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503543773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56adfc6f1904061a546b8b1fe9c2a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent:
+    gameEvent: {fileID: 11400000, guid: 7c778e290f067574a8efb8e336b0d33f, type: 2}
+    observable: {fileID: 0}
+    option: 0
+  onEventRaised:
+    _PersistentCalls:
+    - _Target: {fileID: 503543778}
+      _MethodName: RemoveTileNextFrame
+      _PersistentArguments:
+      - _Type: 14
+        _Int: 0
+        _String: Luna.Grid.GridOccupantBehaviour, Assembly-CSharp, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+--- !u!114 &503543778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503543773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c1d0930fced40dabb87112eb40b8637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &603831630
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,6 +444,7 @@ MonoBehaviour:
   timelapse: 0
   output: {fileID: 11400000, guid: 7866700b106088a43833eabf1ff41f0d, type: 2}
   onGridBuilt: {fileID: 11400000, guid: 7c0aec14cdbb9c24788d7af835d95f50, type: 2}
+  wallRule: {fileID: 11400000, guid: 9357ca2533623f443bf4371ef71355ba, type: 2}
 --- !u!156049354 &603831632
 Grid:
   m_ObjectHideFlags: 0

@@ -100,6 +100,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7a4928a6fe42daa1ceb2cfbd18113c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnRemove:
+    _PersistentCalls:
+    - _Target: {fileID: 11400000, guid: 7c778e290f067574a8efb8e336b0d33f, type: 2}
+      _MethodName: Raise
+      _PersistentArguments:
+      - _Type: 14
+        _Int: 0
+        _String: Luna.Grid.GridOccupantBehaviour, Assembly-CSharp, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
   Occupant:
     Tags:
     - {fileID: 11400000, guid: 2c16bf5e1f5f3b1489b2862f462c6250, type: 2}

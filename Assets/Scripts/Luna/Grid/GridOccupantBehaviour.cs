@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using UltEvents;
 using UnityEngine;
 using Util;
 
@@ -7,6 +8,8 @@ namespace Luna.Grid
 {
     public class GridOccupantBehaviour : MonoBehaviour, IProvider<GridVariable>
     {
+        public UltEvent<GridOccupantBehaviour> OnRemove;
+
         public GridOccupant Occupant = new GridOccupant();
         [SerializeField] private GridVariable grid;
 
@@ -48,6 +51,7 @@ namespace Luna.Grid
 
         private void OnDestroy()
         {
+            OnRemove?.Invoke(this);
             RemoveFromGrid();
         }
 

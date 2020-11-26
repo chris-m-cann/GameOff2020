@@ -21,13 +21,16 @@ namespace Luna.Grid
         [SerializeField] private GridVariable output;
         [SerializeField] private VoidGameEvent onGridBuilt;
 
+        [SerializeField] private RuleTile wallRule;
+
+
         private string testLevelTop =
             "ccc000e00" +
-            "cc000000w" +
+            "cc00wwwww" +
             "c000w000w" +
             "e000wwwww" +
-            "cc00www0e" +
-            "cc000e000";
+            "cc00wwwww" +
+            "cc00wwwww";
         private string testLevelBottom =
             "cc000e000" +
             "c000ww0ww" +
@@ -72,11 +75,12 @@ namespace Luna.Grid
                             grid[x, y] = new Grid.Node(x, y, -2, worldPos);
                             break;
                         case 'w':
-                            walls.SetTile(pos, tiles.WallTiles.RandomElement());
+                            walls.SetTile(pos, wallRule);
+                            // walls.SetTile(pos, tiles.WallTiles.RandomElement());
                             floor.SetTile(pos, tiles.FloorTiles.RandomElement());
                             // add in a wall object with gridOccupantBehaviour, it will add itself to the grid on initialise
-                            var wall = Instantiate(tiles.WallObject, worldPos, Quaternion.identity);
-                            wall.transform.parent = walls.transform;
+                            // var wall = Instantiate(tiles.WallObject, worldPos, Quaternion.identity);
+                            // wall.transform.parent = walls.transform;
                             grid[x, y] = new Grid.Node(x, y, 1, worldPos);
                             break;
                         default:
@@ -105,6 +109,7 @@ namespace Luna.Grid
             }
 
             output.Value = new SquareGrid(grid, Vector2.zero);
+            yield return null;
             onGridBuilt.Raise();
             yield break;
         }
