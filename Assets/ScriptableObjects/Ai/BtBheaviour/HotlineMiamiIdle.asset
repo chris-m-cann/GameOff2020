@@ -303,21 +303,9 @@ MonoBehaviour:
   position: {x: -632, y: -168}
   ports:
     keys:
-    - child
     - Parent
+    - child
     values:
-    - _fieldName: child
-      _node: {fileID: 2891882934607043537}
-      _typeQualifiedName: Util.Ai.Bt.BtNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: Parent
-        node: {fileID: -1204337872588053274}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
     - _fieldName: Parent
       _node: {fileID: 2891882934607043537}
       _typeQualifiedName: Util.Ai.Bt.BtNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
@@ -328,6 +316,18 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: child
+      _node: {fileID: 2891882934607043537}
+      _typeQualifiedName: Util.Ai.Bt.BtNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: -1204337872588053274}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   Description: 

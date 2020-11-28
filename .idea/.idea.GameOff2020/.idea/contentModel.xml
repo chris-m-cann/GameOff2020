@@ -67,6 +67,8 @@
               <e p="SquareGridVisualiser.cs" t="Include" />
               <e p="TilePalette.cs" t="Include" />
             </e>
+            <e p="Inventory.cs" t="Include" />
+            <e p="InventoryHolder.cs" t="Include" />
             <e p="MouseController.cs" t="Include" />
             <e p="MoveAlongPath.cs" t="Include" />
             <e p="OnCollisionBehaviour.cs" t="Include" />

@@ -21,6 +21,8 @@ namespace Luna.Grid
 
         private IEnumerator CoRemoveTile(Vector2Int occupantIdx)
         {
+            // we need to wait a frame to remove it so we dont get 2 instances of Destroy called on the same game object
+            // on the same frame
             yield return null;
             _tilemap.SetTile((Vector3Int)occupantIdx, null);
         }

@@ -16,6 +16,8 @@ namespace Luna
         [SerializeField] private UltEvent onStartMove;
         [SerializeField] private UltEvent OnStopMove;
         [SerializeField] private bool moveToLastNodeOnCollision = true;
+        [SerializeField] private LayerMask layers;
+
 
         private Collider2D _collider2D;
 
@@ -88,13 +90,13 @@ namespace Luna
 
             OnStopMove.Invoke();
 
-            var colliders = new Collider2D[1];
             if (_collider2D == null && _myCollider != null)
             {
-                if (Physics2D.OverlapCollider(_myCollider, new ContactFilter2D(), colliders) > 0)
-                {
-                    _collider2D = colliders[0];
-                }
+                var cached = _myCollider.enabled;
+                _myCollider.enabled = false;
+                _collider2D = Physics2D.OverlapCircle(transform.position, .3f, layers);
+
+                _myCollider.enabled = cached;
             }
 
             if (_collider2D == null)

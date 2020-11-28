@@ -25,10 +25,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b7f0392583f496943a6a13d6354d114a, type: 2}
   - {fileID: 11400000, guid: e174020a648884c4c8336dd9589bbe44, type: 2}
   - {fileID: 11400000, guid: fb8e2b0753411f547996c8d3b789a2b9, type: 2}
-  WallTiles:
-  - {fileID: 11400000, guid: 14559aaf09dda8c499d9b6d1b9db5b8f, type: 2}
-  EnemyTiles: []
-  TerrainTiles: []
-  PickupTiles: []
-  EndTile: {fileID: 11400000, guid: e625dd9029be17146b7549022c1daa01, type: 2}
-  WallObject: {fileID: 1501434772879702160, guid: d09e6141297a44541ad17df6db99769d, type: 3}
+  Enemies:
+  - First: {fileID: 2819437487861190287, guid: 33471ddd15cb2744bb8fee2b4acf24e4, type: 3}
+    Second: 100
+  - First: {fileID: 97031836300374929, guid: 84e707929eb00264eb67d46b88d2d7cc, type: 3}
+    Second: 60
+  - First: {fileID: 2940476986453549013, guid: 1fd05ba62ded8224bb4de294a8663f6b, type: 3}
+    Second: 60
+  - First: {fileID: 6328574577989571695, guid: b6c73251320f952498ae5220f46191e2, type: 3}
+    Second: 20
+  - First: {fileID: 3821427671741446434, guid: 9b523fec4eabf48478bc47750a867fea, type: 3}
+    Second: 30
+  Terrain: []
+  Pickups: []
+  End: {fileID: 0}

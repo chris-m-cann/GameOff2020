@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Util;
 
 namespace Luna.Grid
 {
@@ -8,12 +10,15 @@ namespace Luna.Grid
     {
         public Tile[] ChasmTiles;
         public Tile[] FloorTiles;
-        public Tile[] WallTiles;
-        public Tile[] EnemyTiles;
-        public Tile[] TerrainTiles;
-        public Tile[] PickupTiles;
-        public Tile EndTile;
+        public OccupantChancePair[] Enemies;
+        public OccupantChancePair[] Terrain;
+        public OccupantChancePair[] Pickups;
+        public GridOccupantBehaviour End;
 
-        public GridOccupantBehaviour WallObject;
+        [Serializable]
+        public class OccupantChancePair : Pair<GridOccupantBehaviour, int>
+        {
+
+        }
     }
 }

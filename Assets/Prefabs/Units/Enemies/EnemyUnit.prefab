@@ -127,6 +127,9 @@ MonoBehaviour:
   OnStopMove:
     _PersistentCalls: []
   moveToLastNodeOnCollision: 1
+  layers:
+    serializedVersion: 2
+    m_Bits: 1792
 --- !u!114 &17844928
 MonoBehaviour:
   m_ObjectHideFlags: 0

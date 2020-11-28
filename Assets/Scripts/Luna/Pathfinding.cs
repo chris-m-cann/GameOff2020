@@ -45,7 +45,19 @@ namespace Luna
             {
                 var current = frontier.Dequeue();
 
-                if (current.Equals(end)) break;
+                if (current.Equals(end))
+                {
+                    var n = end;
+
+                    while (!n.Equals(start))
+                    {
+                        path.Add(n);
+                        n = cameFrom[n];
+                    }
+
+                    path.Reverse();
+                    return path;
+                }
 
                 var costToCurrent = costSoFar[current];
                 foreach (var next in grid.GetNeighbours(current))
@@ -73,18 +85,8 @@ namespace Luna
                 }
             }
 
-            if (frontier.Count == 0) return path;
-
-            var n = end;
-
-            while (!n.Equals(start))
-            {
-                path.Add(n);
-                n = cameFrom[n];
-            }
-
-            path.Reverse();
             return path;
+
         }
 
         private int Heuristic(Grid.Grid.Node node, Grid.Grid.Node end)
