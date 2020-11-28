@@ -23,10 +23,6 @@ namespace Luna.Grid
         [SerializeField] private GridVariable output;
         [SerializeField] private VoidGameEvent onGridBuilt;
 
-        [SerializeField] private RuleTile wallRule;
-        [SerializeField] private GameObject unbreakableWall;
-        [SerializeField] private GameObject chasmObject;
-
         [SerializeField] private Transform enemiesParent;
         [SerializeField] private Transform terrainParent;
         [SerializeField] private Transform chasmParent;
@@ -88,21 +84,21 @@ namespace Luna.Grid
                         case 'c':
                         {
                             chasm.SetTile(pos, tiles.ChasmTiles.RandomElement());
-                            var go = Instantiate(chasmObject, worldPos, Quaternion.identity);
+                            var go = Instantiate(tiles.Chasm, worldPos, Quaternion.identity);
                             go.transform.parent = chasmParent;
                             grid[x, y] = new Grid.Node(x, y, -2, worldPos);
                             break;
                         }
                         case 'u':
                         {
-                            var go = Instantiate(unbreakableWall, worldPos, Quaternion.identity);
+                            var go = Instantiate(tiles.UnbreakableWall, worldPos, Quaternion.identity);
                             go.transform.parent = unbreakableParent;
                             grid[x, y] = new Grid.Node(x, y, -2, worldPos);
                             break;
                         }
                         case 'w':
                         {
-                            walls.SetTile(pos, wallRule);
+                            walls.SetTile(pos, tiles.Wall);
                             // walls.SetTile(pos, tiles.WallTiles.RandomElement());
                             floor.SetTile(pos, tiles.FloorTiles.RandomElement());
                             // add in a wall object with gridOccupantBehaviour, it will add itself to the grid on initialise
@@ -129,6 +125,18 @@ namespace Luna.Grid
                                 {
                                     var go = Instantiate(enemy.First, worldPos, Quaternion.identity);
                                     go.transform.parent = enemiesParent;
+                                    break;
+                                }
+                            }
+
+                            foreach (var item in tiles.Items)
+                            {
+                                if (UnityEngine.Random.Range(1, item.Second) == 1)
+                                {
+                                    var go = Instantiate(tiles.Pickup, worldPos, Quaternion.identity);
+                                    // go.transform.parent = enemiesParent;
+                                    go.GetComponent<PickUpBehaviour>().SetItem(item.First);
+
                                     break;
                                 }
                             }

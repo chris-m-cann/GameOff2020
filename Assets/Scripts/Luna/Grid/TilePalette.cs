@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Util;
+using Util.Inventory;
 
 namespace Luna.Grid
 {
@@ -12,13 +13,15 @@ namespace Luna.Grid
         public Tile[] FloorTiles;
         public OccupantChancePair[] Enemies;
         public OccupantChancePair[] Terrain;
-        public OccupantChancePair[] Pickups;
+        public ItemChancePair[] Items;
         public GridOccupantBehaviour End;
+        public RuleTile Wall;
+        public GridOccupantBehaviour UnbreakableWall;
+        public GridOccupantBehaviour Chasm;
+        public PickUpBehaviour Pickup;
 
-        [Serializable]
-        public class OccupantChancePair : Pair<GridOccupantBehaviour, int>
-        {
 
-        }
+        [Serializable] public class OccupantChancePair : Pair<GridOccupantBehaviour, int>{}
+        [Serializable] public class ItemChancePair : Pair<InventoryItem, int>{}
     }
 }

@@ -37,5 +37,11 @@ MonoBehaviour:
   - First: {fileID: 3821427671741446434, guid: 9b523fec4eabf48478bc47750a867fea, type: 3}
     Second: 30
   Terrain: []
-  Pickups: []
+  Items:
+  - First: {fileID: 11400000, guid: 44137a7bd015cd54dbe11a44b2067f9d, type: 2}
+    Second: 60
   End: {fileID: 0}
+  Wall: {fileID: 11400000, guid: 9357ca2533623f443bf4371ef71355ba, type: 2}
+  UnbreakableWall: {fileID: 6020224430646386219, guid: e6b48a426c336204793983f4c8f3f5d2, type: 3}
+  Chasm: {fileID: 2955079187213738180, guid: b64d6171a4ea9194b9b5636837ae80db, type: 3}
+  Pickup: {fileID: 199445529, guid: 903d10859f0204b4b9172a4ea00e722c, type: 3}
