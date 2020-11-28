@@ -114,11 +114,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3076745789611904527, guid: 804118f39a2a61341b59274cc75a866d, type: 3}
       propertyPath: m_Name
-      value: PunchTrap (1)
+      value: PunchTrap
       objectReference: {fileID: 0}
     - target: {fileID: 3076745789611904527, guid: 804118f39a2a61341b59274cc75a866d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4987951552154809473, guid: 804118f39a2a61341b59274cc75a866d, type: 3}
       propertyPath: m_Sprite

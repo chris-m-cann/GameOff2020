@@ -53,6 +53,7 @@ namespace Luna.Unit
 
         public void QueueRange(IEnumerable<IUnitAction> actions)
         {
+            if (actions == null) return;
             foreach (var action in actions)
             {
                 QueueAction(action);

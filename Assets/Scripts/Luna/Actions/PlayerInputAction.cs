@@ -65,9 +65,12 @@ namespace Luna.Actions
                 {
                     var actions = mainWeapon.Apply(clickedNode, gameObject);
 
-                    _unit.QueueRange(actions);
+                    if (actions != null && actions.Count > 0)
+                    {
+                        _unit.QueueRange(actions);
+                        return true;
+                    }
 
-                    return (actions.Count > 0);
                 }
 
 

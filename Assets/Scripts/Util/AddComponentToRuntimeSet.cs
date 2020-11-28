@@ -10,7 +10,7 @@ namespace Util
         private void Awake()
         {
             var component = GetComponent<T>();
-            if (component != null)
+            if (component != null && set != null)
             {
                 set.Add(component);
             }
@@ -19,7 +19,7 @@ namespace Util
         private void OnDestroy()
         {
             var component = GetComponent<T>();
-            if (component != null)
+            if (component != null && set != null)
             {
                 set.Remove(component);
             }

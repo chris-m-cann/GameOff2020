@@ -36,7 +36,11 @@ MonoBehaviour:
     Second: 20
   - First: {fileID: 3821427671741446434, guid: 9b523fec4eabf48478bc47750a867fea, type: 3}
     Second: 30
-  Terrain: []
+  Terrain:
+  - First: {fileID: 2651242027991276227, guid: ec0ac44ca6ccd5c4bbd3dbfedf7ac5a2, type: 3}
+    Second: 60
+  - First: {fileID: 6410710153674476190, guid: 20204d9189588ff4e93cd46a5b725896, type: 3}
+    Second: 60
   Items:
   - First: {fileID: 11400000, guid: 44137a7bd015cd54dbe11a44b2067f9d, type: 2}
     Second: 60
@@ -45,3 +49,7 @@ MonoBehaviour:
   UnbreakableWall: {fileID: 6020224430646386219, guid: e6b48a426c336204793983f4c8f3f5d2, type: 3}
   Chasm: {fileID: 2955079187213738180, guid: b64d6171a4ea9194b9b5636837ae80db, type: 3}
   Pickup: {fileID: 199445529, guid: 903d10859f0204b4b9172a4ea00e722c, type: 3}
+  TopExit: {fileID: 6635295948174498135, guid: 8e88d40e1fae0454397446187b0c1def, type: 3}
+  BottomExit: {fileID: 9157749206183274314, guid: cb623d2999e8b5e428a22f43a2a33579, type: 3}
+  LeftExit: {fileID: 3023792574885729431, guid: 70240e46f8eb0e343a01cf5cea76213e, type: 3}
+  RightExit: {fileID: 5789373685340475447, guid: 4f2bcf4cd9818c248bb57e9174407b5e, type: 3}

@@ -20,6 +20,11 @@ namespace Luna.Grid
         public GridOccupantBehaviour Chasm;
         public PickUpBehaviour Pickup;
 
+        public GridOccupantBehaviour TopExit;
+        public GridOccupantBehaviour BottomExit;
+        public GridOccupantBehaviour LeftExit;
+        public GridOccupantBehaviour RightExit;
+
 
         [Serializable] public class OccupantChancePair : Pair<GridOccupantBehaviour, int>{}
         [Serializable] public class ItemChancePair : Pair<InventoryItem, int>{}

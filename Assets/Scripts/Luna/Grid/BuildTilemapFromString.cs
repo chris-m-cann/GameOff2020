@@ -30,28 +30,28 @@ namespace Luna.Grid
 
 
         private string testLevelTop =
-            "ccc000e00" +
+            "ccc000tc0" +
             "cc00wwwww" +
             "c000w000w" +
-            "e000wwwww" +
+            "l000wwwww" +
             "cc00wwwww" +
             "cc00wwwww";
 
         private string testLevelBottom =
-            "cc000e000" +
+            "cc0000000" +
             "c000ww0ww" +
-            "00w0cc00e" +
+            "00w0cc00r" +
             "00w0cc00w" +
-            "e0w0000cc" +
-            "000e00ccc";
+            "l0w0000cc" +
+            "000b00ccc";
 
         private void Start()
         {
-            StartCoroutine(BuildRoom());
+            StartCoroutine(BuildRoom('b'));
         }
 
 
-        private IEnumerator BuildRoom()
+        private IEnumerator BuildRoom(char playerEntrance)
         {
             var roomString = testLevelTop + testLevelBottom;
             var adjustedHeight = height + 4;
@@ -65,6 +65,7 @@ namespace Luna.Grid
             int tileIdx = 0;
             Vector3Int pos = Vector3Int.zero;
             Vector2 worldPos = Vector2.zero;
+            bool playerSpawned = false;
 
             for (int y = adjustedHeight - 1; y > -1; --y)
             {
@@ -99,16 +100,76 @@ namespace Luna.Grid
                         case 'w':
                         {
                             walls.SetTile(pos, tiles.Wall);
-                            // walls.SetTile(pos, tiles.WallTiles.RandomElement());
                             floor.SetTile(pos, tiles.FloorTiles.RandomElement());
-                            // add in a wall object with gridOccupantBehaviour, it will add itself to the grid on initialise
-                            // var wall = Instantiate(tiles.WallObject, worldPos, Quaternion.identity);
-                            // wall.transform.parent = walls.transform;
                             grid[x, y] = new Grid.Node(x, y, 1, worldPos);
                             break;
                         }
-                        case 'e': // entry/exit
+                        case 'b': // entry/exit
                         {
+                            playerSpawned = SpawnEntrance(
+                                    'b',
+                                    playerEntrance,
+                                    playerSpawned,
+                                    worldPos,
+                                    Vector2.down,
+                                    tiles.BottomExit
+                                    );
+
+                            floor.SetTile(pos, tiles.FloorTiles.RandomElement());
+                            grid[x, y] = new Grid.Node(x, y, 1, worldPos);
+                            break;
+                        }
+
+                        case 'l': // entry/exit
+                        {
+                            playerSpawned = SpawnEntrance(
+                                'l',
+                                playerEntrance,
+                                playerSpawned,
+                                worldPos,
+                                Vector2.left,
+                                tiles.LeftExit
+                                );
+
+                            floor.SetTile(pos, tiles.FloorTiles.RandomElement());
+                            grid[x, y] = new Grid.Node(x, y, 1, worldPos);
+                            break;
+                        }
+
+                        case 't': // entry/exit
+                        {
+                            playerSpawned = SpawnEntrance(
+                                    't',
+                                    playerEntrance,
+                                    playerSpawned,
+                                    worldPos,
+                                    Vector2.up,
+                                    tiles.TopExit
+                                    );
+
+                            floor.SetTile(pos, tiles.FloorTiles.RandomElement());
+                            grid[x, y] = new Grid.Node(x, y, 1, worldPos);
+                            break;
+                        }
+
+                        case 'r': // entry/exit
+                        {
+                            playerSpawned = SpawnEntrance(
+                                'r',
+                                playerEntrance,
+                                playerSpawned,
+                                worldPos,
+                                Vector2.right,
+                                tiles.RightExit
+                            );
+
+                            floor.SetTile(pos, tiles.FloorTiles.RandomElement());
+                            grid[x, y] = new Grid.Node(x, y, 1, worldPos);
+                            break;
+                        }
+                        case 'n': // entry/exit
+                        {
+
                             floor.SetTile(pos, tiles.FloorTiles.RandomElement());
                             grid[x, y] = new Grid.Node(x, y, 1, worldPos);
                             break;
@@ -141,6 +202,16 @@ namespace Luna.Grid
                                 }
                             }
 
+                            foreach (var terrain in tiles.Terrain)
+                            {
+                                if (UnityEngine.Random.Range(1, terrain.Second) == 1)
+                                {
+                                    var go = Instantiate(terrain.First, worldPos, Quaternion.identity);
+                                    go.transform.parent = terrainParent;
+                                    break;
+                                }
+                            }
+
                             break;
                         }
                     }
@@ -152,43 +223,83 @@ namespace Luna.Grid
                 }
             }
 
-            for (int i = roomString.Length - 1; i > -1; --i)
-            {
-                if (roomString[i] == 'e')
-                {
-                    var x = (i % adjustedWidth) + .5f;
-                    var y = (adjustedHeight + 2 - 1) - (int) (i / adjustedWidth) + .5f;
-                    Instantiate(player, new Vector3(x, y), Quaternion.identity);
-                    break;
-                }
-            }
-
             output.Value = new SquareGrid(grid, Vector2.zero);
             yield return null;
             onGridBuilt.Raise();
             yield break;
         }
 
+        private bool SpawnEntrance(
+            char entryType,
+            char playerEntrance,
+            bool playerSpawned,
+            Vector2 worldPos,
+            Vector2 behindPos,
+            GridOccupantBehaviour entrance)
+        {
+            var ret = playerSpawned;
+            if (playerEntrance == entryType && !playerSpawned)
+            {
+                Instantiate(player, worldPos, Quaternion.identity);
+
+                ret = true;
+            }
+            else
+            {
+
+                var entrancePos = worldPos + behindPos;
+                var go = Instantiate(entrance, entrancePos, Quaternion.identity);
+
+                go.transform.parent = terrainParent;
+            }
+
+            return ret;
+        }
+
         private string AddBorder(string roomString)
         {
             var rows = new String[height + 4];
             var replaced = roomString.Substring(0, width).ToArray();
+            var replaced2 = replaced;
             for (int i = 0; i < replaced.Length; i++)
             {
-                if (replaced[i] != 'c')
-                    replaced[i] = 'u';
+                switch (replaced[i])
+                {
+                    case 'c':
+                        break;
+                    case 't':
+                        replaced[i] = 'u';
+                        replaced2[i] = 'n';
+                        break;
+                    default:
+                        replaced[i] = 'u';
+                        replaced2[i] = 'u';
+                        break;
+                }
             }
 
             rows[0] = new string(replaced);
-            rows[1] = new string(replaced);
+            rows[1] = new string(replaced2);
             replaced = roomString.Substring(roomString.Length - width).ToArray();
+
             for (int i = 0; i < replaced.Length; i++)
             {
-                if (replaced[i] != 'c')
-                    replaced[i] = 'u';
+                switch (replaced[i])
+                {
+                    case 'c':
+                        break;
+                    case 'b':
+                        replaced[i] = 'u';
+                        replaced2[i] = 'n';
+                        break;
+                    default:
+                        replaced[i] = 'u';
+                        replaced2[i] = 'u';
+                        break;
+                }
             }
 
-            rows[height + 2] = new string(replaced);
+            rows[height + 2] = new string(replaced2);
             rows[height + 3] = new string(replaced);
 
             for (int i = 0; i < height + 4; i++)
@@ -198,10 +309,37 @@ namespace Luna.Grid
                     rows[i] = roomString.Substring((i - 2) * width, width);
                 }
 
-                var start = rows[i][0] == 'c' ? 'c' : 'u';
-                var end = rows[i][width - 1] == 'c' ? 'c' : 'u';
-                rows[i] = rows[i].PadLeft(width + 2, start);
-                rows[i] = rows[i].PadRight(width + 4, end);
+                string first;
+                switch (rows[i][0])
+                {
+                    case 'l' :
+                        first = "u0";
+                        break;
+                    case 'c':
+                        first = "cc";
+                        break;
+                    default:
+                        first = "uu";
+                        break;
+                }
+
+                string last;
+                switch (rows[i][width -1])
+                {
+                    case 'r' :
+                        last = "nu";
+                        break;
+                    case 'c':
+                        last = "cc";
+                        break;
+                    default:
+                        last = "uu";
+                        break;
+                }
+
+
+                rows[i] = first + rows[i];
+                rows[i] = rows[i] + last;
             }
 
 

@@ -168,10 +168,13 @@
               <e p="SharedInventoryHolder.cs" t="Include" />
             </e>
             <e p="IProvider.cs" t="Include" />
+            <e p="LayerMaskUtils.cs" t="Include" />
             <e p="MathUtils.cs" t="Include" />
+            <e p="OnTrigger2DEvents.cs" t="Include" />
             <e p="Pair.cs" t="Include" />
             <e p="PriorityQueue.cs" t="Include" />
             <e p="RestartOnKeyPress.cs" t="Include" />
+            <e p="SceneManagementBehaviour.cs" t="Include" />
             <e p="SetRigidbodyVelocity.cs" t="Include" />
             <e p="Timer.cs" t="Include" />
             <e p="Tween.cs" t="Include" />
