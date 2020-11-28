@@ -35,7 +35,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 50ace157a2ec1184b88b52a21df8aa86, type: 2}
     - target: {fileID: 17844929, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
       propertyPath: logNodeExecution
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2634116311112733806, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
       propertyPath: m_Sprite

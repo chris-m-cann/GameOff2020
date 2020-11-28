@@ -1,14 +1,12 @@
-using System;
-using Ai;
 using UnityEngine;
 
-namespace Util
+namespace Util.Inventory
 {
-    [CreateAssetMenu(menuName = "Custom/BlackboardKey")]
-    public class BlackboardKey : ScriptableObject
+    [CreateAssetMenu(menuName = "Custom/Inventory/Key")]
+    public class InventoryKey : ScriptableObject
     {
         [HideInInspector]
-        public Blackboard.ElementKey Key;
+        public int Key;
 
         private void OnEnable()
         {
@@ -22,7 +20,7 @@ namespace Util
 
         private void Refresh()
         {
-            Key = Blackboard.StringToKey(name);
+            Key = ("InventoryKey." + name).GetHashCode();
         }
     }
 }

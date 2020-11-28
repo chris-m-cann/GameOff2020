@@ -67,13 +67,12 @@
               <e p="SquareGridVisualiser.cs" t="Include" />
               <e p="TilePalette.cs" t="Include" />
             </e>
-            <e p="Inventory.cs" t="Include" />
-            <e p="InventoryHolder.cs" t="Include" />
             <e p="MouseController.cs" t="Include" />
             <e p="MoveAlongPath.cs" t="Include" />
             <e p="OnCollisionBehaviour.cs" t="Include" />
             <e p="OnMouseDown.cs" t="Include" />
             <e p="Pathfinding.cs" t="Include" />
+            <e p="PickUpBehaviour.cs" t="Include" />
             <e p="TurnPhase.cs" t="Include" />
             <e p="TurnPhaseObject.cs" t="Include" />
             <e p="TurnPhaseOrder.cs" t="Include" />
@@ -156,6 +155,18 @@
             </e>
             <e p="InitialVelocity.cs" t="Include" />
             <e p="InstantiateThing.cs" t="Include" />
+            <e p="Inventory" t="Include">
+              <e p="AggregateItem.cs" t="Include" />
+              <e p="AggregateSlot.cs" t="Include" />
+              <e p="Inventory.cs" t="Include" />
+              <e p="InventoryAggregateObserverBehaviour.cs" t="Include" />
+              <e p="InventoryHolder.cs" t="Include" />
+              <e p="InventoryItem.cs" t="Include" />
+              <e p="InventoryKey.cs" t="Include" />
+              <e p="InventorySlot.cs" t="Include" />
+              <e p="PersonalInventoryHolder.cs" t="Include" />
+              <e p="SharedInventoryHolder.cs" t="Include" />
+            </e>
             <e p="IProvider.cs" t="Include" />
             <e p="MathUtils.cs" t="Include" />
             <e p="Pair.cs" t="Include" />

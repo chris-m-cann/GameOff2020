@@ -2,29 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70e28912-96f6-4768-b836-01a1ddb807af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/InventoryHolder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/InventoryHolder.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/PickUpBehaviour.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/PickUpBehaviour.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/AggregateItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/AggregateItem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/AggregateSlot.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/AggregateSlot.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/Inventory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/InventoryAggregateObserverBehaviour.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/InventoryAggregateObserverBehaviour.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/InventoryItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/InventoryItem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/InventoryKey.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/InventoryKey.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/InventorySlot.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/InventorySlot.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/PersonalInventoryHolder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/PersonalInventoryHolder.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/SharedInventoryHolder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/SharedInventoryHolder.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GameOff2020/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameOff2020/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GameOff2020/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameOff2020/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/DestructableScenery.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/DestructableScenery.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Units/Enemies/EnemyUnit.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Units/Enemies/EnemyUnit.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Units/Enemies/Golem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Units/Enemies/Golem.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Units/Enemies/Skelly.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Units/Enemies/Skelly.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Units/Enemies/Vampire.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Units/Enemies/Vampire.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Units/Enemies/FlameSkull.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Units/Enemies/FlameSkull.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Units/PlayerUnit.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Units/PlayerUnit.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/RoomGeneration.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/RoomGeneration.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Ai/BtBheaviour/AttackBehaviour.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Ai/BtBheaviour/AttackBehaviour.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Ai/BtBheaviour/Chase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Ai/BtBheaviour/Chase.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Ai/BtBheaviour/HotlineMiamiIdle.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Ai/BtBheaviour/HotlineMiamiIdle.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Ai/BtBheaviour/IdeBehaviour.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Ai/BtBheaviour/IdeBehaviour.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Rooms/DefaultTilepalette.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Rooms/DefaultTilepalette.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/Grid/BuildTilemapFromString.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Grid/BuildTilemapFromString.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/Grid/RemoveOccupantTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Grid/RemoveOccupantTile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/Grid/TilePalette.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Grid/TilePalette.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/MoveAlongPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/MoveAlongPath.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/Pathfinding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/Pathfinding.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/OccupantType.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/OccupantType/Monster.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/OccupantType/Monster.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/OccupantType/Player.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/OccupantType/Player.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/OccupantType/Scenery.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/OccupantType/Scenery.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/Inventory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/Inventory.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/Inventory.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/InventoryHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/InventoryHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/InventoryHolder.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/InventoryHolder.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Luna/OnCollisionBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Luna/OnCollisionBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/BlackboardKey.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/BlackboardKey.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +69,7 @@
     <setting file="file://$PROJECT_DIR$/../../Prototypes/TwinStickBase/Assets/Scripts/Ai/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Prototypes/TwinStickBase/Assets/Scripts/Ai/NullState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Prototypes/TwinStickBase/Assets/Scripts/Ai/UnityFsm/AIAgent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/a1/585cb507/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FE84F4A7-54DA-4A6B-B64F-CA409D40938A/44/82d0d2fe/WaitForFixedUpdate.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Prototypes/TwinStickBase/Assets/Scripts/Ai/Transition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../../Program Files/Unity/Hub/Editor/2020.1.11f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.2d.tilemap/Editor/GridPaintPaletteClipboard.cs" root0="SKIP_HIGHLIGHTING" />
@@ -80,24 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Actor/IActor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Actor/Action.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Actor/ActorRuntimeSet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Actor/ActorTurnController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Actor/GameAction.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Actor/MoveToPointAction.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Actor/UnitActionAdaptor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Actor/PlayerInputAction.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Actor/IGameAction.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Actor/Actor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Actor/MoveActorToPointAction.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Actor/PlayerActorInputAction.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Actor/MoveToPointBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Actions/BaseAction.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Unit/AiUnit.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Unit/BaseUnit.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Unit/EnemyUnit.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Unit/PlayerUnit.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/AttackTargetNode.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Ai/UseWeaponNode.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Actions/ExecuteAgentAction.cs" />
@@ -121,16 +119,34 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Grid/GridOccupantEvent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Grid/GridOccupantBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Grid/GridOccupantEventListener.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/OnCollisionBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Grid/RemoveOccupantTile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Grid/TilePalette.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Grid/BuildTilemapFromString.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Util/PriorityQueue.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Pathfinding.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Luna/MoveAlongPath.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Inventory.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/InventoryHolder.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/BlackboardKey.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/InventorySlot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/InventoryKey.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/InventoryHolder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/InventoryItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/AggregateItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/Inventory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/AggregateSlot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/ItemSlot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/InventorySlot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/AggregateItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/InventoryKey.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/InventoryItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/InventoryObserverBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/Inventory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/InventoryAggregateObserverBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/InventoryHolder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/PersonalInventoryHolder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Util/Inventory/SharedInventoryHolder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/OnCollisionBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Luna/PickUpBehaviour.cs" />
       </list>
     </option>
   </component>
@@ -201,7 +217,7 @@
       <workItem from="1606249432156" duration="3787000" />
       <workItem from="1606418115351" duration="11324000" />
       <workItem from="1606500273829" duration="15737000" />
-      <workItem from="1606553307837" duration="927000" />
+      <workItem from="1606553307837" duration="11428000" />
     </task>
     <servers />
   </component>
@@ -320,10 +336,10 @@
     </state>
     <state width="1877" height="365" key="GridCell.Tab.3.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1606519630608" />
     <state width="1877" height="96" key="GridCell.Tab.3.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479245336" />
-    <state x="-1126" y="236" key="RiderGenerateDialog" timestamp="1606249856414">
+    <state x="-1126" y="236" key="RiderGenerateDialog" timestamp="1606559631525">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1126" y="236" key="RiderGenerateDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1606249856414" />
+    <state x="-1126" y="236" key="RiderGenerateDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1606559631525" />
     <state x="794" y="236" key="RiderGenerateDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605479025835" />
     <state x="-1459" y="165" key="SettingsEditor" timestamp="1605995823096">
       <screen x="-1920" y="0" width="1920" height="1040" />
@@ -355,10 +371,10 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1304" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1604759664970" />
-    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606516202924">
+    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606555937938">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1606516202924" />
+    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1606555937938" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605907845746" />
   </component>
   <component name="XDebuggerManager">
