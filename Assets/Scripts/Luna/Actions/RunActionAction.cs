@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using UnityEngine;
 
 namespace Luna.Actions
 {
@@ -7,18 +8,24 @@ namespace Luna.Actions
     {
         private readonly Action _action;
         private readonly int _priority;
+        private readonly GameObject _target;
 
         private bool _isFinished;
 
-        public RunActionAction(Action action, int priority = 0)
+        public RunActionAction(GameObject target, Action action, int priority = 0)
         {
             _action = action;
             _priority = priority;
+            _target = target;
         }
 
         private IEnumerator Execute()
         {
-            _action.Invoke();
+            if (_target != null)
+            {
+                _action.Invoke();
+            }
+
             yield return null;
             _isFinished = true;
         }

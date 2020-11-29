@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cfe220f33be4e93874b72b52b321ed3, type: 3}
   m_Name: PlayerInventory
   m_EditorClassIdentifier: 
-  OnInventoryChanged:
-    _PersistentCalls: []
-  supportedItems: []
+  supportedItems:
+  - {fileID: 11400000, guid: a5fc3d0cd5865c74b85fa197844c69a2, type: 2}
+  - {fileID: 11400000, guid: 7651c8c5ced7c664ca30c4f0ab52f61b, type: 2}

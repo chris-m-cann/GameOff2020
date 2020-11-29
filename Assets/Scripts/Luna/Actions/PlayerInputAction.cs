@@ -59,11 +59,12 @@ namespace Luna.Actions
             if (isMyNodeValid && isClickedNodeValid)
             {
                 // attack
-                var targets = mainWeapon.FindTargets(myNode, _unit.Occupant.Grid);
+                var direction = clickedNode.Position - _unit.Occupant.Occupant.Position;
+                var targets = mainWeapon.FindTargets(_unit.Occupant.Occupant, direction,_unit.Occupant.Grid);
 
-                if (Array.Exists(targets, it => it.Equals(clickedNode)))
+                if (Array.Exists(targets, it => it.Position == clickedNode.Position))
                 {
-                    var actions = mainWeapon.Apply(clickedNode, gameObject);
+                    var actions = mainWeapon.Use(_unit.Occupant.Occupant, direction, _unit.Occupant.Grid);
 
                     if (actions != null && actions.Count > 0)
                     {
@@ -140,6 +141,18 @@ namespace Luna.Actions
         public override bool Tick(Unit.Unit unit)
         {
             return _isFinished;
+        }
+
+        [SerializeField] private RangedWeapon bombChucker;
+
+
+        public void ThrowBomb()
+        {
+            if (_isCapturing)
+            {
+                _unit.QueueRange(bombChucker.Use(_unit.Occupant.Occupant, Vector2Int.up, _unit.Occupant.Grid));
+                EndTurn();
+            }
         }
     }
 }

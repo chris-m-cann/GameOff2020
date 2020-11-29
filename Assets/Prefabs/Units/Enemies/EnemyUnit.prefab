@@ -157,6 +157,19 @@ MonoBehaviour:
   globalBlackboard: {fileID: 0}
   behaviour: {fileID: 11400000, guid: a21bb4ec656f4754eb2d25e03fcdd7ce, type: 2}
   logNodeExecution: 0
+--- !u!114 &80701581230800863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5405527541490085600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914009de0709401fb62d69f110666095, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canFly: 0
 --- !u!114 &1257626809701839270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +183,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnCollisionEffects: {fileID: 11400000, guid: 675a90253274beb41a89f113aa3c3b66, type: 2}
+--- !u!114 &3434710191533540331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5405527541490085600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ebd3a64fa34ad6984e785a19d07703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3643331745280798750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,6 +261,10 @@ PrefabInstance:
       propertyPath: Occupant.Cost
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 6559222809287249761, guid: 7b19e8fe3afcea542848d936670aa4cc, type: 3}
+      propertyPath: Occupant.Type
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c6e0f44bbdf72045b55dab580919f2a, type: 2}
     - target: {fileID: 6559222809287249761, guid: 7b19e8fe3afcea542848d936670aa4cc, type: 3}
       propertyPath: Occupant.Tags.Array.size
       value: 1

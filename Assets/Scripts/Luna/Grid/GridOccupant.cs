@@ -7,9 +7,10 @@ namespace Luna.Grid
     [Serializable]
     public class GridOccupant
     {
-        public GridOccupantTag[] Tags;
+        public GridOccupantType Type;
         public int Cost;
         public bool IsCollectable;
         [HideInInspector] public GameObject OccupantGameObject;
+        [HideInInspector] public Vector2Int Position;
     }
 }

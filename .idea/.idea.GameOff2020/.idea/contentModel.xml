@@ -29,6 +29,7 @@
               <e p="DamageAction.cs" t="Include" />
               <e p="ExecuteAgentAction.cs" t="Include" />
               <e p="IUnitAction.cs" t="Include" />
+              <e p="LaunchProjectileAction.cs" t="Include" />
               <e p="MoveToPointAction.cs" t="Include" />
               <e p="PlayerInputAction.cs" t="Include" />
               <e p="RunActionAction.cs" t="Include" />
@@ -45,6 +46,7 @@
               <e p="IsNodeOnCardinalDirectionNode.cs" t="Include" />
               <e p="MoveToMoveTargetNode.cs" t="Include" />
               <e p="NodeHasOccupantsOnLayer.cs" t="Include" />
+              <e p="NodeHasOccupantsWithTagAndCost.cs" t="Include" />
               <e p="PickRandomAdjacentNodeNode.cs" t="Include" />
               <e p="ProximitySensor.cs" t="Include" />
               <e p="ReadCurrentKeyBehaviour.cs" t="Include" />
@@ -59,7 +61,7 @@
               <e p="GridOccupantBehaviour.cs" t="Include" />
               <e p="GridOccupantEvent.cs" t="Include" />
               <e p="GridOccupantEventListener.cs" t="Include" />
-              <e p="GridOccupantTag.cs" t="Include" />
+              <e p="GridOccupantType.cs" t="Include" />
               <e p="GridVariable.cs" t="Include" />
               <e p="RemoveOccupantTile.cs" t="Include" />
               <e p="RoomTemplate.cs" t="Include" />
@@ -87,11 +89,14 @@
               <e p="UnitTurnController.cs" t="Include" />
             </e>
             <e p="WeaponEffects" t="Include">
+              <e p="ChasmEffect.cs" t="Include" />
+              <e p="ChasmEffectController.cs" t="Include" />
               <e p="DamageableBehaviour.cs" t="Include" />
               <e p="DamageEffect.cs" t="Include" />
               <e p="DestroyableBehaviour.cs" t="Include" />
               <e p="DestroyWielderEffect.cs" t="Include" />
               <e p="EffectHandler.cs" t="Include" />
+              <e p="OnTriggerEnterApplyEffects.cs" t="Include" />
               <e p="PushableBehaviour.cs" t="Include" />
               <e p="PushWeaponEffect.cs" t="Include" />
               <e p="WeaponEffect.cs" t="Include" />
@@ -99,6 +104,8 @@
             <e p="Weapons" t="Include">
               <e p="AoeWeapon.cs" t="Include" />
               <e p="MeleeWeapon.cs" t="Include" />
+              <e p="ProjectileBehaviour.cs" t="Include" />
+              <e p="RangedWeapon.cs" t="Include" />
               <e p="Weapon.cs" t="Include" />
             </e>
           </e>
@@ -131,6 +138,7 @@
                 <e p="WriteIntToBlackboardNode.cs" t="Include" />
                 <e p="WriteStringToBlackboardNode.cs" t="Include" />
                 <e p="WriteToBlackboardNode.cs" t="Include" />
+                <e p="WriteVector2IntToBlackboard.cs" t="Include" />
               </e>
             </e>
             <e p="AudioClipEx.cs" t="Include" />
@@ -156,6 +164,7 @@
             <e p="InitialVelocity.cs" t="Include" />
             <e p="InstantiateThing.cs" t="Include" />
             <e p="Inventory" t="Include">
+              <e p="AddItemsOnStart.cs" t="Include" />
               <e p="AggregateItem.cs" t="Include" />
               <e p="AggregateSlot.cs" t="Include" />
               <e p="Inventory.cs" t="Include" />

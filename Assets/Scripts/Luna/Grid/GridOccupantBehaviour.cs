@@ -13,16 +13,14 @@ namespace Luna.Grid
         public GridOccupant Occupant = new GridOccupant();
         [SerializeField] private GridVariable grid;
 
-        private Vector2Int _currentIdx = Vector2Int.left;
-
-        public Vector2Int CurrentNodeIdx => _currentIdx;
+        public Vector2Int CurrentNodeIdx => Occupant.Position;
 
         public Grid.Node? CurrentNode
         {
             get
             {
                 var n = new Grid.Node();
-                if (grid.Value.TryGetNodeAt(_currentIdx.x, _currentIdx.y, ref n))
+                if (grid.Value.TryGetNodeAt(CurrentNodeIdx.x, CurrentNodeIdx.y, ref n))
                 {
                     return n;
                 }
@@ -42,7 +40,7 @@ namespace Luna.Grid
 
         public void UpdateGrid(Vector3 worldPos)
         {
-            _currentIdx = grid.Value.MoveOccupant(_currentIdx, worldPos, Occupant);
+            grid.Value.MoveOccupant(worldPos, Occupant);
         }
 
         public void AddToGrid() => UpdateGrid(transform.position);
@@ -57,7 +55,7 @@ namespace Luna.Grid
 
         private void RemoveFromGrid()
         {
-            grid.Value.RemoveOccupantAtIdx(_currentIdx, Occupant);
+            grid.Value.RemoveOccupant(Occupant);
         }
     }
 }

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e0c8fcab594c4aad796187d8eb2616, type: 3}
+  m_Name: ThrowBomb
+  m_EditorClassIdentifier: 
+  TargetTypes:
+  - {fileID: 11400000, guid: 4c6e0f44bbdf72045b55dab580919f2a, type: 2}
+  - {fileID: 11400000, guid: 2c16bf5e1f5f3b1489b2862f462c6250, type: 2}
+  Effects: []
+  EffectSelf: 0
+  projectile: {fileID: 7942421647937234793, guid: 4320e4ece57a8e240a2575ab8fdbc885, type: 3}

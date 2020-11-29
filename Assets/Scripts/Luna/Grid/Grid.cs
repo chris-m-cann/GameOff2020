@@ -10,10 +10,22 @@ namespace Luna.Grid
         public struct Node
         {
             public int Cost;
-            public readonly int X;
-            public readonly int Y;
+            public Vector2Int Position;
             public Vector2 WorldPosition;
             public ReadOnlyCollection<GridOccupant> Occupants => _occupants.AsReadOnly();
+
+
+            public int X
+            {
+                get => Position.x;
+                set => Position.x = value;
+            }
+
+            public int Y
+            {
+                get => Position.y;
+                set => Position.y = value;
+            }
 
             private readonly int _baseCost;
             private readonly List<GridOccupant> _occupants;
@@ -21,8 +33,7 @@ namespace Luna.Grid
             public Node(int x, int y, int baseCost, Vector2 worldPosition, List<GridOccupant> occupants = null)
             {
                 _baseCost = baseCost;
-                X = x;
-                Y = y;
+                Position = new Vector2Int(x, y);
                 WorldPosition = worldPosition;
                 _occupants = occupants ?? new List<GridOccupant>();
                 Cost = _baseCost;
@@ -70,6 +81,7 @@ namespace Luna.Grid
         }
 
         public abstract bool TryGetNodeAt(int x, int y, ref Node node);
+        public virtual bool TryGetNodeAt(Vector2Int pos, ref Node node) => TryGetNodeAt(pos.x, pos.y, ref node);
         public abstract bool TryGetNodeAtWorldPosition(Vector2 pos, ref Node node);
         public abstract Node[] GetNeighbours(Node node);
         public abstract bool HasTileAtPos(Vector2 target);
@@ -77,10 +89,8 @@ namespace Luna.Grid
         public abstract void UpdateNode(Node node);
 
         public abstract Vector2Int AddOccupant(Vector2 worldPosition, GridOccupant occupant);
-        public abstract void RemoveOccupant(Vector2 worldPosition, GridOccupant occupant);
-        public abstract void RemoveOccupantAtIdx(Vector2Int idx, GridOccupant occupant);
-
-        public abstract Vector2Int MoveOccupant(Vector2Int oldIdx, Vector2 newWorldPos, GridOccupant occupant);
+        public abstract void RemoveOccupant(GridOccupant occupant);
+        public abstract Vector2Int MoveOccupant(Vector2 newWorldPos, GridOccupant occupant);
         public abstract Node[] GetNeighboursInRange(Node node, int area);
     }
 }

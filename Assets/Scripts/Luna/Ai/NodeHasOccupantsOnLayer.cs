@@ -18,12 +18,7 @@ namespace Luna.Ai
             if (node == null) return State.Failed;
 
             var hasOccupantInLayerMask =
-                node.Value.Occupants.Any(it =>
-                {
-                    var layerBit = 1 << it.OccupantGameObject.layer;
-
-                    return (layers.value & layerBit) == layerBit;
-                });
+                node.Value.Occupants.Any(it => layers.Contains(it.OccupantGameObject.layer));
 
             return hasOccupantInLayerMask ? State.Succeeded : State.Failed;
         }

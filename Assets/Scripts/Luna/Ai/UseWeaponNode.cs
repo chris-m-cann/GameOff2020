@@ -1,4 +1,5 @@
 using System.Linq;
+using Ai;
 using Luna.Weapons;
 using UnityEngine;
 using Util;
@@ -10,6 +11,7 @@ namespace Luna.Ai
     public class UseWeaponNode : BtNode
     {
         [SerializeField] private BlackboardKey weaponKey;
+        [SerializeField] private BlackboardKey directionKey;
 
 
         protected override State OnExecute(AgentContext context)
@@ -17,17 +19,14 @@ namespace Luna.Ai
             var weapon = context.AgentBlackboard.RetrieveData<Weapon>(weaponKey);
             if (weapon == null) return State.Failed;
 
+            if (!context.AgentBlackboard.Contains(directionKey)) return State.Failed;
+            var direction = context.AgentBlackboard.RetrieveData<Vector2Int>(directionKey);
+
             var agentNode = context.Occupant.CurrentNode;
             if (agentNode == null) return State.Failed;
 
-            var targets = weapon.FindTargets(agentNode.Value, context.Occupant.Grid);
-
-
-            foreach (var target in targets)
-            {
-                var actions = weapon.Apply(target, context.Agent);
-                context.Unit.QueueRange(actions);
-            }
+            var actions = weapon.Use(context.Occupant.Occupant, direction, context.Occupant.Grid);
+            context.Unit.QueueRange(actions);
 
             return State.Succeeded;
         }

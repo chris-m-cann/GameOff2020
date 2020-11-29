@@ -89,6 +89,10 @@ PrefabInstance:
       propertyPath: behaviour
       value: 
       objectReference: {fileID: 11400000, guid: 0d498f90429962645baed51dc6cb008c, type: 2}
+    - target: {fileID: 80701581230800863, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
+      propertyPath: canFly
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2634116311112733806, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
       propertyPath: m_Sprite
       value: 

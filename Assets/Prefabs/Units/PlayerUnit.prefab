@@ -138,19 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b053665bd5114290b353c8fa14c20745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8771760226621668677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5849358632334855933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 459c6dcb58b34c7c90d6ff4931bcb6e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainWeapon: {fileID: 11400000, guid: eb90479a5027f994a8199b483fc76365, type: 2}
 --- !u!114 &8633221321736368629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +151,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: aa4c0bf374abf6d4a8c8b60b07b62e2e, type: 2}
+--- !u!114 &8771760226621668677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5849358632334855933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 459c6dcb58b34c7c90d6ff4931bcb6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainWeapon: {fileID: 11400000, guid: eb90479a5027f994a8199b483fc76365, type: 2}
+  bombChucker: {fileID: 11400000, guid: 45f9b2344ce9a3e41ad8bde85e4a9631, type: 2}
+--- !u!114 &3226931986907030253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5849358632334855933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2dd330c3df51b248bfd2a2d50502199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent:
+    gameEvent: {fileID: 11400000, guid: 25f98dedd5c61054785cfb3bf683ba91, type: 2}
+    observable: {fileID: 0}
+    option: 0
+  onEventRaised:
+    _PersistentCalls:
+    - _Target: {fileID: 8771760226621668677}
+      _MethodName: ThrowBomb
+      _PersistentArguments: []
 --- !u!1001 &206419577168420384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -199,6 +221,10 @@ PrefabInstance:
       propertyPath: Occupant.Cost
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 6559222809287249761, guid: 7b19e8fe3afcea542848d936670aa4cc, type: 3}
+      propertyPath: Occupant.Type
+      value: 
+      objectReference: {fileID: 11400000, guid: d632f437bb813f14b92fdf767ed640db, type: 2}
     - target: {fileID: 6559222809287249761, guid: 7b19e8fe3afcea542848d936670aa4cc, type: 3}
       propertyPath: Occupant.Tags.Array.size
       value: 1

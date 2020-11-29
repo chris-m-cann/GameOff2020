@@ -131,7 +131,10 @@ namespace Luna
 
         public void OnTriggerEnter2D(Collider2D other)
         {
-            _collider2D = other;
+            if (layers.Contains(other.gameObject.layer))
+            {
+                _collider2D = other;
+            }
         }
     }
 }

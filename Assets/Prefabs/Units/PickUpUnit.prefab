@@ -39,7 +39,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 596853279483555286, guid: 7b19e8fe3afcea542848d936670aa4cc, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4357876200552852051, guid: 7b19e8fe3afcea542848d936670aa4cc, type: 3}
       propertyPath: m_Sprite
@@ -55,7 +55,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6048405958267261149, guid: 7b19e8fe3afcea542848d936670aa4cc, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559222809287249761, guid: 7b19e8fe3afcea542848d936670aa4cc, type: 3}
+      propertyPath: Occupant.Type
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6559222809287249761, guid: 7b19e8fe3afcea542848d936670aa4cc, type: 3}
       propertyPath: Occupant.IsCollectable

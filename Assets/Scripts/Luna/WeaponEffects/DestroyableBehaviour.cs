@@ -8,10 +8,15 @@ namespace Luna.WeaponEffects
     {
         public override List<IUnitAction> Handle(DestroyWielderEffect effect, GameObject wielder)
         {
+            return DestroyUnitAction();
+        }
+
+        public List<IUnitAction> DestroyUnitAction()
+        {
 
             return new List<IUnitAction>
             {
-                new RunActionAction(() =>
+                new RunActionAction(gameObject, () =>
                 {
                     Destroy(gameObject);
                 }, priority: 999)

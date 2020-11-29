@@ -45,7 +45,15 @@ namespace Luna.Unit
         {
             if (_currentGroup == -1) return; // sentinal value to say we havnt started
 
-            if (!groups[_currentGroup].RunCurrentUnit()) StartNextTurn();
+            if (!groups[_currentGroup].RunCurrentUnit())
+            {
+                StartNextTurn();
+            }
+        }
+
+        public void AddActionsToCurrentUnit(IEnumerable<IUnitAction> actions)
+        {
+            groups[_currentGroup].AddActionsToCurrentUnit(actions);
         }
     }
 }

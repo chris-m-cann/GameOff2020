@@ -31,12 +31,14 @@ namespace Luna.Ai
             var agentNode = context.Occupant.CurrentNode;
             if (agentNode == null) return State.Failed;
 
-            var targets = weapon.FindTargets(agentNode.Value, context.Occupant.Grid);
+            var targetPosition = new Vector2Int(targetNode.Value.X, targetNode.Value.Y);
+            var direction = targetPosition - context.Occupant.Occupant.Position;
+            var targets = weapon.FindTargets(context.Occupant.Occupant, direction, context.Occupant.Grid);
 
-            if (!targets.Any(it => it.Equals(targetNode.Value))) return State.Failed;
+            if (targets.All(it => it.Position != targetPosition)) return State.Failed;
 
 
-            var actions = weapon.Apply(targetNode.Value, context.Agent);
+            var actions = weapon.Use(context.Occupant.Occupant, direction, context.Occupant.Grid);
             context.Unit.QueueRange(actions);
 
             return State.Succeeded;

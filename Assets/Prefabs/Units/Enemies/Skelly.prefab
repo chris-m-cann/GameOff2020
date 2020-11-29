@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 17844922, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
+      propertyPath: m_Radius
+      value: 0.28
+      objectReference: {fileID: 0}
     - target: {fileID: 5405527541490085600, guid: 512cef39cf413f64ca5f778b6500c1a9, type: 3}
       propertyPath: m_Name
       value: Skelly

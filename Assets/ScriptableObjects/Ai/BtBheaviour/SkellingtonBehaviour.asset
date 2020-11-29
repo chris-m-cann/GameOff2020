@@ -1,41 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8732284197133975464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f00a29743f8d4413b612c051fa05da73, type: 3}
-  m_Name: Node Has Occupants On Layer
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -120, y: 24}
-  ports:
-    keys:
-    - Parent
-    values:
-    - _fieldName: Parent
-      _node: {fileID: -8732284197133975464}
-      _typeQualifiedName: Util.Ai.Bt.BtNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: children
-        node: {fileID: -1204337872588053274}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  Description: 
-  Parent: {fileID: -1204337872588053274}
-  layers:
-    serializedVersion: 2
-    m_Bits: 1024
-  nodeKey: {fileID: 11400000, guid: 3a21066b3457cc34999aea83efec8b9c, type: 2}
 --- !u!114 &-7971870702366977010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,7 +46,7 @@ MonoBehaviour:
   m_Name: Rotate Vector
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -120, y: 216}
+  position: {x: -120, y: 248}
   ports:
     keys:
     - Parent
@@ -103,6 +67,43 @@ MonoBehaviour:
   Parent: {fileID: -1204337872588053274}
   vector2IntKey: {fileID: 11400000, guid: 052b75ae4d84db646a153d11c7318bc4, type: 2}
   rotation: {x: 0, y: 0, z: 180}
+--- !u!114 &-1641235202939998674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2496f155eca4138bd8e909e594d4658, type: 3}
+  m_Name: Node Has Occupants With Tag And Cost
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -120, y: 8}
+  ports:
+    keys:
+    - Parent
+    values:
+    - _fieldName: Parent
+      _node: {fileID: -1641235202939998674}
+      _typeQualifiedName: Util.Ai.Bt.BtNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: children
+        node: {fileID: -1204337872588053274}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Description: 
+  Parent: {fileID: -1204337872588053274}
+  types:
+  - {fileID: 11400000, guid: 2c16bf5e1f5f3b1489b2862f462c6250, type: 2}
+  - {fileID: 11400000, guid: a9d53bc923d99024691e3d558004abe1, type: 2}
+  cost: -1
+  nodeKey: {fileID: 11400000, guid: 3a21066b3457cc34999aea83efec8b9c, type: 2}
 --- !u!114 &-1204337872588053274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +133,7 @@ MonoBehaviour:
         node: {fileID: 8804418029483601556}
         reroutePoints: []
       - fieldName: Parent
-        node: {fileID: -8732284197133975464}
+        node: {fileID: -1641235202939998674}
         reroutePoints: []
       - fieldName: Parent
         node: {fileID: -4607774204215871845}
@@ -157,7 +158,7 @@ MonoBehaviour:
   Parent: {fileID: 2891882934607043537}
   children:
   - {fileID: 8804418029483601556}
-  - {fileID: -8732284197133975464}
+  - {fileID: -1641235202939998674}
   - {fileID: -4607774204215871845}
 --- !u!114 &-705139389426600358
 MonoBehaviour:
@@ -228,7 +229,6 @@ MonoBehaviour:
   m_Name: SkellingtonBehaviour
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: -8732284197133975464}
   - {fileID: 8804418029483601556}
   - {fileID: 2891882934607043537}
   - {fileID: -7971870702366977010}
@@ -238,6 +238,7 @@ MonoBehaviour:
   - {fileID: 7472658350747763586}
   - {fileID: -1204337872588053274}
   - {fileID: 1839093512938428470}
+  - {fileID: -1641235202939998674}
 --- !u!114 &1839093512938428470
 MonoBehaviour:
   m_ObjectHideFlags: 0

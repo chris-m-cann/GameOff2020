@@ -40,7 +40,7 @@ namespace Util.Inventory
 
         bool IsKeySupported(InventoryItem item)
         {
-            return (Array.IndexOf(supportedItems, item.Key) < 0) ;
+            return !(Array.IndexOf(supportedItems, item.Key) < 0);
         }
 
         public bool AddAggregate(AggregateItem item)

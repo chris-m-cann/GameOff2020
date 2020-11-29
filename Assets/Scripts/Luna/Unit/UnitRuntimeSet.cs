@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Luna.Actions;
 using UnityEngine;
 using Util;
 
@@ -65,6 +66,22 @@ namespace Luna.Unit
 
         public bool RunCurrentUnit()
         {
+            if (_floatingActions.Count > 0)
+            {
+                if (_floatingActions.Peek().Tick(null))
+                {
+                    _floatingActions.Dequeue();
+
+                    if (_floatingActions.Count > 0)
+                    {
+                        _floatingActions.Peek().StartAction(null);
+                    }
+
+                }
+
+                return false;
+            }
+
             if (IsEmpty || _currentUnitRemoved || Current.Tick())
             {
                 if (MoveNext())
@@ -86,5 +103,28 @@ namespace Luna.Unit
             _idx = 0;
             _currentUnitRemoved = false;
         }
+
+        // todo(chris) need to handle the case where i am adding actions to a dead unit or when none left in the set
+        public void AddActionsToCurrentUnit(IEnumerable<IUnitAction> actions)
+        {
+            if (IsEmpty || _currentUnitRemoved)
+            {
+                if (actions != null)
+                {
+                    foreach (var action in actions)
+                    {
+                        _floatingActions.Enqueue(action, action.Priority);
+                    }
+
+                    _floatingActions.Peek().StartAction(null);
+                }
+            }
+            else
+            {
+                Current.QueueRange(actions);
+            }
+        }
+
+        private readonly PriorityQueue<IUnitAction, int> _floatingActions = new PriorityQueue<IUnitAction, int>();
     }
 }

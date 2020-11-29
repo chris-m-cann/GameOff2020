@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using Luna.Grid;
 using UnityEngine;
 
 namespace Luna.Weapons
@@ -8,13 +11,41 @@ namespace Luna.Weapons
     {
         [SerializeField] private int area;
 
-        public override Grid.Grid.Node[] FindTargets(Grid.Grid.Node wielder, Grid.Grid grid)
+        // public override Grid.Grid.Node[] FindTargets(Grid.Grid.Node wielder, Grid.Grid grid)
+        // {
+        //
+        //     var neighbours = grid.GetNeighboursInRange(wielder, area);
+        //
+        //     // todo(chris) consider optimising as this will be used by every mellee enemy on the grid
+        //     return neighbours.Where(node => node.Occupants.Any(it => it.Tags.Intersect(TargetTypes).Any())).ToArray();
+        // }
+
+        public override GridOccupant[] FindTargets(GridOccupant wielder, Vector2Int direction, Grid.Grid grid)
         {
+            var node = new Grid.Grid.Node();
+            if (grid.TryGetNodeAt(wielder.Position, ref node))
+            {
+                var neighbours = grid.GetNeighboursInRange(node, area);
 
-            var neighbours = grid.GetNeighboursInRange(wielder, area);
+                var targets = new List<GridOccupant>();
 
-            // todo(chris) consider optimising as this will be used by every mellee enemy on the grid
-            return neighbours.Where(node => node.Occupants.Any(it => it.Tags.Intersect(TargetTypes).Any())).ToArray();
+                foreach (var neighbour in neighbours)
+                {
+                    var validOccupants = neighbour.Occupants.Where(it => TargetTypes.Contains(it.Type));
+                    targets.AddRange(validOccupants);
+                }
+
+                return targets.ToArray();
+            }
+
+            return null;
+        }
+
+        public override bool CanTarget(GridOccupant target, GridOccupant wielder, Grid.Grid grid)
+        {
+            var targets = FindTargets(wielder, target.Position - wielder.Position, grid);
+
+            return Array.IndexOf(targets, target) > -1;
         }
     }
 }

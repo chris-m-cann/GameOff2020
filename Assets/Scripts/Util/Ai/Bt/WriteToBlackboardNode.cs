@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Util.Ai.Bt
 {
-    public class WriteToBlackboardNode<T> : BtDecoratorNode where T : IComparable
+    public class WriteToBlackboardNode<T> : BtDecoratorNode
     {
         [SerializeField] private BlackboardKey key;
         [SerializeField] private T value;

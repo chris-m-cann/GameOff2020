@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Util;
 
 namespace Luna.Grid
 {
@@ -163,40 +164,26 @@ namespace Luna.Grid
             var idx = GetNodeIndexAt(worldPosition);
             if (IdxIsOnGrid(idx))
             {
+                occupant.Position = idx;
                 _nodes[idx.x, idx.y].AddOccupant(occupant);
             }
-
             return idx;
         }
 
-        public override void RemoveOccupant(Vector2 worldPosition, GridOccupant occupant)
+        public override void RemoveOccupant(GridOccupant occupant)
         {
-            var idx = GetNodeIndexAt(worldPosition);
-            RemoveOccupantAtIdx(idx, occupant);
-        }
-
-        public override void RemoveOccupantAtIdx(Vector2Int idx, GridOccupant occupant)
-        {
-            if (IdxIsOnGrid(idx))
+            if (IdxIsOnGrid(occupant.Position))
             {
-                _nodes[idx.x, idx.y].RemoveOccupant(occupant);
+                _nodes[occupant.Position.x, occupant.Position.y].RemoveOccupant(occupant);
+                occupant.Position = Vector2IntEx.OffGrid;
             }
         }
 
-        public override Vector2Int MoveOccupant(Vector2Int oldIdx, Vector2 newWorldPos, GridOccupant occupant)
+        public override Vector2Int MoveOccupant(Vector2 newWorldPos, GridOccupant occupant)
         {
-            if (IdxIsOnGrid(oldIdx))
-            {
-                _nodes[oldIdx.x, oldIdx.y].RemoveOccupant(occupant);
-            }
+            RemoveOccupant(occupant);
 
-            var idx = GetNodeIndexAt(newWorldPos);
-            if (IdxIsOnGrid(idx))
-            {
-                _nodes[idx.x, idx.y].AddOccupant(occupant);
-            }
-
-            return idx;
+            return AddOccupant(newWorldPos, occupant);
         }
 
         public Vector2Int GetNodeIndexAt(Vector2 worldPosition)
