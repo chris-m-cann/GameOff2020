@@ -127,5 +127,10 @@ namespace Luna.Weapons
 
             return new List<IUnitAction>{new LaunchProjectileAction(wielder, endPoint, projectile)};
         }
+
+        public override List<Grid.Grid.Node> FindEffectedNodes(GridOccupant wielder, Vector2Int direction, Grid.Grid grid)
+        {
+            return CalculatePath(wielder, direction, grid).Travelled;
+        }
     }
 }

@@ -15,26 +15,29 @@ namespace Luna
         {
             Moving,
             RangedWeaponMode,
-            MelleWeapon
+            OtherWeapon
         }
-        [SerializeField] private Transform worldMouse;
+        // [SerializeField] private Transform worldMouse;
         [SerializeField] private GridVariable grid;
         [SerializeField] private Tilemap uiTilemap;
         [SerializeField] private Tilemap highlightedUiTilemap;
         [SerializeField] private Tile up;
         [SerializeField] private Tile highlighted;
         [SerializeField] private Tile attackTile;
-        [SerializeField] private RangedWeapon ranged;
-        [SerializeField] private MeleeWeapon melee;
+
 
 
         private Grid.Grid.Node? _node;
         private MouseMode _mode = MouseMode.Moving;
+        private Weapon _item;
+        private bool _isActive = false;
+        private RangedWeapon _ranged;
+        private MeleeWeapon _melee;
+        private List<Grid.Grid.Node> _path;
 
         private Camera _camera;
         private Pathfinding _pathfinding;
         private GridOccupantBehaviour _player;
-        private List<Grid.Grid.Node> _path;
 
         private void Awake()
         {
@@ -44,7 +47,7 @@ namespace Luna
 
         private void Update()
         {
-            if (worldMouse == null && worldMouse.gameObject.activeSelf) return;
+            if (!_isActive) return;
             if (grid == null || grid.Value == null) return;
             if (uiTilemap == null) return;
 
@@ -99,17 +102,28 @@ namespace Luna
                         HighlightCardinal(diff, highlightedUiTilemap);
                     }
                     break;
+                case MouseMode.OtherWeapon:
+                    var effected = _item.FindAllPossibleEffectedNodes(_player.Occupant, grid.Value);
+                    if (effected.Contains(node))
+                    {
+                        var pos = grid.Value.Position00.ToVector2Int() + node.Position;
+                        if (uiTilemap.HasTile((Vector3Int) pos))
+                        {
+                            highlightedUiTilemap.SetTile((Vector3Int)pos, highlighted);
+                        }
+                    }
+
+                    break;
                 default:
-                    worldMouse.position = node.WorldPosition;
                     break;
             }
         }
 
         public void SetIndicator(bool b, GridOccupantBehaviour player, MeleeWeapon defaultWeapon)
         {
-            melee = defaultWeapon;
+            _melee = defaultWeapon;
             _player = player;
-            worldMouse.gameObject.SetActive(b);
+            _isActive = b;
 
             if (b)
             {
@@ -150,14 +164,27 @@ namespace Luna
             switch (mode)
             {
                 case MouseMode.RangedWeaponMode:
-                    HighlightCardinal(Vector2Int.down, uiTilemap);
-                    HighlightCardinal(Vector2Int.left, uiTilemap);
-                    HighlightCardinal(Vector2Int.right, uiTilemap);
-                    HighlightCardinal(Vector2Int.up, uiTilemap);
+                {
+                    var effectedNodes = _ranged.FindAllPossibleEffectedNodes(_player.Occupant, grid.Value);
+
+                    foreach (var n in effectedNodes)
+                    {
+                        var pos = grid.Value.Position00.ToVector2Int() + n.Position;
+                        uiTilemap.SetTile((Vector3Int) pos, highlighted);
+                    }
+
+                    var targets = _ranged.FindAllPossibleTargets(_player.Occupant, grid.Value);
+                    foreach (var n in targets)
+                    {
+                        var pos = grid.Value.Position00.ToVector2Int() + n.Position;
+                        uiTilemap.SetTile((Vector3Int) pos, attackTile);
+                    }
 
                     break;
-                default:
-                    var targets = melee?.FindTargets(_player.Occupant, Vector2Int.up, grid.Value);
+                }
+                case MouseMode.Moving:
+                {
+                    var targets = _melee?.FindAllPossibleTargets(_player.Occupant, grid.Value);
                     if (targets != null)
                     {
                         foreach (var target in targets)
@@ -168,13 +195,33 @@ namespace Luna
                     }
 
                     break;
+                }
+                case MouseMode.OtherWeapon:
+                {
+                    var effectedNodes = _item.FindAllPossibleEffectedNodes(_player.Occupant, grid.Value);
+
+                    foreach (var n in effectedNodes)
+                    {
+                        var pos = grid.Value.Position00.ToVector2Int() + n.Position;
+                        uiTilemap.SetTile((Vector3Int) pos, highlighted);
+                    }
+
+                    var targets = _item.FindAllPossibleTargets(_player.Occupant, grid.Value);
+                    foreach (var n in targets)
+                    {
+                        var pos = grid.Value.Position00.ToVector2Int() + n.Position;
+                        uiTilemap.SetTile((Vector3Int) pos, attackTile);
+                    }
+
+                    break;
+                }
             }
 
         }
 
         private void HighlightCardinal(Vector2Int direction, Tilemap tilemap)
         {
-            var nodes = ranged.CalculatePath(_player.Occupant, direction, grid.Value);
+            var nodes = _ranged.CalculatePath(_player.Occupant, direction, grid.Value);
             for (int i = 0; i < nodes.Travelled.Count; i++)
             {
                 if (nodes.IsLastNodeTarget && i == nodes.Travelled.Count - 1)
@@ -192,20 +239,27 @@ namespace Luna
 
         public void EnterRangedMode(RangedWeapon weapon)
         {
-            ranged = weapon;
+            _ranged = weapon;
             SetMode(MouseMode.RangedWeaponMode);
         }
 
         public void EnterDefaultMode(MeleeWeapon defaultWeapon)
         {
-            melee = defaultWeapon;
+            _melee = defaultWeapon;
             SetMode(MouseMode.Moving);
         }
 
-        public void EnterMeleeOnlyMode(MeleeWeapon weapon)
+        public void EnterItemMode(Weapon weapon)
         {
-            melee = weapon;
-            SetMode(MouseMode.MelleWeapon);
+            if (weapon is RangedWeapon rangedWeapon)
+            {
+                EnterRangedMode(rangedWeapon);
+            }
+            else
+            {
+                _item = weapon;
+                SetMode(MouseMode.OtherWeapon);
+            }
         }
     }
 }

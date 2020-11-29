@@ -10,6 +10,8 @@ namespace Luna
         [SerializeField] private InventoryItem item;
         [SerializeField] private SpriteRenderer sprite;
 
+        public bool PickUpNeedApproval => item?.RequiresApprovalToPickUp ?? false;
+
         private void Awake()
         {
             Init();
@@ -34,11 +36,8 @@ namespace Luna
             Init();
         }
 
-
-        private void OnTriggerEnter2D(Collider2D other)
+        public void PickUp(Inventory inventory)
         {
-            var inventory = other.GetComponent<InventoryHolder>()?.Inventory;
-
             if (inventory != null)
             {
                 if (item.AddToInventory(inventory))
@@ -46,7 +45,15 @@ namespace Luna
                     Destroy(gameObject);
                 }
             }
+        }
 
+        public void Swap(InventoryItem item)
+        {
+            if (item != null)
+            {
+                this.item = item;
+                Init();
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Luna.Actions;
 using Luna.Grid;
 using Luna.Unit;
@@ -58,6 +59,49 @@ namespace Luna.Weapons
             return actions;
         }
 
+        public virtual List<Grid.Grid.Node> FindEffectedNodes(GridOccupant wielder, Vector2Int direction, Grid.Grid grid)
+        {
+            var occupants = FindTargets(wielder, direction, grid);
+            var nodes = new List<Grid.Grid.Node>();
 
+            foreach (var occupant in occupants)
+            {
+                if (nodes.FindIndex(it => it.Position == occupant.Position) > -1)
+                {
+                    var n = new Grid.Grid.Node();
+                    if (grid.TryGetNodeAt(occupant.Position, ref n))
+                    {
+                        nodes.Add(n);
+                    }
+                }
+            }
+
+            return nodes;
+        }
+
+
+        public virtual List<GridOccupant> FindAllPossibleTargets(GridOccupant wielder, Grid.Grid grid)
+        {
+            var occupants = new List<GridOccupant>();
+
+            occupants.AddNullableRange(FindTargets(wielder, Vector2Int.up, grid));
+            occupants.AddNullableRange(FindTargets(wielder, Vector2Int.down, grid));
+            occupants.AddNullableRange(FindTargets(wielder, Vector2Int.left, grid));
+            occupants.AddNullableRange(FindTargets(wielder, Vector2Int.right, grid));
+
+            return occupants;
+        }
+
+        public virtual List<Grid.Grid.Node> FindAllPossibleEffectedNodes(GridOccupant wielder, Grid.Grid grid)
+        {
+            var occupants = new List<Grid.Grid.Node>();
+
+            occupants.AddNullableRange(FindEffectedNodes(wielder, Vector2Int.up, grid));
+            occupants.AddNullableRange(FindEffectedNodes(wielder, Vector2Int.down, grid));
+            occupants.AddNullableRange(FindEffectedNodes(wielder, Vector2Int.left, grid));
+            occupants.AddNullableRange(FindEffectedNodes(wielder, Vector2Int.right, grid));
+
+            return occupants;
+        }
     }
 }

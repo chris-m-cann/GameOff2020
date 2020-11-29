@@ -47,6 +47,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
+--- !u!114 &1509020178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5849358632334855933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2dd330c3df51b248bfd2a2d50502199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent:
+    gameEvent: {fileID: 11400000, guid: ae6a73226020d304d881fecc9c9cbc3b, type: 2}
+    observable: {fileID: 0}
+    option: 0
+  onEventRaised:
+    _PersistentCalls:
+    - _Target: {fileID: 8771760226621668677}
+      _MethodName: ItemSelected
+      _PersistentArguments: []
 --- !u!114 &2474092831900759476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b053665bd5114290b353c8fa14c20745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grid: {fileID: 0}
 --- !u!114 &8633221321736368629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +208,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainWeapon: {fileID: 11400000, guid: eb90479a5027f994a8199b483fc76365, type: 2}
   bombKey: {fileID: 11400000, guid: 7651c8c5ced7c664ca30c4f0ab52f61b, type: 2}
+  weaponKey: {fileID: 11400000, guid: 15219e71fb739624f8dbd164d6763702, type: 2}
   bombChucker: {fileID: 11400000, guid: 45f9b2344ce9a3e41ad8bde85e4a9631, type: 2}
+--- !u!114 &7501019906710876552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5849358632334855933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6b224b5a084c42a8acf65a3e07e6f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemKey: {fileID: 11400000, guid: 15219e71fb739624f8dbd164d6763702, type: 2}
+  pickupPrefab: {fileID: 199445529, guid: 903d10859f0204b4b9172a4ea00e722c, type: 3}
 --- !u!1001 &206419577168420384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -244,7 +281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9076791922129879868, guid: 7b19e8fe3afcea542848d936670aa4cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9076791922129879868, guid: 7b19e8fe3afcea542848d936670aa4cc, type: 3}
       propertyPath: m_LocalPosition.z

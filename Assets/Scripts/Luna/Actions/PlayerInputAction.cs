@@ -16,17 +16,20 @@ namespace Luna.Actions
     {
         [SerializeField] private MeleeWeapon mainWeapon;
         [SerializeField] private InventoryKey bombKey;
+        [SerializeField] private InventoryKey weaponKey;
 
 
         private bool _isCapturing;
         private bool _isUsingBomb;
         private bool _isUsingItem;
         private bool _isFinished;
+        private Weapon _item;
 
         private Pathfinding _pathfinding;
         private Unit.Unit _unit;
         private MouseController _mouse;
         private Inventory _inventory;
+
 
         private void Awake()
         {
@@ -77,33 +80,54 @@ namespace Luna.Actions
                     _unit.QueueRange(bombChucker.Use(_unit.Occupant.Occupant, diff, _unit.Occupant.Grid));
 
                     return true;
-                }
-                // attack
-                var direction = clickedNode.Position - _unit.Occupant.Occupant.Position;
-                var targets = mainWeapon.FindTargets(_unit.Occupant.Occupant, direction,_unit.Occupant.Grid);
-
-                if (Array.Exists(targets, it => it.Position == clickedNode.Position))
+                } else if (_isUsingItem)
                 {
-                    var actions = mainWeapon.Use(_unit.Occupant.Occupant, direction, _unit.Occupant.Grid);
-
-                    if (actions != null && actions.Count > 0)
+                    if (_item != null)
                     {
-                        _unit.QueueRange(actions);
-                        return true;
+
+                        var direction = clickedNode.Position - _unit.Occupant.Occupant.Position;
+                        var actions = _item.Use(_unit.Occupant.Occupant, direction, _unit.Occupant.Grid);
+
+                        if (actions != null && actions.Count > 0)
+                        {
+                            _unit.QueueRange(actions);
+                            return true;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    // attack
+                    var direction = clickedNode.Position - _unit.Occupant.Occupant.Position;
+                    var targets = mainWeapon.FindTargets(_unit.Occupant.Occupant, direction, _unit.Occupant.Grid);
+
+                    if (Array.Exists(targets, it => it.Position == clickedNode.Position))
+                    {
+                        var actions = mainWeapon.Use(_unit.Occupant.Occupant, direction, _unit.Occupant.Grid);
+
+                        if (actions != null && actions.Count > 0)
+                        {
+                            _unit.QueueRange(actions);
+                            return true;
+                        }
+
                     }
 
-                }
 
+                    // move
+                    var path = _pathfinding.CalculatePath(transform.position, position);
 
-                // move
-                var path = _pathfinding.CalculatePath(transform.position, position);
+                    if (path != null && path.Count > 0)
+                    {
+                        var first = path[0];
 
-                if (path != null && path.Count > 0)
-                {
-                    var first = path[0];
-
-                    _unit.QueueAction(new MoveToPointAction(_unit, first));
-                    return true;
+                        _unit.QueueAction(new MoveToPointAction(_unit, first));
+                        return true;
+                    }
                 }
             }
 
@@ -123,6 +147,7 @@ namespace Luna.Actions
                 _isFinished = true;
                 _isCapturing = false;
                 _isUsingBomb = false;
+                _isUsingItem = false;
             }
         }
 
@@ -157,6 +182,29 @@ namespace Luna.Actions
                 else
                 {
                     _mouse.EnterDefaultMode(mainWeapon as MeleeWeapon);
+                }
+            }
+        }
+
+        public void ItemSelected()
+        {
+            if (_isCapturing)
+            {
+                _isUsingItem = !_isUsingItem;
+
+                if (_isUsingItem)
+                {
+                    WeaponSlot slot;
+                    if (_inventory.RetrieveSlot(weaponKey, out slot) && slot.Item != null)
+                    {
+                        _item = slot.Item.Item;
+
+                        _mouse.EnterItemMode(_item);
+                    }
+                    else
+                    {
+                        _isUsingItem = false;
+                    }
                 }
             }
         }

@@ -6,6 +6,7 @@ namespace Util.Inventory
     {
         public InventoryKey Key;
         public Sprite Sprite;
+        public bool RequiresApprovalToPickUp = false;
 
         public abstract bool AddToInventory(Inventory inventory);
     }

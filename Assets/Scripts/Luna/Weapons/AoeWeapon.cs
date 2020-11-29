@@ -47,5 +47,15 @@ namespace Luna.Weapons
 
             return Array.IndexOf(targets, target) > -1;
         }
+
+        public override List<GridOccupant> FindAllPossibleTargets(GridOccupant wielder, Grid.Grid grid)
+        {
+            return FindTargets(wielder, Vector2Int.down, grid).ToList();
+        }
+
+        public override List<Grid.Grid.Node> FindAllPossibleEffectedNodes(GridOccupant wielder, Grid.Grid grid)
+        {
+            return FindEffectedNodes(wielder, Vector2Int.down, grid);
+        }
     }
 }

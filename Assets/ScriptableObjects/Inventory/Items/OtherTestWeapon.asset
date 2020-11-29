@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c66fa40ba00420a8904ff6b2df93528, type: 3}
+  m_Name: OtherTestWeapon
+  m_EditorClassIdentifier: 
+  Key: {fileID: 11400000, guid: 15219e71fb739624f8dbd164d6763702, type: 2}
+  Sprite: {fileID: -2978260595890351725, guid: 6f5d2ff8718a3564a952affd88c922d7, type: 3}
+  RequiresApprovalToPickUp: 1
+  Item: {fileID: 11400000, guid: 45f9b2344ce9a3e41ad8bde85e4a9631, type: 2}

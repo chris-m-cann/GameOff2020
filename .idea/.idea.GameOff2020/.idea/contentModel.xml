@@ -69,12 +69,15 @@
               <e p="SquareGridVisualiser.cs" t="Include" />
               <e p="TilePalette.cs" t="Include" />
             </e>
+            <e p="ItemSlotBehaviour.cs" t="Include" />
+            <e p="ItemSlotUiController.cs" t="Include" />
             <e p="MouseController.cs" t="Include" />
             <e p="MoveAlongPath.cs" t="Include" />
             <e p="OnCollisionBehaviour.cs" t="Include" />
             <e p="OnMouseDown.cs" t="Include" />
             <e p="Pathfinding.cs" t="Include" />
             <e p="PickUpBehaviour.cs" t="Include" />
+            <e p="PickupEvent.cs" t="Include" />
             <e p="TurnPhase.cs" t="Include" />
             <e p="TurnPhaseObject.cs" t="Include" />
             <e p="TurnPhaseOrder.cs" t="Include" />
@@ -173,8 +176,11 @@
               <e p="InventoryItem.cs" t="Include" />
               <e p="InventoryKey.cs" t="Include" />
               <e p="InventorySlot.cs" t="Include" />
+              <e p="InventoryWeaponObserverBehaviour.cs" t="Include" />
               <e p="PersonalInventoryHolder.cs" t="Include" />
               <e p="SharedInventoryHolder.cs" t="Include" />
+              <e p="WeaponItem.cs" t="Include" />
+              <e p="WeaponSlot.cs" t="Include" />
             </e>
             <e p="IProvider.cs" t="Include" />
             <e p="LayerMaskUtils.cs" t="Include" />

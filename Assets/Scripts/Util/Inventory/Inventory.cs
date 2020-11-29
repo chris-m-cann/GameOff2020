@@ -15,6 +15,7 @@ namespace Util.Inventory
 
 
         private readonly Dictionary<InventoryKey, AggregateSlot> _aggregates = new Dictionary<InventoryKey, AggregateSlot>();
+        private readonly Dictionary<InventoryKey, WeaponSlot> _weapons = new Dictionary<InventoryKey, WeaponSlot>();
 
         public void Init(InventoryKey[] supportedKeys)
         {
@@ -48,8 +49,13 @@ namespace Util.Inventory
             return AddItem(item, _aggregates, () => new AggregateSlot());
         }
 
+        public bool AddItem(WeaponItem item)
+        {
+            return AddItem(item, _weapons, () => new WeaponSlot());
+        }
 
-        private bool AddItem<T1, T2>(T1 item, Dictionary<InventoryKey, T2> slots, Func<T2> createNewSlot)
+
+        public bool AddItem<T1, T2>(T1 item, Dictionary<InventoryKey, T2> slots, Func<T2> createNewSlot)
             where T1 : InventoryItem
             where T2 : InventorySlot<T1>
         {
@@ -74,6 +80,10 @@ namespace Util.Inventory
         {
             return _aggregates.TryGetValue(key, out slot);
         }
+        public bool RetrieveSlot(InventoryKey key, out WeaponSlot slot)
+        {
+            return _weapons.TryGetValue(key, out slot);
+        }
 
         public void UpdateSlot(InventoryKey key, AggregateSlot slot)
         {
@@ -84,6 +94,20 @@ namespace Util.Inventory
             else
             {
                 _aggregates.Add(key, slot);
+            }
+
+            OnInventoryChanged?.Invoke(key);
+        }
+
+        public void UpdateSlot(InventoryKey key, WeaponSlot slot)
+        {
+            if (_weapons.ContainsKey(key))
+            {
+                _weapons[key] = slot;
+            }
+            else
+            {
+                _weapons.Add(key, slot);
             }
 
             OnInventoryChanged?.Invoke(key);
