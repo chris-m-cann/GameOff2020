@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 92546355}
   - component: {fileID: 92546359}
   - component: {fileID: 92546358}
-  - component: {fileID: 92546357}
-  - component: {fileID: 92546356}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -136,47 +134,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &92546357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92546354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0acf252d20b48ffbcdfb98f3514df91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 11400000, guid: aa4c0bf374abf6d4a8c8b60b07b62e2e, type: 2}
---- !u!114 &92546356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92546354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 867c825a9d9040ec984ed992002c1608, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: {fileID: 11400000, guid: 7651c8c5ced7c664ca30c4f0ab52f61b, type: 2}
-  onUpdate:
-    _PersistentCalls: []
-  onUpdateString:
-    _PersistentCalls:
-    - _Target: {fileID: 92546358}
-      _MethodName: set_text
-      _PersistentArguments:
-      - _Type: 2
-        _Int: 0
-        _String: 
-        _X: 0
-        _Y: 0
-        _Z: 0
-        _W: 0
-        _Object: {fileID: 0}
 --- !u!1 &398517761
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +296,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: {fileID: 11400000, guid: a5fc3d0cd5865c74b85fa197844c69a2, type: 2}
+  stringTemplate: '{0}'
   onUpdate:
+    _PersistentCalls: []
+  onUpdateHasResource:
     _PersistentCalls: []
   onUpdateString:
     _PersistentCalls:
@@ -762,6 +722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8368726012559353104}
   - component: {fileID: 8368726012559353111}
+  - component: {fileID: 1248577557}
   m_Layer: 0
   m_Name: Input
   m_TagString: Untagged
@@ -797,6 +758,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldMouse: {fileID: 8368726013291540051}
+  grid: {fileID: 11400000, guid: 7866700b106088a43833eabf1ff41f0d, type: 2}
+  uiTilemap: {fileID: 0}
+  up: {fileID: 11400000, guid: 04363a39ffb3fa94aa8b7ecbfd4c4668, type: 2}
+--- !u!114 &1248577557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368726012559353110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b053665bd5114290b353c8fa14c20745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 11400000, guid: 7866700b106088a43833eabf1ff41f0d, type: 2}
 --- !u!1 &8368726012658872875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,6 +1323,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8368726014222160150}
+  - component: {fileID: 7330363593072386395}
+  - component: {fileID: 1516395834283147415}
   m_Layer: 5
   m_Name: OnTurn
   m_TagString: Untagged
@@ -1374,3 +1353,58 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7330363593072386395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368726014222160149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867c825a9d9040ec984ed992002c1608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: {fileID: 11400000, guid: 7651c8c5ced7c664ca30c4f0ab52f61b, type: 2}
+  stringTemplate: Bombs ({0})
+  onUpdate:
+    _PersistentCalls: []
+  onUpdateHasResource:
+    _PersistentCalls:
+    - _Target: {fileID: 1279304316}
+      _MethodName: set_interactable
+      _PersistentArguments:
+      - _Type: 14
+        _Int: 0
+        _String: 
+        _X: 1
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+  onUpdateString:
+    _PersistentCalls:
+    - _Target: {fileID: 92546358}
+      _MethodName: set_text
+      _PersistentArguments:
+      - _Type: 14
+        _Int: 0
+        _String: 
+        _X: 2
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+--- !u!114 &1516395834283147415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368726014222160149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0acf252d20b48ffbcdfb98f3514df91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: aa4c0bf374abf6d4a8c8b60b07b62e2e, type: 2}

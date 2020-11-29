@@ -24,13 +24,13 @@ namespace Luna.Weapons
             _unit = GetComponent<Unit.Unit>();
         }
 
-        public void Fire(Grid.Grid.Node destination, Action onComplete)
+        public void Fire(Unit.Unit unit, Grid.Grid.Node destination, Action onComplete)
         {
-            _move.Move(_unit, destination, () =>
+            _move.Move(unit, destination, () =>
             {
                 // spawn item??
                 // destroy
-                _unit.Occupant.UpdateGrid(_unit.transform.position);
+                _unit.Occupant.UpdateGrid(transform.position);
                 onComplete();
             });
         }

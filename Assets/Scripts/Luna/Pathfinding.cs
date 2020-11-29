@@ -9,6 +9,8 @@ namespace Luna
     [RequireComponent(typeof(IProvider<GridVariable>))]
     public class Pathfinding : MonoBehaviour
     {
+        [SerializeField] private GridVariable grid;
+
         private IProvider<GridVariable> _grid;
 
         private void Awake()
@@ -22,11 +24,16 @@ namespace Luna
             var startNode = new Grid.Grid.Node();
             var endNode = new Grid.Grid.Node();
 
-            if (!_grid.Get().Value.TryGetNodeAtWorldPosition(from, ref startNode)) return new List<Grid.Grid.Node>();
-            if (!_grid.Get().Value.TryGetNodeAtWorldPosition(to, ref endNode)) return new List<Grid.Grid.Node>();
+            if (grid == null)
+            {
+                grid = _grid.Get();
+            }
+
+            if (!grid.Value.TryGetNodeAtWorldPosition(from, ref startNode)) return new List<Grid.Grid.Node>();
+            if (!grid.Value.TryGetNodeAtWorldPosition(to, ref endNode)) return new List<Grid.Grid.Node>();
 
 
-            return CalculatePath(_grid.Get().Value, startNode, endNode, considerEndCost);
+            return CalculatePath(grid.Value, startNode, endNode, considerEndCost);
         }
 
         private List<Grid.Grid.Node> CalculatePath(Grid.Grid grid, Grid.Grid.Node start, Grid.Grid.Node end, bool considerEndCost)

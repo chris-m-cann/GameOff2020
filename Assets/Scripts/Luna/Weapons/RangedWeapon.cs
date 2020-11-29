@@ -18,7 +18,7 @@ namespace Luna.Weapons
 
         [SerializeField] private ProjectileBehaviour projectile;
 
-
+        public int Range => projectile.Range;
 
         public PathDetails CalculatePath(GridOccupant wielder, Vector2Int direction, Grid.Grid grid)
         {
@@ -84,6 +84,19 @@ namespace Luna.Weapons
                 {
                     break;
                 }
+            }
+
+            if (path.IsLastNodeTarget && path.Travelled.Count == 0)
+            {
+                path = new PathDetails
+                {
+                    Travelled = new List<Grid.Grid.Node>(),
+                    IsLastNodeTarget = false
+                };
+            }
+            else
+            {
+                path.Travelled.RemoveAt(0);
             }
 
             return path;

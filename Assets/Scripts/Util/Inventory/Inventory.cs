@@ -66,7 +66,7 @@ namespace Util.Inventory
                 slots.Add(item.Key, slot);
             }
 
-            OnInventoryChanged.Invoke(item.Key);
+            OnInventoryChanged?.Invoke(item.Key);
             return true;
         }
 
@@ -75,6 +75,19 @@ namespace Util.Inventory
             return _aggregates.TryGetValue(key, out slot);
         }
 
+        public void UpdateSlot(InventoryKey key, AggregateSlot slot)
+        {
+            if (_aggregates.ContainsKey(key))
+            {
+                _aggregates[key] = slot;
+            }
+            else
+            {
+                _aggregates.Add(key, slot);
+            }
+
+            OnInventoryChanged?.Invoke(key);
+        }
 
         public static Inventory CreateInstance(InventoryKey[] supportedKeys)
         {

@@ -15,6 +15,8 @@ namespace Luna.Grid
         public int Width => _width;
         public int Height => _height;
 
+        public override Vector2 Position00 => _position;
+
         public SquareGrid(Node[,] nodes, Vector2 positionOf00)
         {
             _nodes = nodes;

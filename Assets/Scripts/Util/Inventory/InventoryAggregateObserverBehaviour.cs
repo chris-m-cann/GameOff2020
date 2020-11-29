@@ -8,9 +8,13 @@ namespace Util.Inventory
     public class InventoryAggregateObserverBehaviour : MonoBehaviour
     {
         [SerializeField] private InventoryKey key;
+        [SerializeField] private string stringTemplate = "{0}";
+
 
         [SerializeField] private UltEvent<int> onUpdate;
+        [SerializeField] private UltEvent<bool> onUpdateHasResource;
         [SerializeField] private UltEvent<string> onUpdateString;
+
 
         private Inventory _inventory;
 
@@ -41,7 +45,8 @@ namespace Util.Inventory
             if (_inventory.RetrieveSlot(key, out slot))
             {
                 onUpdate.Invoke(slot.Total);
-                onUpdateString.Invoke(slot.Total.ToString());
+                onUpdateHasResource.Invoke(slot.Total != 0);
+                onUpdateString.Invoke(String.Format(stringTemplate, slot.Total.ToString()));
             }
 
         }

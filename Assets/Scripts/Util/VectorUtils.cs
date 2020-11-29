@@ -24,6 +24,11 @@ namespace Util
             return new Vector2Int(Mathf.RoundToInt(self.x), Mathf.RoundToInt(self.y));
         }
 
+        public static Vector2Int ToVector2Int(this Vector2 self)
+        {
+            return new Vector2Int(Mathf.RoundToInt(self.x), Mathf.RoundToInt(self.y));
+        }
+
         public static bool IsCardinal(this Vector2Int self)
         {
             return !(self.x != 0 && self.y != 0) ;

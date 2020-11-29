@@ -1,5 +1,6 @@
 using Luna.Grid;
 using Luna.Unit;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Luna.Actions
@@ -9,15 +10,17 @@ namespace Luna.Actions
         private readonly Grid.Grid.Node _destination;
         private readonly bool _twoWayCollisions;
         private readonly Unit.Unit _unit;
+        private readonly Transform _transformToMove;
 
         private bool _isFinished;
 
 
-        public MoveToPointAction(Unit.Unit unit, Grid.Grid.Node destination, bool twoWayCollisions = false)
+        public MoveToPointAction(Unit.Unit unit, Grid.Grid.Node destination, Transform toMove = null, bool twoWayCollisions = false)
         {
             _destination = destination;
             _twoWayCollisions = twoWayCollisions;
             _unit = unit;
+            _transformToMove = toMove ?? unit.transform;
         }
 
         public void StartAction(Unit.Unit unit)
@@ -34,7 +37,7 @@ namespace Luna.Actions
             {
                 _unit.Occupant.UpdateGrid(_unit.transform.position);
                 _isFinished = true;
-            }, _twoWayCollisions);
+            }, _twoWayCollisions, _transformToMove);
         }
 
         public bool Tick(Unit.Unit unit)

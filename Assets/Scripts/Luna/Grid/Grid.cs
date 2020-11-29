@@ -80,6 +80,8 @@ namespace Luna.Grid
             }
         }
 
+        public abstract Vector2 Position00 { get; }
+
         public abstract bool TryGetNodeAt(int x, int y, ref Node node);
         public virtual bool TryGetNodeAt(Vector2Int pos, ref Node node) => TryGetNodeAt(pos.x, pos.y, ref node);
         public abstract bool TryGetNodeAtWorldPosition(Vector2 pos, ref Node node);

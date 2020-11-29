@@ -30,18 +30,18 @@ namespace Luna
             _collisionBehaviour = GetComponent<OnCollisionBehaviour>();
         }
 
-        public void Move(Unit.Unit unit, Grid.Grid.Node destination, Action onComplete, bool twoWayCollisions = false)
+        public void Move(Unit.Unit unit, Grid.Grid.Node destination, Action onComplete, bool twoWayCollisions = false, Transform toMove = null)
         {
-            StartCoroutine(CoMove(unit, destination, speed, twoWayCollisions, onComplete));
+            StartCoroutine(CoMove(unit, destination, speed, twoWayCollisions, onComplete, toMove ?? transform));
         }
 
-        private IEnumerator CoMove(Unit.Unit unit, Grid.Grid.Node destination, float speed, bool twoWayCollisions, Action onComplete)
+        private IEnumerator CoMove(Unit.Unit unit, Grid.Grid.Node destination, float speed, bool twoWayCollisions, Action onComplete, Transform toMove)
         {
-            yield return StartCoroutine(CoMove(unit, destination, speed, twoWayCollisions));
+            yield return StartCoroutine(CoMove(unit, destination, speed, twoWayCollisions, toMove));
             onComplete();
         }
 
-        private IEnumerator CoMove(Unit.Unit unit, Grid.Grid.Node destination, float speed, bool twoWayCollisions)
+        private IEnumerator CoMove(Unit.Unit unit, Grid.Grid.Node destination, float speed, bool twoWayCollisions, Transform toMove)
         {
             Vector2 endPoint = destination.WorldPosition;
 
@@ -50,7 +50,7 @@ namespace Luna
 
             var lastNode = startNode.Value;
 
-            var startPoint = (Vector2) transform.position;
+            var startPoint = (Vector2) toMove.position;
             var start = Time.time;
             var distance = (endPoint - startPoint).magnitude;
             var duration = distance / speed;
@@ -65,20 +65,20 @@ namespace Luna
                 var t = (Time.time - start) / duration;
                 var x = Tween.Lerp(startPoint.x, endPoint.x, t);
                 var y = Tween.Lerp(startPoint.y, endPoint.y, t);
-                transform.position = new Vector3(x, y, transform.position.z);
+                toMove.position = new Vector3(x, y, toMove.position.z);
 
                 if (moveToLastNodeOnCollision)
                 {
                     var node = new Grid.Grid.Node();
-                    if (!unit.Occupant.Grid.TryGetNodeAtWorldPosition(transform.position, ref node))
+                    if (!unit.Occupant.Grid.TryGetNodeAtWorldPosition(toMove.position, ref node))
                     {
-                        transform.position = lastNode.WorldPosition;
+                        toMove.position = lastNode.WorldPosition;
                         yield break;
                     }
 
-                    if (!node.Equals(lastNode))
+                    if (!node.Equals(lastNode) && !node.Equals(destination))
                     {
-                        if (Vector2.Distance(transform.position, node.WorldPosition) < .1f)
+                        if (Vector2.Distance(toMove.position, node.WorldPosition) < .4f)
                         {
                             lastNode = node;
                         }
@@ -94,22 +94,22 @@ namespace Luna
             {
                 var cached = _myCollider.enabled;
                 _myCollider.enabled = false;
-                _collider2D = Physics2D.OverlapCircle(transform.position, .3f, layers);
+                _collider2D = Physics2D.OverlapCircle(toMove.position, .3f, layers);
 
                 _myCollider.enabled = cached;
             }
 
             if (_collider2D == null)
             {
-                transform.position = new Vector3(endPoint.x, endPoint.y, transform.position.z);
+                toMove.position = new Vector3(endPoint.x, endPoint.y, toMove.position.z);
             }
             else
             {
-                OnCollision(unit, startNode.Value, lastNode, speed, twoWayCollisions);
+                OnCollision(unit, startNode.Value, lastNode, speed, twoWayCollisions, toMove);
             }
         }
 
-        private void OnCollision(Unit.Unit unit, Grid.Grid.Node startNode, Grid.Grid.Node lastNode, float speed, bool twoWayCollisions)
+        private void OnCollision(Unit.Unit unit, Grid.Grid.Node startNode, Grid.Grid.Node lastNode, float speed, bool twoWayCollisions, Transform toMove)
         {
             if (_collisionBehaviour != null)
             {
@@ -126,7 +126,7 @@ namespace Luna
                 }
             }
 
-            unit.QueueAction(new MoveToPointAction(unit, lastNode, false));
+            unit.QueueAction(new MoveToPointAction(unit, lastNode, toMove, false));
         }
 
         public void OnTriggerEnter2D(Collider2D other)

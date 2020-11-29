@@ -22,7 +22,7 @@ namespace Luna.Actions
         public void StartAction(Unit.Unit unit)
         {
             var projectile = Object.Instantiate(_projectile, unit.transform.position, Quaternion.identity).GetComponent<ProjectileBehaviour>();
-            projectile.Fire(_endPoint, () => _isComplete = true);
+            projectile.Fire(unit, _endPoint, () => _isComplete = true);
         }
 
         public bool Tick(Unit.Unit actor)
