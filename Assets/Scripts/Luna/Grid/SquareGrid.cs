@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Util;
+using Random = UnityEngine.Random;
 
 namespace Luna.Grid
 {
@@ -201,5 +202,33 @@ namespace Luna.Grid
             return (idx.x < _width && idx.x > -1) && (idx.y < _height && idx.y > -1);
         }
 
+        public override Node RandomNode()
+        {
+            Node node = new Node();
+
+            int breakAfter = 3;
+            int x = 0;
+            int y = 0;
+            do
+            {
+                if (breakAfter < 0)
+                {
+                    Debug.LogError($"Cant Get a Random Node on grid of {Width}x{Height}");
+                    break;
+                }
+
+                --breakAfter;
+
+                x = Random.Range(0, Width);
+                y = Random.Range(0, Height);
+            } while (!TryGetNodeAt(x, y, ref node));
+
+            if (Width == 0 && Height == 0)
+            {
+
+            }
+
+            return node;
+        }
     }
 }

@@ -94,5 +94,6 @@ namespace Luna.Grid
         public abstract void RemoveOccupant(GridOccupant occupant);
         public abstract Vector2Int MoveOccupant(Vector2 newWorldPos, GridOccupant occupant);
         public abstract Node[] GetNeighboursInRange(Node node, int area);
+        public abstract Node RandomNode();
     }
 }

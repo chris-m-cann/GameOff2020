@@ -17,5 +17,20 @@ namespace Util
 
             SceneManager.LoadScene(next);
         }
+
+        public void LoadSceneByName(string sceneName)
+        {
+            LoadScene(sceneName);
+        }
+
+        public static void LoadScene(string sceneName)
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+
+        public static void ReloadScene()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

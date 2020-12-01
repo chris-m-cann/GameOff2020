@@ -18,3 +18,5 @@ MonoBehaviour:
   Effects: []
   EffectSelf: 0
   projectile: {fileID: 7942421647937234793, guid: 4320e4ece57a8e240a2575ab8fdbc885, type: 3}
+  initialAmmunition: {fileID: 0}
+  unequipWhenOutOfAmmo: 0

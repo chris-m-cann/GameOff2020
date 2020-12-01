@@ -17,7 +17,7 @@ namespace Luna.Actions
 
         public void StartAction(Unit.Unit unit)
         {
-            _effected.GetComponent<DamageableBehaviour>().Damage(_effect);
+            _effected.GetComponent<DamageableBehaviour>().Damage(unit, _effect);
         }
 
         public bool Tick(Unit.Unit actor)

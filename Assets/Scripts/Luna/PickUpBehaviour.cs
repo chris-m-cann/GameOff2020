@@ -46,14 +46,5 @@ namespace Luna
                 }
             }
         }
-
-        public void Swap(InventoryItem item)
-        {
-            if (item != null)
-            {
-                this.item = item;
-                Init();
-            }
-        }
     }
 }

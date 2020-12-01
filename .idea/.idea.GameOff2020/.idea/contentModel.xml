@@ -53,6 +53,8 @@
               <e p="SetAnimatorTriggerNode.cs" t="Include" />
               <e p="UseWeaponNode.cs" t="Include" />
             </e>
+            <e p="BasicSaveData.cs" t="Include" />
+            <e p="CurrentRunData.cs" t="Include" />
             <e p="Grid" t="Include">
               <e p="BuildTilemapFromString.cs" t="Include" />
               <e p="Grid.cs" t="Include" />
@@ -69,8 +71,14 @@
               <e p="SquareGridVisualiser.cs" t="Include" />
               <e p="TilePalette.cs" t="Include" />
             </e>
+            <e p="InGameMenuController.cs" t="Include" />
             <e p="ItemSlotBehaviour.cs" t="Include" />
             <e p="ItemSlotUiController.cs" t="Include" />
+            <e p="LevelData.cs" t="Include" />
+            <e p="LevelDefinition.cs" t="Include" />
+            <e p="LevelExit.cs" t="Include" />
+            <e p="MeteorControllerAction.cs" t="Include" />
+            <e p="MeteorSpawnerAction.cs" t="Include" />
             <e p="MouseController.cs" t="Include" />
             <e p="MoveAlongPath.cs" t="Include" />
             <e p="OnCollisionBehaviour.cs" t="Include" />
@@ -78,6 +86,8 @@
             <e p="Pathfinding.cs" t="Include" />
             <e p="PickUpBehaviour.cs" t="Include" />
             <e p="PickupEvent.cs" t="Include" />
+            <e p="RunUi.cs" t="Include" />
+            <e p="ScoreBoardUi.cs" t="Include" />
             <e p="TurnPhase.cs" t="Include" />
             <e p="TurnPhaseObject.cs" t="Include" />
             <e p="TurnPhaseOrder.cs" t="Include" />
@@ -167,7 +177,6 @@
             <e p="InitialVelocity.cs" t="Include" />
             <e p="InstantiateThing.cs" t="Include" />
             <e p="Inventory" t="Include">
-              <e p="AddItemsOnStart.cs" t="Include" />
               <e p="AggregateItem.cs" t="Include" />
               <e p="AggregateSlot.cs" t="Include" />
               <e p="Inventory.cs" t="Include" />
@@ -178,6 +187,7 @@
               <e p="InventorySlot.cs" t="Include" />
               <e p="InventoryWeaponObserverBehaviour.cs" t="Include" />
               <e p="PersonalInventoryHolder.cs" t="Include" />
+              <e p="ResetInventory.cs" t="Include" />
               <e p="SharedInventoryHolder.cs" t="Include" />
               <e p="WeaponItem.cs" t="Include" />
               <e p="WeaponSlot.cs" t="Include" />

@@ -60,7 +60,7 @@ namespace Luna.Unit
                 _idx = 0;
                 _currentUnitRemoved = false;
 
-                Current.StartTurn();
+                StartCurrent();
             }
         }
 
@@ -82,11 +82,11 @@ namespace Luna.Unit
                 return false;
             }
 
-            if (IsEmpty || _currentUnitRemoved || Current.Tick())
+            if (IsEmpty || _currentUnitRemoved || TickCurrent())
             {
                 if (MoveNext())
                 {
-                    Current.StartTurn();
+                    StartCurrent();
                 }
                 else
                 {
@@ -95,6 +95,26 @@ namespace Luna.Unit
             }
 
             return true;
+        }
+
+        private bool TickCurrent()
+        {
+            var current = Current;
+            if (current != null && current.isActiveAndEnabled)
+            {
+                return current.Tick();
+            }
+
+            return true;
+        }
+
+        private void StartCurrent()
+        {
+            var current = Current;
+            if (current != null && current.isActiveAndEnabled)
+            {
+                current.StartTurn();
+            }
         }
 
         public override void Reset(ResetScenario scenario = ResetScenario.OnDemand)

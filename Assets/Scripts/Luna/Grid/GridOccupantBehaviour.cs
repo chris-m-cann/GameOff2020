@@ -36,6 +36,11 @@ namespace Luna.Grid
         private void Awake()
         {
             Occupant.OccupantGameObject = gameObject;
+
+            if (grid != null && grid.Value != null)
+            {
+                AddToGrid();
+            }
         }
 
         public void UpdateGrid(Vector3 worldPos)

@@ -113,11 +113,33 @@ namespace Util.Inventory
             OnInventoryChanged?.Invoke(key);
         }
 
+        public void RemoveAggregateSlot(InventoryKey key)
+        {
+            _aggregates.Remove(key);
+
+            OnInventoryChanged?.Invoke(key);
+        }
+
+        public void RemoveWeaponSlot(InventoryKey key)
+        {
+            _weapons.Remove(key);
+            OnInventoryChanged?.Invoke(key);
+        }
+
+        public void Clear()
+        {
+            _aggregates.Clear();
+            _weapons.Clear();
+        }
+
+
         public static Inventory CreateInstance(InventoryKey[] supportedKeys)
         {
             var instance = ScriptableObject.CreateInstance<Inventory>();
             instance.Init(supportedKeys);
             return instance;
         }
+
+
     }
 }

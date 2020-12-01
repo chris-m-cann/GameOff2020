@@ -47,6 +47,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
+--- !u!114 &-4220901329216398504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5849358632334855933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2754376224445983430795c410f8b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthKey: {fileID: 11400000, guid: 4660c1cd7ba369449ba48818efc33a1d, type: 2}
+  onDamage:
+    _PersistentCalls: []
+  onDestroy:
+    _PersistentCalls:
+    - _Target: {fileID: 11400000, guid: 4e6be5061237c554d9c2fd6e89b28298, type: 2}
+      _MethodName: Raise
+      _PersistentArguments: []
 --- !u!114 &1509020178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +201,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 0}
+--- !u!114 &7501019906710876552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5849358632334855933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6b224b5a084c42a8acf65a3e07e6f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemKey: {fileID: 11400000, guid: 15219e71fb739624f8dbd164d6763702, type: 2}
+  pickupPrefab: {fileID: 199445529, guid: 903d10859f0204b4b9172a4ea00e722c, type: 3}
 --- !u!114 &8633221321736368629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,20 +244,6 @@ MonoBehaviour:
   bombKey: {fileID: 11400000, guid: 7651c8c5ced7c664ca30c4f0ab52f61b, type: 2}
   weaponKey: {fileID: 11400000, guid: 15219e71fb739624f8dbd164d6763702, type: 2}
   bombChucker: {fileID: 11400000, guid: 45f9b2344ce9a3e41ad8bde85e4a9631, type: 2}
---- !u!114 &7501019906710876552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5849358632334855933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c6b224b5a084c42a8acf65a3e07e6f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemKey: {fileID: 11400000, guid: 15219e71fb739624f8dbd164d6763702, type: 2}
-  pickupPrefab: {fileID: 199445529, guid: 903d10859f0204b4b9172a4ea00e722c, type: 3}
 --- !u!1001 &206419577168420384
 PrefabInstance:
   m_ObjectHideFlags: 0

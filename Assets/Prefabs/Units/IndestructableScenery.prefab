@@ -101,7 +101,7 @@ MonoBehaviour:
   OnRemove:
     _PersistentCalls: []
   Occupant:
-    Type: {fileID: 11400000, guid: 2c16bf5e1f5f3b1489b2862f462c6250, type: 2}
+    Type: {fileID: 11400000, guid: 58cd10235a0c6b94ba71622add896a2f, type: 2}
     Cost: -1
     IsCollectable: 0
     OccupantGameObject: {fileID: 0}

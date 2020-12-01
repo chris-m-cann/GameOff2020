@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 1501434772879702164}
   - component: {fileID: 1501434772879702172}
   - component: {fileID: 1501434772879702175}
+  - component: {fileID: -3766029533420709525}
+  - component: {fileID: 3904677409420342175}
   m_Layer: 10
   m_Name: DestructableScenery
   m_TagString: Untagged
@@ -133,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f2754376224445983430795c410f8b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  healthKey: {fileID: 11400000, guid: 4660c1cd7ba369449ba48818efc33a1d, type: 2}
   onDamage:
     _PersistentCalls:
     - _Target: {fileID: 1501434772879702161}
@@ -148,6 +150,8 @@ MonoBehaviour:
         _Z: 0
         _W: 0
         _Object: {fileID: -1034604436700536505, guid: 6f5d2ff8718a3564a952affd88c922d7, type: 3}
+  onDestroy:
+    _PersistentCalls: []
 --- !u!114 &1501434772879702165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,3 +233,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
+--- !u!114 &-3766029533420709525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501434772879702167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 538f80d69e164f37b9e93cccbfdbdf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  supportedKeys:
+  - {fileID: 11400000, guid: 4660c1cd7ba369449ba48818efc33a1d, type: 2}
+--- !u!114 &3904677409420342175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501434772879702167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0a543ae9af457db9c02ea0ee39d6db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingItems:
+  - {fileID: 11400000, guid: c0ca56f0a7168474eaacf7d8444eca9c, type: 2}
+  run: {fileID: 0}
+  onlyOn1_1: 0

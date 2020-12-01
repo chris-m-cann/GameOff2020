@@ -43,10 +43,19 @@ MonoBehaviour:
     m_Bits: 256
   onTriggerEnter:
     _PersistentCalls:
-    - _Target: {fileID: 2087824593080163331}
-      _MethodName: LoadNextScene
-      _PersistentArguments: []
---- !u!114 &2087824593080163331
+    - _Target: {fileID: 7473055823562863688}
+      _MethodName: MoveToNextLevel
+      _PersistentArguments:
+      - _Type: 14
+        _Int: 0
+        _String: UnityEngine.Collider2D, UnityEngine.Physics2DModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+--- !u!114 &7473055823562863688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,9 +64,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8638351770164132086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c57ca542fbbe435c9eae0dec96934e2e, type: 3}
+  m_Script: {fileID: 11500000, guid: e5f28c14b9b54cf386fb6c5fb865be4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  run: {fileID: 11400000, guid: d12f2a124d690e146b255c1d35483855, type: 2}
+  save: {fileID: 11400000, guid: ca11f50cd5a45f74bbfe4efc1d84a197, type: 2}
+  wealthKey: {fileID: 11400000, guid: a5fc3d0cd5865c74b85fa197844c69a2, type: 2}
+  endSceneName: 4_Ending
+  direction: {x: 0, y: -1}
 --- !u!1001 &2599093783754680363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84,7 +98,7 @@ PrefabInstance:
     - target: {fileID: 6559222809287249761, guid: 7b19e8fe3afcea542848d936670aa4cc, type: 3}
       propertyPath: Occupant.Type
       value: 
-      objectReference: {fileID: 11400000, guid: 2c16bf5e1f5f3b1489b2862f462c6250, type: 2}
+      objectReference: {fileID: 11400000, guid: 58cd10235a0c6b94ba71622add896a2f, type: 2}
     - target: {fileID: 6559222809287249761, guid: 7b19e8fe3afcea542848d936670aa4cc, type: 3}
       propertyPath: Occupant.Tags.Array.size
       value: 1

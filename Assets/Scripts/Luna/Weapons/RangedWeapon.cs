@@ -4,6 +4,7 @@ using Luna.Actions;
 using Luna.Grid;
 using UnityEngine;
 using Util;
+using Util.Inventory;
 
 namespace Luna.Weapons
 {
@@ -17,7 +18,11 @@ namespace Luna.Weapons
          }
 
         [SerializeField] private ProjectileBehaviour projectile;
-
+        [SerializeField] private AggregateItem initialAmmunition;
+        [SerializeField] private bool unequipWhenOutOfAmmo = true;
+        // todo(chris) scriptable objects should hold state but should be fine in this case as all will be using the same weapon key
+        // still bad design though. do the fixing
+        private InventoryKey _weaponKey;
         public int Range => projectile.Range;
 
         public PathDetails CalculatePath(GridOccupant wielder, Vector2Int direction, Grid.Grid grid)
@@ -125,12 +130,81 @@ namespace Luna.Weapons
             if (path.Travelled.Count == 0) return null;
             var endPoint = path.Travelled.Last();
 
-            return new List<IUnitAction>{new LaunchProjectileAction(wielder, endPoint, projectile)};
+            var outOfAmmo = true;
+            var spawnProjectile = true;
+
+            var inventory = wielder.OccupantGameObject.GetComponent<IProvider<Inventory>>()?.Get();
+            if (inventory != null)
+            {
+                if (initialAmmunition != null)
+                {
+                    AggregateSlot ammuntion;
+                    if (inventory.RetrieveSlot(initialAmmunition.Key, out ammuntion))
+                    {
+                        if (ammuntion.Total < 1)
+                        {
+                            outOfAmmo = true;
+                            spawnProjectile = false;
+                        }
+                        else if (ammuntion.Total == 1)
+                        {
+                            outOfAmmo = true;
+                            spawnProjectile = true;
+                        }
+                        else
+                        {
+                            ammuntion.Total--;
+                            inventory.UpdateSlot(initialAmmunition.Key, ammuntion);
+                            spawnProjectile = true;
+                            outOfAmmo = false;
+                        }
+                    }
+                }
+
+                if (outOfAmmo && unequipWhenOutOfAmmo)
+                {
+                    inventory.RemoveWeaponSlot(_weaponKey);
+                }
+            }
+
+            if (spawnProjectile)
+            {
+                return new List<IUnitAction>{new LaunchProjectileAction(wielder, endPoint, projectile)};
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public override List<Grid.Grid.Node> FindEffectedNodes(GridOccupant wielder, Vector2Int direction, Grid.Grid grid)
         {
             return CalculatePath(wielder, direction, grid).Travelled;
+        }
+
+        public override void OnEquip(Unit.Unit unit, InventoryKey weaponKey)
+        {
+            base.OnEquip(unit, weaponKey);
+            _weaponKey = weaponKey;
+
+            if (initialAmmunition != null)
+            {
+                var inventory = unit.GetComponent<IProvider<Inventory>>()?.Get();
+
+                if (inventory != null)
+                {
+                    initialAmmunition.AddToInventory(inventory);
+                }
+            }
+        }
+
+
+        public static RangedWeapon CreateInstance(ProjectileBehaviour projectile)
+        {
+            var instance = CreateInstance<RangedWeapon>();
+            instance.projectile = projectile;
+
+            return instance;
         }
     }
 }

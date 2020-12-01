@@ -51,6 +51,9 @@ namespace Luna
             if (grid == null || grid.Value == null) return;
             if (uiTilemap == null) return;
 
+            // todo(chris) remove nasty hack for "is paused"
+            if (Time.timeScale < float.Epsilon) return;
+
             var worldPoint = _camera.ScreenToWorldPoint(Input.mousePosition);
             var node = new Grid.Grid.Node();
             if (grid.Value.TryGetNodeAtWorldPosition(worldPoint, ref node))

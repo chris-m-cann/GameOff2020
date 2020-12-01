@@ -18,7 +18,7 @@ namespace Luna.WeaponEffects
             {
                 new RunActionAction(gameObject, () =>
                 {
-                    Destroy(gameObject);
+                    Destroy(gameObject, 1);
                 }, priority: 999)
             };
         }

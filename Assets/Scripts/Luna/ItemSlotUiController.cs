@@ -9,7 +9,7 @@ namespace Luna
     {
         public enum State
         {
-            DISABLED, PickUp, DROP, Swap
+            Disabled, PickUp, Drop, Swap
         }
 
         public event Action OnButtonDown;
@@ -31,14 +31,14 @@ namespace Luna
         {
             switch (newState)
             {
-                case State.DISABLED:
+                case State.Disabled:
                     button.interactable = false;
                     break;
                 case State.PickUp:
                     button.interactable = true;
                     onStateChange.Invoke(pickupDisplay);
                     break;
-                case State.DROP:
+                case State.Drop:
                     button.interactable = true;
                     onStateChange.Invoke(dropDisplay);
                     break;

@@ -25,6 +25,11 @@ namespace Util
             return self[Random.Range(0, self.Length)];
         }
 
+        public static T RandomElement<T>(this List<T> self)
+        {
+            return self[Random.Range(0, self.Count)];
+        }
+
 
         public static void AddNullableRange<T>(this List<T> self, IEnumerable<T> range)
         {

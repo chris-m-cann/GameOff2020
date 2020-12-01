@@ -102,6 +102,7 @@ MonoBehaviour:
   types:
   - {fileID: 11400000, guid: 2c16bf5e1f5f3b1489b2862f462c6250, type: 2}
   - {fileID: 11400000, guid: a9d53bc923d99024691e3d558004abe1, type: 2}
+  - {fileID: 11400000, guid: 58cd10235a0c6b94ba71622add896a2f, type: 2}
   cost: -1
   nodeKey: {fileID: 11400000, guid: 3a21066b3457cc34999aea83efec8b9c, type: 2}
 --- !u!114 &-1204337872588053274

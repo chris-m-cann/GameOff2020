@@ -6,6 +6,7 @@ using Luna.Unit;
 using Luna.WeaponEffects;
 using UnityEngine;
 using Util;
+using Util.Inventory;
 
 namespace Luna.Weapons
 {
@@ -102,6 +103,16 @@ namespace Luna.Weapons
             occupants.AddNullableRange(FindEffectedNodes(wielder, Vector2Int.right, grid));
 
             return occupants;
+        }
+
+        public virtual void OnEquip(Unit.Unit unit, InventoryKey weaponKey)
+        {
+
+        }
+
+        public virtual void OnUnequip(Unit.Unit unit, InventoryKey weaponKey)
+        {
+
         }
     }
 }

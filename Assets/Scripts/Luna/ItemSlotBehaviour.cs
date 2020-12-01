@@ -6,7 +6,7 @@ using Util.Inventory;
 
 namespace Luna
 {
-    [RequireComponent(typeof(IProvider<Inventory>))]
+    [RequireComponent(typeof(IProvider<Inventory>), typeof(Unit.Unit))]
     public class ItemSlotBehaviour : MonoBehaviour
     {
         [SerializeField] private InventoryKey itemKey;
@@ -17,6 +17,12 @@ namespace Luna
         private PickUpBehaviour _pickUp;
 
         private ItemSlotUiController _ui;
+        private Unit.Unit _unit;
+
+        private void Awake()
+        {
+            _unit = GetComponent<Unit.Unit>();
+        }
 
         private void Start()
         {
@@ -58,7 +64,22 @@ namespace Luna
             WeaponSlot slot;
             if (_inventory.RetrieveSlot(itemKey, out slot))
             {
-                _item = slot.Item;
+                if (_item != slot.Item)
+                {
+                    if (_item != null)
+                    {
+                        _item.Item.OnUnequip(_unit, itemKey);
+                    }
+
+                    _item = slot.Item;
+
+                    _item.Item.OnEquip(_unit, itemKey);
+                }
+            }
+            else
+            {
+                _item = null;
+                _ui.ChangeState(ItemSlotUiController.State.Disabled);
             }
         }
 
@@ -69,7 +90,7 @@ namespace Luna
 
             if (hasItem && isOnPickup)
             {
-                _pickUp.Swap(_item);
+                SwapItem();
             }
             else if (hasItem && !isOnPickup)
             {
@@ -82,12 +103,24 @@ namespace Luna
             }
         }
 
+        private void SwapItem()
+        {
+            var pickUp = Instantiate(pickupPrefab, transform.position, Quaternion.identity)
+                .GetComponent<PickUpBehaviour>();
+
+            pickUp.SetItem(_item);
+            _item.Item.OnUnequip(_unit, itemKey);
+            _item = null;
+            OnEnterPickup(pickUp);
+        }
+
         private void DropItem()
         {
             var pickUp = Instantiate(pickupPrefab, transform.position, Quaternion.identity)
                 .GetComponent<PickUpBehaviour>();
 
             pickUp.SetItem(_item);
+            _item.Item.OnUnequip(_unit, itemKey);
             _item = null;
             OnEnterPickup(pickUp);
         }
@@ -120,11 +153,11 @@ namespace Luna
 
             if (hasItem)
             {
-                _ui.ChangeState(ItemSlotUiController.State.DROP);
+                _ui.ChangeState(ItemSlotUiController.State.Drop);
             }
             else
             {
-                _ui.ChangeState(ItemSlotUiController.State.DISABLED);
+                _ui.ChangeState(ItemSlotUiController.State.Disabled);
             }
 
             _pickUp = null;

@@ -16,6 +16,8 @@ namespace Luna.Unit
         [HideInInspector]
         public GridOccupantBehaviour Occupant;
 
+        public int ActionsLeft => _actions.Count;
+
         private void Awake()
         {
             Occupant = GetComponent<GridOccupantBehaviour>();

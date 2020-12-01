@@ -14,6 +14,7 @@ namespace Luna.Grid
         public OccupantChancePair[] Enemies;
         public OccupantChancePair[] Terrain;
         public ItemChancePair[] Items;
+        public ItemChancePair[] SpecialItems;
         public GridOccupantBehaviour End;
         public RuleTile Wall;
         public GridOccupantBehaviour UnbreakableWall;

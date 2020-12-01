@@ -141,6 +141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Range: 3
+  pickupPrefab: {fileID: 0}
+  item: {fileID: 0}
 --- !u!1001 &1678838692698817266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -201,6 +203,10 @@ PrefabInstance:
       value: Bomb
       objectReference: {fileID: 0}
     - target: {fileID: 3076745789611904527, guid: 804118f39a2a61341b59274cc75a866d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3076745789611904527, guid: 804118f39a2a61341b59274cc75a866d, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -208,6 +214,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -7443312225144014202, guid: 6f5d2ff8718a3564a952affd88c922d7, type: 3}
+    - target: {fileID: 8145595794930250500, guid: 804118f39a2a61341b59274cc75a866d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1096318461, guid: 804118f39a2a61341b59274cc75a866d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 804118f39a2a61341b59274cc75a866d, type: 3}

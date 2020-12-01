@@ -105,11 +105,11 @@ namespace Luna
             }
             else
             {
-                OnCollision(unit, startNode.Value, lastNode, speed, twoWayCollisions, toMove);
+                yield return StartCoroutine(OnCollision(unit, startNode.Value, lastNode, speed, twoWayCollisions, toMove));
             }
         }
 
-        private void OnCollision(Unit.Unit unit, Grid.Grid.Node startNode, Grid.Grid.Node lastNode, float speed, bool twoWayCollisions, Transform toMove)
+        private IEnumerator OnCollision(Unit.Unit unit, Grid.Grid.Node startNode, Grid.Grid.Node lastNode, float speed, bool twoWayCollisions, Transform toMove)
         {
             if (_collisionBehaviour != null)
             {
@@ -126,7 +126,8 @@ namespace Luna
                 }
             }
 
-            unit.QueueAction(new MoveToPointAction(unit, lastNode, toMove, false));
+            yield return StartCoroutine(CoMove(unit, lastNode, speed, false, toMove));
+            // unit.QueueAction(new MoveToPointAction(unit, lastNode, toMove, false));
         }
 
         public void OnTriggerEnter2D(Collider2D other)
